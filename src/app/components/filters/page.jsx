@@ -10,8 +10,6 @@ export default function Filters({
     setSelectedRoomsQuantity,
 }) {
 
-    // const { properties, setProperties } = useGlobalContext();
-
     const [operationType, setOperationType] = useState([]);
 
     const [location, setLocation] = useState([]);
