@@ -27,14 +27,24 @@ export default async function handler(req, res) {
             }
         } else {
             // Realizar operación POST
-            const { name, type, price } = req.body;
+            const {
+                name,
+                price,
+                operationType,
+                propertyType,
+                location,
+                rooms
+            } = req.body;
 
             try {
                 const newProperty = await prisma.property.create({
                     data: {
                         name,
-                        type,
-                        price
+                        price,
+                        operationType,
+                        propertyType,
+                        location,
+                        rooms
                     }
                 });
 

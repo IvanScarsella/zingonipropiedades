@@ -1,0 +1,18 @@
+.filtersContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 34px;
+    /* justify-items: center; */
+    align-items: center;
+    margin: 5%;
+}
+
+/* .headerLogo {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.headerPhone {
+    grid-area: 1 / 2 / 2 / 3;
+} */
