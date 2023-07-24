@@ -19,7 +19,7 @@ export default function FiltersWrapper() {
     setSelectedPropertyType('');
     setSelectedLocation('');
     setSelectedRoomsQuantity('');
-  }, []);
+  });
 
   return (
     <Filters
