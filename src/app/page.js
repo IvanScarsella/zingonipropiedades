@@ -1,5 +1,7 @@
-import { appendMutableCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
-import { APP_BUILD_MANIFEST } from "next/dist/shared/lib/constants";
+"use client";
+
+// import { appendMutableCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+// import { APP_BUILD_MANIFEST } from "next/dist/shared/lib/constants";
 import { useEffect } from 'react';
 import axios from 'axios';
 import Home from "./home/page";
