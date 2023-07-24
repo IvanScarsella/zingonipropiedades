@@ -3,31 +3,18 @@
 import NavBar from '../components/navbar/page';
 import Header from '../components/header/page';
 import PropertiesContainer from '../components/propertiesContainer/page';
-import Filters from '../components/filters/page';
-import { useContext } from 'react';
-import { GlobalContext } from '../../../context/store';
+// import FiltersWrapper from '../components/filtersWrapper'; // Importa el nuevo componente
+import FiltersWrapper from '../components/filtersWrapper/page';
 // import styles from './page.module.css';
 
+
 export default function Home() {
-
-    const {
-        setSelectedOperationType,
-        setSelectedPropertyType,
-        setSelectedLocation,
-        setSelectedRoomsQuantity,
-    } = useContext(GlobalContext);
-
-    return (
-        <div >
-            <Header />
-            <NavBar />
-            <Filters
-                setSelectedOperationType={setSelectedOperationType}
-                setSelectedPropertyType={setSelectedPropertyType}
-                setSelectedLocation={setSelectedLocation}
-                setSelectedRoomsQuantity={setSelectedRoomsQuantity}
-            />
-            <PropertiesContainer />
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+      <NavBar />
+      <FiltersWrapper /> {/* Usa el nuevo componente que envuelve "Filters" */}
+      <PropertiesContainer />
+    </div>
+  );
 }
