@@ -105,6 +105,7 @@ export default async function handler(req, res) {
                 uploadResponse.statusText
             );
         }
+        return res.status(200).json({message: 'imagen subida con éxito'})
     } catch (error) {
         console.log(error);
     }
