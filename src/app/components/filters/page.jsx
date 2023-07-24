@@ -1,11 +1,10 @@
 "use client";
 
-import { useGlobalContext } from "../../../../context/store";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./filters.module.css";
 
-export function Filters({
+function Filters({
     setSelectedOperationType,
     setSelectedPropertyType,
     setSelectedLocation,
