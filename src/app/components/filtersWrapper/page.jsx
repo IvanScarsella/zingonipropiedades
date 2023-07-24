@@ -1,3 +1,5 @@
+'use client';
+
 // Nuevo componente "FiltersWrapper" que maneja el estado y usa "Filters"
 import Filters from '../filters/page'
 import { useGlobalContext } from '../../../../context/store';
