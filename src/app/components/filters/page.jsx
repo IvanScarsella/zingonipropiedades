@@ -35,10 +35,10 @@ export default function Filters({
                     if (!allPropertyTypes.includes(property.propertyType)) {
                         allPropertyTypes.push(property.propertyType)
                     };
-                    if (!location.includes(property.location)) {
+                    if (!allLocations.includes(property.location)) {
                         allLocations.push(property.location)
                     };
-                    if (property.rooms !== 0 && !rooms.includes(property.rooms)) {
+                    if (property.rooms !== 0 && !allRooms.includes(property.rooms)) {
                         allRooms.push(property.rooms)
                     };
                 })

@@ -11,13 +11,14 @@ datasource db {
 }
 
 model property {
-  id            Int           @id @default(autoincrement())
+  id            String        @id @default(uuid())
   name          String
   price         Int
   operationType operationType
   propertyType  propertyType
   location      String
-  rooms         Int          @default(0)
+  rooms         Int           @default(0)
+  images        Json[]
 }
 
 enum propertyType {
