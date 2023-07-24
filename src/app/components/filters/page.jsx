@@ -1,5 +1,3 @@
-"use client";
-
 import { useGlobalContext } from "../../../../context/store";
 import { useEffect, useState } from "react";
 import axios from "axios";
