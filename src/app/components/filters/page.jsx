@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./filters.module.css";
 
-export default function Filters({
+function Filters({
     setSelectedOperationType,
     setSelectedPropertyType,
     setSelectedLocation,
@@ -102,3 +102,5 @@ export default function Filters({
         </div>
     )
 }
+
+export default Filters;
