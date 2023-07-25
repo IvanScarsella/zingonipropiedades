@@ -1,15 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useGlobalContext } from '../../../../context/store';
 import axios from "axios";
 import styles from "./filters.module.css";
 
-export default function Filters({
-    setSelectedOperationType,
-    setSelectedPropertyType,
-    setSelectedLocation,
-    setSelectedRoomsQuantity,
-}) {
+export default function Filters(
+    //     {
+    //     setSelectedOperationType,
+    //     setSelectedPropertyType,
+    //     setSelectedLocation,
+    //     setSelectedRoomsQuantity,
+    // }
+) {
+
+    const {
+        setSelectedOperationType,
+        setSelectedPropertyType,
+        setSelectedLocation,
+        setSelectedRoomsQuantity,
+    } = useGlobalContext();
 
     const [operationType, setOperationType] = useState([]);
 
@@ -22,7 +32,7 @@ export default function Filters({
     useEffect(() => {
         async function fetchData() {
             const response = await axios.post('/api/properties');
-            console.log( response.data, 'filtro');
+            console.log(response.data, 'filtro');
             if (response) {
                 const properties = response.data;
                 const allOperationTypes = [];
@@ -55,7 +65,7 @@ export default function Filters({
     return (
         <div className={styles.filtersContainer}>
             <select
-                  onChange={(e) => setSelectedOperationType(e.target.value)}
+                onChange={(e) => setSelectedOperationType(e.target.value)}
                 className={styles.selectors}
             >
                 <option value="">Tipo de operación</option>
