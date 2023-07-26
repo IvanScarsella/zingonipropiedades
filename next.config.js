@@ -4,8 +4,7 @@ require('dotenv').config();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    loader: 'cloudinary',
-    path: 'https://cloudinary.com/'
+    domains: ["i.ibb.co"]
   },
   env: {
     CLOUD_NAME: process.env.CLOUD_NAME,

@@ -33,7 +33,8 @@ export default async function handler(req, res) {
                 operationType,
                 propertyType,
                 location,
-                rooms
+                rooms,
+                images
             } = req.body;
 
             try {
@@ -44,7 +45,8 @@ export default async function handler(req, res) {
                         operationType,
                         propertyType,
                         location,
-                        rooms
+                        rooms,
+                        images
                     }
                 });
 

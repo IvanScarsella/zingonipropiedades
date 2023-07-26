@@ -24,18 +24,35 @@ export default async function handler(req, res) {
     }
     else if (req.method === "PATCH") {
         const {
-            propertyImage
-        } = req.body
+            imageUrl,
+            id,
+        } = req.body.data
+        // console.log(req.body.data);
+        const property = await prisma.property.findUnique({
+            where: {
+                id: id,
+            }
+        })
+        // console.log(property);
 
+        const images = property.images || [];
+        images.push(imageUrl)
+        // let previousImages = property.images;
+        // if (previousImages) {
+        //     previousImages.push(imageUrl)
+        // } else {
+        //     previousImages = [imageUrl];
+        // }
         const updatedProperty = await prisma.property.update({
             where: {
                 id: id,
             },
             data: {
-                images: [...images, propertyImage]
+                images: images,
+
             }
         })
-
+        console.log(updatedProperty);
         return res.status(200).json(updatedProperty)
     }
 }

@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 function PropertyByID(id) {
     const router = useRouter();
@@ -10,7 +11,7 @@ function PropertyByID(id) {
     const [property, setProperty] = useState({});
     const [file, setFile] = useState(null);
     const [filename, setFilename] = useState('');
-
+console.log(property);
     useEffect(() => {
         async function fetchData() {
             try {
@@ -40,16 +41,61 @@ function PropertyByID(id) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         if (!file) {
             alert("Please select an image to upload.");
             return;
         }
+    
+        try {
+            const formData = new FormData();
+            formData.append("image", file);
+    
+            const response = await axios.post("https://api.imgbb.com/1/upload", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+                params: {
+                    key: '995d83b39581a48b70462f313125e26d', // Reemplaza esto con tu clave de API de ImgBB
+                },
+            });
+    
+            if (response.data && response.data.data) {
+                const imageUrl = response.data.data.url;
+    
+                const data = {
+                    imageUrl: imageUrl,
+                    id: property.id
+                }
+                // Aquí puedes utilizar la URL de la imagen (imageUrl) para mostrarla en tu página o guardarla en tu base de datos
+                const apiResponse = await axios.patch(`/api/properties/${property.id}`, {
+                                data
+                            });
+                console.log("URL de imagen subida:", imageUrl);
+    
+                // Limpia el campo de archivo después de la carga exitosa
+                setFile(null);
+                setFilename("");
+            }
+        } catch (error) {
+            console.error("Error al subir la imagen:", error);
+            console.log(error.response.data.error); // Imprime el contenido del error
+        }
+    };
+    
 
-        const uploadImage = await axios.post('/api/uploadImage', {
-            'file': file,
-            'id': property.id
-        });
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+
+    //     if (!file) {
+    //         alert("Please select an image to upload.");
+    //         return;
+    //     }
+
+    //     const uploadImage = await axios.post('/api/uploadImage', {
+    //         'file': file,
+    //         'id': property.id
+    //     });
 
         // try {
         //     const formData = new FormData();
@@ -109,7 +155,7 @@ function PropertyByID(id) {
         // } catch (error) {
         //     console.error(error);
         // }
-    };
+    // };
 
     return (
         <>
@@ -120,6 +166,10 @@ function PropertyByID(id) {
                 <h2>{property.propertyType}</h2>
                 <h2>{property.location}</h2>
                 <h2>{property.rooms}</h2>
+                { property && property.mainImage ?
+                <Image src={property.mainImage} alt='property image' width='100' height='100' /> : null}
+                { property && !property.mainImage && property.images ?
+                <Image src={property.images[0]} alt='property image' width='100' height='100' /> : null}
                 <form onSubmit={handleSubmit}>
                     <div>
                         <input

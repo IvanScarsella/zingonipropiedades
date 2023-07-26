@@ -10,7 +10,7 @@ function App() {
   // useEffect para configurar CORS cuando la aplicación se inicia
   useEffect(() => {
     // Configuración de CORS en Cloudinary
-    const cloudName = process.env.CLOUD.NAME;
+    const cloudName = process.env.CLOUD_NAME;
     const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
     const apiSecret = process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET;
 
