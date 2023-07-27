@@ -3,6 +3,7 @@
 import { useGlobalContext } from "../../../../context/store";
 import styles from "./propertiesContainer.module.css";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function PropertiesContainer() {
     const { properties, setProperties } = useGlobalContext();
@@ -11,12 +12,13 @@ function PropertiesContainer() {
     return (
         <div className={styles.propertiesContainer}>
             {properties && properties.map((property) => {
-                 return (
+                return (
                     <div key={property.id} onClick={() => {
                         router.push(`/${property.id}`)
                     }}>
                         <p>{property.name}</p>
                         <p>{property.price}</p>
+                        <Image src={property.mainImage} key={property.mainImage} alt='property image' width='200' height='200' />
                     </div>
                 )
             })}

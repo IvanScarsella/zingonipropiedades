@@ -34,7 +34,16 @@ export default async function handler(req, res) {
                 propertyType,
                 location,
                 rooms,
-                images
+                images,
+                bathrooms,
+                area,
+                garage,
+                electricity,
+                gas,
+                water,
+                asphalt,
+                sewer,
+                antiquity
             } = req.body;
 
             try {
@@ -46,7 +55,16 @@ export default async function handler(req, res) {
                         propertyType,
                         location,
                         rooms,
-                        images
+                        images,
+                        bathrooms,
+                        area,
+                        garage,
+                        electricity,
+                        gas,
+                        water,
+                        asphalt,
+                        sewer,
+                        antiquity
                     }
                 });
 
