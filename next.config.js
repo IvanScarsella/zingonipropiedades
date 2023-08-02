@@ -4,7 +4,7 @@ require('dotenv').config();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["i.ibb.co"]
+    domains: ["i.ibb.co", "www.google.com"]
   },
   env: {
     CLOUD_NAME: process.env.CLOUD_NAME,

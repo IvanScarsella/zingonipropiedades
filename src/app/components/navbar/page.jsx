@@ -7,8 +7,8 @@ export default function NavBar() {
 
     return (
       <div className={styles.navbarContainer}>
-          <button onClick={() => router.push('/home')}>Inicio</button>
-          <button onClick={() => router.push('/contact')}>Contacto</button>
+          <button className={styles.navbarButton} onClick={() => router.push('/home')}>Inicio</button>
+          <button className={styles.navbarButton} onClick={() => router.push('/contact')}>Contacto</button>
           <br></br>
       </div>
     )

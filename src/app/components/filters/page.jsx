@@ -32,7 +32,7 @@ export default function Filters(
     useEffect(() => {
         async function fetchData() {
             const response = await axios.post('/api/properties');
-            console.log(response.data, 'filtro');
+            // console.log(response.data, 'filtro');
             if (response) {
                 const properties = response.data;
                 const allOperationTypes = [];

@@ -1,3 +1,4 @@
+/* // propertiesContainer.module.css */
 .propertiesContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -6,3 +7,77 @@
     grid-row-gap: 34px;
     justify-items: center;
 }
+
+.propertyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.propertiesContainer button {
+    font-size: 1em;
+    background-color: #b085bd;
+    margin: 0% 5% 0% 5%;
+    border-radius: 30%;
+}
+
+.propertyImage {
+    width: 200px; /* Ancho fijo para las imágenes */
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajustar la imagen al contenedor sin distorsionar */
+    border-radius: 10px; /* Redondear los bordes de las imágenes */
+}
+
+.buttonContainer {
+    display: flex; /* Alinea los botones horizontalmente */
+    justify-content: center; /* Centra los botones horizontalmente dentro del contenedor */
+}
+
+.price {
+    color: #37c50c;
+}
+
+/* // loadingAnimation.module.css */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .loading {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db; 
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+} */
+
+.loading {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    animation: s4 4s infinite;
+  }
+  .loading:before,
+  .loading::after {    
+    content:"";
+    grid-area: 1/1;
+    border:8px solid;
+    border-radius: 50%;
+    border-color:#766DF4 #766DF4 #0000 #0000;
+    mix-blend-mode: darken;
+    animation: s4 1s infinite linear;
+  }
+  .loading::after {
+    border-color:#0000 #0000 #E4E4ED #E4E4ED;
+    animation-direction: reverse;
+  }
+  
+  @keyframes s4{ 
+    100%{transform: rotate(1turn)}
+  }

@@ -13,3 +13,21 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .propertyData {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-column-gap: 50px;
+    grid-row-gap: 34px;
+    justify-items: center;
+  }
+
+  .mainImage {
+    height: 400px;
+    width: 400px;
+  }
+
+  .price {
+    color: #37c50c
+}

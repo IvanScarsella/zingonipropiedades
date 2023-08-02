@@ -7,6 +7,7 @@ import Header from "../components/header/page";
 import NavBar from "../components/navbar/page";
 import Image from "next/image";
 import styles from "./id.module.css";
+import WhatsApp from "../components/whatsapp/page";
 
 function PropertyByID(id) {
     const router = useRouter();
@@ -117,15 +118,15 @@ function PropertyByID(id) {
         <>
             <Header />
             <NavBar />
-            <div>
+            <div className={styles.propertyData}>
                 {property && property.mainImage ?
-                    <Image src={property.mainImage} alt='property image' width='200' height='200' /> : null}
+                    <Image className= {styles.mainImage} src={property.mainImage} alt='property image' width='200' height='200' /> : null}
                 <h1>{property.name}</h1>
                 {property.images ?
                     property.images.map((image) => {
                         return <Image src={image} key={image} alt='property image' width='100' height='100' onClick={() => setMainImage(image)} />
                     }) : null}
-                {property.currency === 'Pesos' ? <h2> Valor: $ {property.price}</h2> : <h2> Valor: U$D {property.price}</h2>}
+                {property.currency === 'Pesos' ? <h2 className={styles.price}> Valor: $ {property.price}</h2> : <h2 className={styles.price}> Valor: U$D {property.price}</h2>}
                 <h2>{property.operationType}</h2>
                 <h2>{property.propertyType}</h2>
                 <h2>{property.location}</h2>
@@ -176,6 +177,7 @@ function PropertyByID(id) {
                 </form>
             </div>
             {/* <button onClick={() => router.push('/home')}>Volver al inicio</button> */}
+       <WhatsApp />
         </>
     );
 }

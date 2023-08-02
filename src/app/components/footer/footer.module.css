@@ -1,0 +1,19 @@
+.footerContainer {
+    background-color: #693d7a;
+    color: #ece9ec;
+    display: flex; /* Utilizar flexbox para alinear los elementos en una fila */
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    margin-top: 1%;
+}
+
+.emailLinkContainer {
+    padding: 2%;
+    display: flex; /* Utilizar flexbox para alinear los elementos en una fila */
+    align-items: center; /* Centrar verticalmente los elementos */
+}
+
+.emailLink {
+    color: #ece9ec; /* Reemplaza 'your-desired-color' por el color que desees */
+    text-decoration: none; /* Quitar la subrayado del enlace */
+    margin-left: 10px; /* Agregar un margen a la izquierda para separar el enlace del texto */
+}
