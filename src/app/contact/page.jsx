@@ -8,7 +8,6 @@ export default function Contact() {
     return (
         <>
             <Header />
-            <NavBar />
             <h2>Teléfono: 2215310582</h2>
             <Link href="https://www.facebook.com/Zingonipropiedades" target="_blank">
                 <h2>Facebook: Zingoni Propiedades </h2>
