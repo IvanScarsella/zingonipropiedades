@@ -14,12 +14,16 @@ export const GlobalContext = createContext({
   setSelectedLocation: () => [],
   selectedRoomsQuantity: "",
   setSelectedRoomsQuantity: () => [],
+  auxiliar: [],
+  setAuxiliar: () => [],
 });
 
 
 export const GlobalContextProvider = ({ children }) => {
   const [properties, setProperties] = useState([]);
   const [dataProperties, setDataProperties] = useState([]);
+
+  const [auxiliar, setAuxiliar] = useState([]);
 
   const [selectedOperationType, setSelectedOperationType] = useState("");
   const [selectedPropertyType, setSelectedPropertyType] = useState("");
@@ -30,9 +34,11 @@ export const GlobalContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post("/api/properties");
+      const auxiliarResponse = await axios.post("/api/auxiliar");
       setIsLoading(true);
       setProperties(response.data)
       setDataProperties(response.data)
+      setAuxiliar(auxiliarResponse.data)
       setIsLoading(false);
     };
     fetchData();
@@ -94,7 +100,9 @@ export const GlobalContextProvider = ({ children }) => {
       selectedLocation,
       setSelectedLocation,
       selectedRoomsQuantity,
-      setSelectedRoomsQuantity
+      setSelectedRoomsQuantity,
+      auxiliar,
+      setAuxiliar,
     }}>
       {children}
     </GlobalContext.Provider>

@@ -18,6 +18,7 @@ export default function Header() {
             </div>
             <div className={styles.headerButtonsContainer}>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}>Inicio</button>
+                <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}>Auxiliares</button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}>Contacto</button>
             </div>
         </div>

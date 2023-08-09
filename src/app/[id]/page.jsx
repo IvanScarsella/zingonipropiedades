@@ -117,7 +117,6 @@ function PropertyByID(id) {
     return (
         <>
             <Header />
-            <NavBar />
             <div className={styles.propertyData}>
                 {property && property.mainImage ?
                     <Image className= {styles.mainImage} src={property.mainImage} alt='property image' width='200' height='200' /> : null}

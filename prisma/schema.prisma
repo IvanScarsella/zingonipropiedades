@@ -29,6 +29,16 @@ model property {
   images        String[]
   mainImage     String        @default("")
   currency      currency      @default(Pesos)
+  description   String        @default("")
+  measure       String        @default("")
+}
+
+model auxiliar {
+  id       String @id @default(uuid())
+  name     String
+  position String
+  phone    String
+  photo    String
 }
 
 enum propertyType {

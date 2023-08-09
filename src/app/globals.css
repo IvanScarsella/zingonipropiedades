@@ -168,7 +168,13 @@ button {
   /* background-color: #b591c000; */
 }
 
-option, select {
+option,
+select {
+  text-transform: uppercase;
+  background-color: #b591c050;
+}
+
+label {
   text-transform: uppercase;
   background-color: #b591c050;
 }
