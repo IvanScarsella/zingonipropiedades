@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import logo from "../../../../public/logo.jpg";
 import styles from "./header.module.css";
