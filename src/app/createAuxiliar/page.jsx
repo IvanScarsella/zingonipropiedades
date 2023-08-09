@@ -139,7 +139,7 @@ const changeHandler = (event) => {
                 setForm({})
                 setFile(null);
                 setFilename("");
-                router.push(`/createAuxiliar`)
+                router.push(`/auxiliar`)
             }
         } catch (error) {
             console.error("Error al subir la imagen:", error);

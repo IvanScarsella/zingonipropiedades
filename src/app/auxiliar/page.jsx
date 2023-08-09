@@ -17,10 +17,20 @@ export default function Contact() {
     const [loading, setLoading] = useState(true); // Agregar estado de loading
 
     useEffect(() => {
-        if (auxiliar) {
+        const fetchAuxiliares = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.post("/api/auxiliar"); // Cambia la ruta de acuerdo a tu API
+                setAuxiliar(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching auxiliares:", error);
+                setLoading(false);
+            }
+        };
 
-        }
-    }, [])
+        fetchAuxiliares();
+    }, [auxiliar]);
 
     const deleteAuxiliar = async (id) => {
         const response = await axios.delete(`/api/auxiliar/${id}`);
@@ -33,8 +43,9 @@ export default function Contact() {
     return (
         <>
             <Header />
+            <div className={styles.auxiliarList}>
             {auxiliar.map((aux) => (
-                <div>
+                <div className={styles.auxiliarCard}>
                     <h4>{aux.name}</h4>
                     <h4>{aux.position}</h4>
                     <h4>{aux.phone}</h4>
@@ -54,7 +65,8 @@ export default function Contact() {
                 </button>
                 </div>
             ))
-            }
+        }
+        </div>
             <button onClick={() => router.push(`/createAuxiliar`)}>
                 Cargar nuevo Auxiliar
                 </button>

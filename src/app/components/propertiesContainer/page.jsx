@@ -1,9 +1,10 @@
+"use client";
+
 import { useGlobalContext } from "../../../../context/store";
 import styles from "./propertiesContainer.module.css";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 function PropertiesContainer() {
     const { properties, setProperties } = useGlobalContext();

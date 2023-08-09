@@ -13,6 +13,9 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border: 1px solid #40215c;
+    border-radius: 10px;
+    background-color: #b085bd9c;
 }
 
 .propertiesContainer button {
