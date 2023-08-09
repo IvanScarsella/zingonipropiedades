@@ -4,7 +4,6 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Header from "../components/header/page";
-import NavBar from "../components/navbar/page";
 import Image from "next/image";
 import styles from "./id.module.css";
 import WhatsApp from "../components/whatsapp/page";

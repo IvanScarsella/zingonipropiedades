@@ -1,7 +1,6 @@
 "use client";
 
 import Header from "../components/header/page";
-import NavBar from "../components/navbar/page";
 import Link from "next/link";
 import WhatsApp from "../components/whatsapp/page";
 

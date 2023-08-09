@@ -1,6 +1,5 @@
 'use client';
 
-import NavBar from '../components/navbar/page';
 import Header from '../components/header/page';
 import Footer from '../components/footer/page';
 import WhatsApp from '../components/whatsapp/page';
@@ -14,7 +13,6 @@ export default function Home() {
   return (
     <div>
       <Header />
-      {/* <NavBar /> */}
       <FiltersWrapper /> {/* Usa el nuevo componente que envuelve "Filters" */}
       <PropertiesContainer />
       <Footer />
