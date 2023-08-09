@@ -30,7 +30,7 @@ export default function Contact() {
         };
 
         fetchAuxiliares();
-    }, [auxiliar]);
+    }, [setAuxiliar]);
 
     const deleteAuxiliar = async (id) => {
         const response = await axios.delete(`/api/auxiliar/${id}`);
@@ -45,7 +45,7 @@ export default function Contact() {
             <Header />
             <div className={styles.auxiliarList}>
             {auxiliar.map((aux) => (
-                <div className={styles.auxiliarCard}>
+                <div className={styles.auxiliarCard} key={aux.id}>
                     <h4>{aux.name}</h4>
                     <h4>{aux.position}</h4>
                     <h4>{aux.phone}</h4>
