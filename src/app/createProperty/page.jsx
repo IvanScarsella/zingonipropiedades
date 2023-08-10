@@ -7,7 +7,7 @@ import styles from "./createProperty.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function createProperty() {
+export default function CreateProperty() {
 
     const router = useRouter();
 
