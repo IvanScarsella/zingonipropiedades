@@ -49,7 +49,7 @@ function PropertiesContainer() {
                                 {property.currency === "Pesos" ? "$" : "U$D"} {property.price}
                             </h3>
                             <Image
-                                src={property.mainImage}
+                                src={property.mainImage || property.images[0]}
                                 key={property.mainImage}
                                 alt="property image"
                                 width="200"
@@ -68,6 +68,9 @@ function PropertiesContainer() {
                     </div>
                 </>
             )}
+            <button onClick={() => router.push(`/createProperty`)}>
+                Cargar nueva propiedad
+            </button>
         </div>
     );
 }

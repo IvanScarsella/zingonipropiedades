@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import styles from "./auxiliar.module.css";
 import axios from "axios";
 
-export default function Contact() {
+export default function Auxiliar() {
 
     const router = useRouter();
 

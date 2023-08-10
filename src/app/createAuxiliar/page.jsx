@@ -11,7 +11,6 @@ export default function Auxiliar() {
 
     const router = useRouter();
 
-    const [auxiliar, setAuxiliar] = useState({});
     const [file, setFile] = useState(null);
     const [filename, setFilename] = useState('');
 

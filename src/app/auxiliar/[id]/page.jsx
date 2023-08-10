@@ -6,7 +6,7 @@ import axios from "axios";
 import styles from "./id.module.css";
 import Image from "next/image";
 
-export default function Auxiliar(id) {
+export default function AuxiliarById(id) {
 
     const [auxiliar, setAuxiliar] = useState({});
     const [file, setFile] = useState(null);

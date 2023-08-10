@@ -1,0 +1,14 @@
+.propertyElementsList {
+    display: grid;
+    margin: 10px;
+}
+
+.propertyElementsList label {
+    margin: 10px;
+}
+
+.imageContainer {
+    display: flex;
+    gap: 10px; /* Espacio entre las imágenes */
+    align-items: center; /* Alinea las imágenes verticalmente */
+}

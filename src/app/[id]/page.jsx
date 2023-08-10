@@ -10,7 +10,7 @@ import WhatsApp from "../components/whatsapp/page";
 
 function PropertyByID(id) {
     const router = useRouter();
-
+console.log(id);
     const [property, setProperty] = useState({});
     const [file, setFile] = useState(null);
     const [filename, setFilename] = useState('');
@@ -118,7 +118,7 @@ function PropertyByID(id) {
             <Header />
             <div className={styles.propertyData}>
                 {property && property.mainImage ?
-                    <Image className= {styles.mainImage} src={property.mainImage} alt='property image' width='200' height='200' /> : null}
+                    <Image className={styles.mainImage} src={property.mainImage} alt='property image' width='200' height='200' /> : null}
                 <h1>{property.name}</h1>
                 {property.images ?
                     property.images.map((image) => {
@@ -135,7 +135,9 @@ function PropertyByID(id) {
                     <h2>Baños: {property.rooms}</h2>
                     : null}
                 <h2>Superficie: {property.area} m²</h2>
-                <h2>Medidas: property.measure</h2>
+                {property.measure ?
+                    <h2>Medidas: {property.measure}</h2>
+                    : null}
                 {property.garage ?
                     <h2>Garage: Si</h2>
                     : <h2>Garage: No</h2>}
@@ -173,9 +175,12 @@ function PropertyByID(id) {
                     </div>
                     <button type="submit">Subir imagen</button>
                 </form>
+                <button onClick={() => router.push(`/updateProperty/${id.params.id}`)}>
+                Actualizar
+                </button>
             </div>
             {/* <button onClick={() => router.push('/home')}>Volver al inicio</button> */}
-       <WhatsApp />
+            <WhatsApp />
         </>
     );
 }
