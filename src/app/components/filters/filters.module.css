@@ -9,6 +9,10 @@
     margin: 5%;
 }
 
+.filtersContainer select option {
+    box-shadow: 0 0 10px #000;
+}
+
 /* .headerLogo {
     grid-area: 1 / 1 / 2 / 2;
 }

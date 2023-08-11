@@ -1,33 +1,76 @@
 /* Estilo para ocultar el input de tipo "file" */
 .customFileInput {
-    display: none;
-  }
-  
-  /* Estilo para el label personalizado */
-  .customFileLabel {
-    display: inline-block;
-    padding: 8px 12px;
-    color: black;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .propertyData {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* grid-template-rows: repeat(2, 1fr); */
-    grid-column-gap: 50px;
-    grid-row-gap: 34px;
-    justify-items: center;
-  }
-
-  .mainImage {
-    height: 400px;
-    width: 400px;
-  }
-
-  .price {
-    color: #37c50c
+  display: none;
 }
+
+/* Estilo para el label personalizado */
+.customFileLabel {
+  display: inline-block;
+  padding: 8px 12px;
+  color: black;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.propertyData {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 34px;
+  justify-items: center;
+  border: 1px solid #ffffff;
+  background-color: #ffffffaf;
+}
+
+.propertyData h1 {
+  font-size: 160%;
+}
+
+.mainImage {
+  height: 400px;
+  width: 400px;
+  border-radius: 5%;
+}
+
+.price {
+  color: #37c50c
+}
+
+.propertyImages {
+  display: flex;
+  flex-direction: row;
+}
+
+.image {
+  margin: 1px 1px 1px 1px;
+  cursor: pointer;
+}
+
+.propertyDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Dos columnas de igual tamaño */
+  gap: 10px;
+  /* Espacio entre las columnas */
+  align-items: flex-start;
+  /* Alinea los elementos al inicio verticalmente */
+  border: 1px solid #b9b9b9;
+  padding: 5px;
+}
+
+.featureTitle {
+  padding-left: 40px; /* Espacio para el icono */
+  background-repeat: no-repeat;
+  background-size: 30px 30px; /* Tamaño del icono */
+  background-position: left center; /* Posición del icono */
+}
+
+/* .feature-1 {
+  background-image: url('ruta-del-icono-1.png');
+}
+
+.feature-2 {
+  background-image: url('image.png');
+} */
