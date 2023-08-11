@@ -10,49 +10,102 @@
 
 .propertyContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   text-align: center;
   border: 1px solid #40215c;
   border-radius: 10px;
-  background-color: #b085bd9c;
+  /* background-color: #b085bd9c; */
+  background-image: linear-gradient(0deg,
+  #b085bd, #b085bd9c,#b085bd);
 }
 
-.propertiesContainer button {
-  font-size: 1em;
-  background-color: #b085bd;
-  margin: 0% 5% 0% 5%;
-  border-radius: 30%;
+.propertiesContainer h4 {
+  margin: 0;
 }
 
 .propertyImage {
+  align-self: flex-start;
   width: 200px;
-  /* Ancho fijo para las imágenes */
   height: 200px;
-  /* Altura fija para las imágenes */
   object-fit: cover;
-  /* Ajustar la imagen al contenedor sin distorsionar */
   border-radius: 10px;
-  /* Redondear los bordes de las imágenes */
+  float: left;
+  margin: 2%;
 }
 
 .buttonContainer {
   display: flex;
-  /* Alinea los botones horizontalmente */
   justify-content: center;
-  /* Centra los botones horizontalmente dentro del contenedor */
   padding: auto;
 }
 
+.propertiesContainer button {
+  font-size: 1em;
+  /* background-color: #b085bd; */
+  margin: 0% 5% 0% 5%;
+  border-radius: 30%;
+}
+
 .buttonContainer button {
-  width: 50px;
-  height: 50px;
-max-width: 50%;
-max-height: 50%;
+  /* width: 50px; */
+  /* height: 50px; */
+  /* max-width: 50%; */
+  /* max-height: 50%; */
+  border: 0;
+  background-image: linear-gradient(0deg,
+      #b085bd, #b085bd9c, #b085bd);
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  font-size: 1.4em;
+  padding: 4px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.buttonContainer button {
+  background-color: #111;
+  padding: 16px 24px;
+  border-radius: 6px;
+  transition: .3s;
+}
+
+.button:hover button {
+  background: none;
+  transform: scale(1.2);
+}
+
+.button:active {
+  transform: scale(0.9);
 }
 
 .price {
-  color: #37c50c;
+  color: #2b9e08;
+}
+
+.loadButton {
+  border: 0;
+  background-image: linear-gradient(0deg,
+      #b085bd, #b085bd9c, #b085bd);
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  font-size: 1.4em;
+  padding: 4px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.loadButton {
+  background-color: #111;
+  padding: 16px 24px;
+  border-radius: 6px;
+  transition: .3s;
+}
+
+.loadButton:hover {
+  transform: scale(1.2);
 }
 
 /* // loadingAnimation.module.css */

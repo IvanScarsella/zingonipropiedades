@@ -6,6 +6,7 @@ import WhatsApp from '../components/whatsapp/page';
 import PropertiesContainer from '../components/propertiesContainer/page';
 // import FiltersWrapper from '../components/filtersWrapper'; // Importa el nuevo componente
 import FiltersWrapper from '../components/filtersWrapper/page';
+import Background from '../components/background/page';
 // import styles from './page.module.css';
 
 
@@ -17,6 +18,7 @@ export default function Home() {
       <PropertiesContainer />
       <Footer />
       <WhatsApp />
+      <Background />
     </div>
   );
 }

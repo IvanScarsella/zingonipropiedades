@@ -1,5 +1,7 @@
 .footerContainer {
     background-color: #693d7a;
+    background-image: linear-gradient(0deg,
+    #693d7a, #b085bd9c,#693d7a);
     color: #ece9ec;
     display: flex; /* Utilizar flexbox para alinear los elementos en una fila */
     justify-content: center; /* Centrar horizontalmente los elementos */

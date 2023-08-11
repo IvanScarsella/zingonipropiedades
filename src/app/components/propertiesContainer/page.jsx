@@ -44,10 +44,6 @@ function PropertiesContainer() {
                 <>
                     {renderizedProperties.map((property) => (
                         <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/${property.id}`)}>
-                            <h3>{property.name}</h3>
-                            <h3 className={styles.price}>
-                                {property.currency === "Pesos" ? "$" : "U$D"} {property.price}
-                            </h3>
                             <Image
                                 src={property.mainImage || property.images[0]}
                                 key={property.mainImage}
@@ -56,19 +52,28 @@ function PropertiesContainer() {
                                 height="200"
                                 className={styles.propertyImage}
                             />
+                            <div>
+                                <h3>{property.name}</h3>
+                                <h4 className={styles.price}>
+                                    {property.currency === "Pesos" ? "$" : "U$D"} {property.price}
+                                </h4>
+                                {property.description ?
+                                    <h5 className={styles.propertyInfo}>{property.description}</h5> :
+                                    <h5 className={styles.propertyInfo}>descripción</h5>}
+                            </div>
                         </div>
                     ))}
                     <div className={styles.buttonContainer}>
                         {/* Crear un array de números del 1 al valor de pages */}
                         {Array.from({ length: pages }, (_, index) => index + 1).map((pageNumber) => (
-                            <button key={pageNumber} value={pageNumber} onClick={changePage}>
+                            <button key={pageNumber} value={pageNumber} onClick={changePage} className={styles.button}>
                                 {pageNumber}
                             </button>
                         ))}
                     </div>
                 </>
             )}
-            <button onClick={() => router.push(`/createProperty`)}>
+            <button onClick={() => router.push(`/createProperty`)} className={styles.loadButton}>
                 Cargar nueva propiedad
             </button>
         </div>

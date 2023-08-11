@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../../../../public/logo.jpg";
+import logo from "../../../../public/logo.png";
 import styles from "./header.module.css";
 import { useRouter } from "next/navigation";
 
@@ -19,9 +19,9 @@ export default function Header() {
                 />
             </div>
             <div className={styles.headerButtonsContainer}>
-                <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}>Inicio</button>
-                <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}>Auxiliares</button>
-                <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}>Contacto</button>
+                <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Inicio</span></button>
+                <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
+                <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
             </div>
         </div>
     );

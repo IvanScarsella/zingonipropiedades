@@ -2,7 +2,8 @@
 
 .headerContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Ahora el contenedor tiene tres columnas de igual ancho */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Ahora el contenedor tiene tres columnas de igual ancho */
     grid-template-rows: 1fr;
     grid-column-gap: 50px;
     grid-row-gap: 34px;
@@ -10,24 +11,69 @@
     align-items: center;
     margin-bottom: 5%;
     background-color: #693d7a;
+    background-image: linear-gradient(0deg,
+    #693d7a, #b085bd9c,#693d7a);
 }
 
 .headerLogo {
     grid-area: 1 / 1 / 2 / 2;
     border-radius: 10%;
+    /* background-color: #b591c050; */
 }
 
-.headerButton {
-    background-color: transparent;
+/* .headerButton {
+    background-color:#b591c050;
     border: none;
+    border-radius: 10px;
     color: #ece9ec;
     font-size:1.4em;
     cursor: pointer;
 }
 
+.headerButton:hover {
+    background: none;
+    border: solid;
+    border-color: #000000;
+    color: #000000;
+    transform: translate(-3px);
+    cursor: pointer;
+  } */
+
+.headerButton {
+    border: 0;
+    background-image: linear-gradient(0deg,
+    #b085bd, #b085bd9c, #b085bd);
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    font-size: 1.4em;
+    padding: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.headerButton span {
+    background-color: #111;
+    padding: 16px 24px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+.headerButton:hover span {
+    background: none;
+    transform:scale(1.2);
+}
+
+.headerButton:active {
+    transform: scale(0.9);
+}
+
 .headerButtonsContainer {
     display: flex;
-    gap: 300px; /* Espacio entre los botones */
-    grid-area: 1 / 2 / 2 / 4; /* Ocupa de la columna 2 a la columna 4 del grid */
-    justify-content: center; /* Centra horizontalmente los botones */
+    gap: 300px;
+    /* Espacio entre los botones */
+    grid-area: 1 / 2 / 2 / 4;
+    /* Ocupa de la columna 2 a la columna 4 del grid */
+    justify-content: center;
+    /* Centra horizontalmente los botones */
 }
