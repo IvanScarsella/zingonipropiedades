@@ -53,10 +53,10 @@ export default function Filters(
                         allRooms.push(property.rooms)
                     };
                 })
-                setOperationType(allOperationTypes);
-                setPropertyType(allPropertyTypes);
-                setLocation(allLocations);
-                setRooms(allRooms)
+                setOperationType(allOperationTypes.sort());
+                setPropertyType(allPropertyTypes.sort());
+                setLocation(allLocations.sort());
+                setRooms(allRooms.sort())
             }
         }
         fetchData();

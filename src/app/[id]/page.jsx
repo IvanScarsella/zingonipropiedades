@@ -11,6 +11,7 @@ import Footer from "../components/footer/page";
 import Background from "../components/background/page";
 import rooms_logo from "../../../public/rooms_logo.png";
 import bathrooms_logo from "../../../public/bathrooms_logo.png";
+import area_logo from "../../../public/area_logo.png";
 import measure_logo from "../../../public/measure_logo.png";
 import garage_logo from "../../../public/garage_logo.png";
 import electricity_logo from "../../../public/electricity_logo.png";
@@ -161,7 +162,7 @@ function PropertyByID(id) {
                     {property.bathrooms > 0 ?
                         <h3><Image src={bathrooms_logo} alt='property image' width='20' height='20'/>   Baños: {property.bathrooms}</h3>
                         : null}
-                    <h3><Image src={measure_logo} alt='property image' width='20' height='20'/>   Superficie: {property.area} m²</h3>
+                    <h3><Image src={area_logo} alt='property image' width='20' height='20'/>   Superficie: {property.area} m²</h3>
                     {property.measure ?
                         <h3><Image src={measure_logo} alt='property image' width='20' height='20'/>   Medidas: {property.measure}</h3>
                         : null}

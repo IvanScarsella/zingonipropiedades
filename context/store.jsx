@@ -36,7 +36,9 @@ export const GlobalContextProvider = ({ children }) => {
       const response = await axios.post("/api/properties");
       const auxiliarResponse = await axios.post("/api/auxiliar");
       setIsLoading(true);
-      setProperties(response.data)
+      setProperties(response.data.sort(function (a, b) {
+        return a.name.localeCompare(b.name);;
+      }))
       setDataProperties(response.data)
       setAuxiliar(auxiliarResponse.data)
       setIsLoading(false);
@@ -65,7 +67,9 @@ export const GlobalContextProvider = ({ children }) => {
       try {
         console.log(params, "params");
         const response = await axios.post('/api/propertiesFilters', { params });
-        setProperties(response.data);
+        setProperties(response.data.sort(function (a, b) {
+          return a.name.localeCompare(b.name);;
+        }))
         setIsLoading(false);
       } catch (error) {
         console.error(error);
