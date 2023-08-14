@@ -21,9 +21,15 @@ async function getProperties(paramsFilters) {
     let where = {};
 
     if (operationType) {
-        where.operationType = {
-            equals: operationType
-        };
+        if (operationType === "Alquiler Temporario") {
+            where.operationType = {
+                equals: "Alquiler_Temporario"
+            };
+        } else {
+            where.operationType = {
+                equals: operationType
+            };
+        }
     }
     if (propertyType) {
         where.propertyType = {
