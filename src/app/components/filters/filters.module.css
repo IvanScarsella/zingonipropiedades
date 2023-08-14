@@ -1,22 +1,47 @@
 .filtersContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 34px;
-    /* justify-items: center; */
-    align-items: center;
-    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+    padding: 5% 5% 5% 5%;
+    text-align: center;
+    border: 1px solid #40215c;
+    border-radius: 10px;
+    background-image: linear-gradient(0deg,
+    #693d7acc, #693d7a,#693d7acc);
+    box-shadow: 0 0 10px #000;
+    max-width: 300px;
+    margin-left: 5%;
+}
+
+.filtersContainer > * {
+    padding: 10px 0; /* Ajusta el valor de padding según tus necesidades */
+  }
+
+.filtersContainer select {
+    margin: 3%;
+    width: 100%;
 }
 
 .filtersContainer select option {
     box-shadow: 0 0 10px #000;
 }
 
-/* .headerLogo {
-    grid-area: 1 / 1 / 2 / 2;
+.filtersContainer select:focus {
+    outline: none;
 }
 
-.headerPhone {
-    grid-area: 1 / 2 / 2 / 3;
-} */
+.customSelect {
+    margin: 3%;
+    width: 100%;
+    border: none;
+    background-color: #fff; /* Color de fondo inicial */
+    box-shadow: 0 0 10px #000;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+.customSelect option:checked {
+    background-color: #693d7a; /* Cambia el color de fondo */
+    color: #fff; /* Cambia el color del texto */
+  }

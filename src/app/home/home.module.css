@@ -1,0 +1,4 @@
+.filtersAndProperties {
+    display: flex;
+    flex-direction: row;
+}

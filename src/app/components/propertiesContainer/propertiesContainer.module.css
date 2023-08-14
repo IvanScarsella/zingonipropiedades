@@ -6,6 +6,9 @@
   grid-column-gap: 50px;
   grid-row-gap: 34px;
   justify-items: center;
+  align-items: flex-end;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 .propertyContainer {
@@ -15,7 +18,6 @@
   text-align: center;
   border: 1px solid #40215c;
   border-radius: 10px;
-  /* background-color: #b085bd9c; */
   background-image: linear-gradient(0deg,
   #b085bd, #b085bd9c,#b085bd);
   box-shadow: 0 0 10px #000;

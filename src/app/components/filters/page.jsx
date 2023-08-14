@@ -41,7 +41,7 @@ export default function Filters(
                 const allRooms = [];
                 properties.forEach((property) => {
                     if (!allOperationTypes.includes(property.operationType)) {
-                        allOperationTypes.push(property.operationType)
+                        allOperationTypes.push(property.operationType.replace(/_/g, ' '))
                     };
                     if (!allPropertyTypes.includes(property.propertyType)) {
                         allPropertyTypes.push(property.propertyType)
@@ -66,7 +66,7 @@ export default function Filters(
         <div className={styles.filtersContainer}>
             <select
                 onChange={(e) => setSelectedOperationType(e.target.value)}
-                className={styles.selectors}
+                className={styles.customSelect}
             >
                 <option value="">Tipo de operación</option>
                 {operationType.map((operation, index) => (
@@ -77,7 +77,7 @@ export default function Filters(
             </select>
             <select
                 onChange={(e) => setSelectedPropertyType(e.target.value)}
-                className={styles.selectors}
+                className={styles.customSelect}
             >
                 <option value="">Tipo de propiedad</option>
                 {propertyType.map((property, index) => (
@@ -88,7 +88,7 @@ export default function Filters(
             </select>
             <select
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className={styles.selectors}
+                className={styles.customSelect}
             >
                 <option value="">Localidad</option>
                 {location.map((location, index) => (
@@ -99,7 +99,7 @@ export default function Filters(
             </select>
             <select
                 onChange={(e) => setSelectedRoomsQuantity(e.target.value)}
-                className={styles.selectors}
+                className={styles.customSelect}
             >
                 <option value="">Ambientes</option>
                 {rooms.map((room, index) => (

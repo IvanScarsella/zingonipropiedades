@@ -232,6 +232,8 @@ export default function CreateProperty() {
                         placeholder="Precio"
                         type="number"
                         id="price"
+                        min="0"
+                        onWheel={(e) => e.preventDefault()}
                     />
                     {errors.price ? <p className={styles.errorText}>{errors.price}</p> : null}
 
@@ -250,8 +252,9 @@ export default function CreateProperty() {
                     </label>
                     <select onChange={changeHandler} id="operationType">
                         <option value="">Selecciona una opción</option>
-                        <option value="Venta">Venta</option>
                         <option value="Alquiler">Alquiler</option>
+                        <option value="Alquiler_Temporario">Alquiler Temporario</option>
+                        <option value="Venta">Venta</option>
                     </select>
                     {errors.operationType ? <p className={styles.errorText}>{errors.operationType}</p> : null}
 
@@ -260,9 +263,12 @@ export default function CreateProperty() {
                     </label>
                     <select onChange={changeHandler} id="propertyType">
                         <option value="">Selecciona una opción</option>
-                        <option value="Terreno">Terreno</option>
                         <option value="Casa">Casa</option>
+                        <option value="Casa_Quinta">Casa Quinta</option>
                         <option value="Departamento">Departamento</option>
+                        <option value="Duplex">Duplex</option>
+                        <option value="Lote">Lote</option>
+                        <option value="Terreno">Terreno</option>
                     </select>
                     {errors.propertyType ? <p className={styles.errorText}>{errors.propertyType}</p> : null}
 
@@ -285,6 +291,7 @@ export default function CreateProperty() {
                         placeholder="Habitaciones"
                         type="number"
                         id="rooms"
+                        min="0"
                     />
                     {errors.location ? <p className={styles.errorText}>{errors.location}</p> : null}
 
@@ -296,6 +303,7 @@ export default function CreateProperty() {
                         placeholder="Baños"
                         type="number"
                         id="bathrooms"
+                        min="0"
                     />
                     {errors.bathrooms ? <p className={styles.errorText}>{errors.bathrooms}</p> : null}
 
@@ -307,6 +315,7 @@ export default function CreateProperty() {
                         placeholder="Superficie"
                         type="number"
                         id="area"
+                        min="0"
                     />
                     {errors.area ? <p className={styles.errorText}>{errors.area}</p> : null}
 
@@ -318,12 +327,14 @@ export default function CreateProperty() {
                         placeholder="primer valor"
                         type="number"
                         id="measure_1"
+                        min="0"
                     />
                     <input
                         onChange={changeHandler}
                         placeholder="segundo valor"
                         type="number"
                         id="measure_2"
+                        min="0"
                     />
                     {errors.measure ? <p className={styles.errorText}>{errors.measure}</p> : null}
 
@@ -395,6 +406,7 @@ export default function CreateProperty() {
                         placeholder="Antigüedad"
                         type="number"
                         id="antiquity"
+                        min="0"
                     />
                     {errors.antiquity ? <p className={styles.errorText}>{errors.antiquity}</p> : null}
 
@@ -421,7 +433,7 @@ export default function CreateProperty() {
                     />
 
                     <div className={styles.imageContainer}>
-                        { form.images ? form.images.map((image) => (
+                        {form.images ? form.images.map((image) => (
                             <Image src={image} key={image} alt={image} width="100" height="100" />
                         )) : null}
                     </div>

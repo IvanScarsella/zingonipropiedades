@@ -29,8 +29,8 @@ export default function Header() {
                 <Image
                     src={logo}
                     alt="Logo"
-                    width={150}
-                    height={150}
+                    width={250}
+                    height={250}
                     className="rounded-image"
                     onClick={() => router.push('/home')}
                 />
@@ -39,6 +39,7 @@ export default function Header() {
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Inicio</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
+                <h2>(221) 5310582</h2>
             </div>
         </div>
     );

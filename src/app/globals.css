@@ -123,10 +123,14 @@ a {
 
 
 body {
-  background-color: #ece9ec;
+  background-color: #000;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
   margin: 0;
+  background: url('../../public/backgroundLogo.png') repeat;
+  /* background-size: cover; */
+  background-position: top left;
+  padding: 0;
 }
 
 h1 {
@@ -172,7 +176,7 @@ button {
 option,
 select {
   text-transform: uppercase;
-  background-color: #b591c050;
+  background-color: #b591c0b0;
 }
 
 label {

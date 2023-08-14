@@ -45,11 +45,15 @@ enum propertyType {
   Terreno
   Casa
   Departamento
+  Casa_Quinta
+  Duplex
+  Lote
 }
 
 enum operationType {
   Venta
   Alquiler
+  Alquiler_Temporario
 }
 
 enum currency {
