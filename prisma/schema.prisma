@@ -31,6 +31,7 @@ model property {
   currency      currency      @default(Pesos)
   description   String        @default("")
   measure       String        @default("")
+  featured      Boolean       @default(false)
 }
 
 model auxiliar {

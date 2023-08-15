@@ -34,6 +34,7 @@ export default function UpdateProperty(id) {
         images: [],
         mainImage: "",
         description: "",
+        featured: "false"
     });
 
     const [errors, setErrors] = useState({
@@ -98,6 +99,7 @@ export default function UpdateProperty(id) {
                         images: response.data.images,
                         mainImage: response.data.mainImage,
                         description: response.data.description,
+                        featured: response.data.featured
                     })
                 }
             } catch (error) {
@@ -183,18 +185,18 @@ export default function UpdateProperty(id) {
             // if (response.data && response.data.data) {
             //     const photoUrl = response.data.data.url;
 
-                // Aquí puedes utilizar la URL de la imagen (photoUrl) para mostrarla en tu página o guardarla en tu base de datos
-                const apiResponse = await axios.patch(`/api/properties/${property.id}`, {
-                    form,
-                    // photo: photoUrl
-                });
-                // console.log("URL de imagen subida:", photoUrl);
+            // Aquí puedes utilizar la URL de la imagen (photoUrl) para mostrarla en tu página o guardarla en tu base de datos
+            const apiResponse = await axios.patch(`/api/properties/${property.id}`, {
+                form,
+                // photo: photoUrl
+            });
+            // console.log("URL de imagen subida:", photoUrl);
 
-                // Limpia el campo de archivo después de la carga exitosa
-                // setForm({})
-                // setFile(null);
-                // setFilename("");
-                window.location.reload();
+            // Limpia el campo de archivo después de la carga exitosa
+            // setForm({})
+            // setFile(null);
+            // setFilename("");
+            window.location.reload();
             // }
         } catch (error) {
             console.error("Error al subir la imagen:", error);
@@ -223,7 +225,8 @@ export default function UpdateProperty(id) {
             form.sewer &&
             form.antiquity &&
             form.images.length &&
-            form.description
+            form.description &&
+            form.featured
         )
             return true
     }
@@ -254,6 +257,13 @@ export default function UpdateProperty(id) {
         }
     }
 
+    const handleCheckboxChange = () => {
+        setForm({
+            ...form,
+            featured: value => !value
+        })
+    }
+    console.log(form);
     return (
         <>
             <Header />
@@ -262,220 +272,288 @@ export default function UpdateProperty(id) {
                 <Image className={styles.mainImage} src={property.mainImage} alt='property image' width='200' height='200' /> : null}
             <form onSubmit={handleSubmit}>
                 <div className={styles.propertyElementsList}>
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Nombre
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.name}
-                        type="text"
-                        id="name"
-                    />
-                    {errors.name ? <p className={styles.errorText}>{errors.name}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Precio
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.price}
-                        type="number"
-                        id="price"
-                    />
-                    {errors.price ? <p className={styles.errorText}>{errors.price}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Tipo de cambio
-                    </label>
-                    <select onChange={changeHandler} id="currency">
-                        <option value="">Selecciona una opción</option>
-                        <option value="Dolares">U$D</option>
-                        <option value="Pesos">$</option>
-                    </select>
-                    {errors.currency ? <p className={styles.errorText}>{errors.currency}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Tipo de operación
-                    </label>
-                    <select onChange={changeHandler} id="operationType">
-                        <option value="">Selecciona una opción</option>
-                        <option value="Venta">Venta</option>
-                        <option value="Alquiler">Alquiler</option>
-                    </select>
-                    {errors.operationType ? <p className={styles.errorText}>{errors.operationType}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Tipo de propiedad
-                    </label>
-                    <select onChange={changeHandler} id="propertyType">
-                        <option value="">Selecciona una opción</option>
-                        <option value="Terreno">Terreno</option>
-                        <option value="Casa">Casa</option>
-                        <option value="Departamento">Departamento</option>
-                    </select>
-                    {errors.propertyType ? <p className={styles.errorText}>{errors.propertyType}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Localidad
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.location}
-                        type="text"
-                        id="location"
-                    />
-                    {errors.location ? <p className={styles.errorText}>{errors.location}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Habitaciones
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.rooms}
-                        type="number"
-                        id="rooms"
-                    />
-                    {errors.location ? <p className={styles.errorText}>{errors.location}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Baños
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.bathrooms}
-                        type="number"
-                        id="bathrooms"
-                    />
-                    {errors.bathrooms ? <p className={styles.errorText}>{errors.bathrooms}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Superficie
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.area}
-                        type="number"
-                        id="area"
-                    />
-                    {errors.area ? <p className={styles.errorText}>{errors.area}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Medidas
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={form.measure_1}
-                        type="number"
-                        id="measure_1"
-                    />
-                    <input
-                        onChange={changeHandler}
-                        placeholder={form.measure_2}
-                        type="number"
-                        id="measure_2"
-                    />
-                    {/* {errors.measure ? <p className={styles.errorText}>{errors.measure}</p> : null} */}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Garage
-                    </label>
-                    <select onChange={changeHandler} id="garage">
-                        <option value="">Selecciona una opción</option>
-                        <option value="true">Si</option>
-                        <option value="false">No</option>
-                    </select>
-                    {errors.garage ? <p className={styles.errorText}>{errors.garage}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Luz
-                    </label>
-                    <select onChange={changeHandler} id="electricity">
-                        <option value="">Selecciona una opción</option>
-                        <option value="true">Si</option>
-                        <option value="false">No</option>
-                    </select>
-                    {errors.electricity ? <p className={styles.errorText}>{errors.electricity}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Gas
-                    </label>
-                    <select onChange={changeHandler} id="gas">
-                        <option value="">Selecciona una opción</option>
-                        <option value="true">Si</option>
-                        <option value="false">No</option>
-                    </select>
-                    {errors.gas ? <p className={styles.errorText}>{errors.gas}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Agua
-                    </label>
-                    <select onChange={changeHandler} id="water">
-                        <option value="">Selecciona una opción</option>
-                        <option value="true">Si</option>
-                        <option value="false">No</option>
-                    </select>
-                    {errors.water ? <p className={styles.errorText}>{errors.water}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Asfalto
-                    </label>
-                    <select onChange={changeHandler} id="asphalt">
-                        <option value="">Selecciona una opción</option>
-                        <option value="true">Si</option>
-                        <option value="false">No</option>
-                    </select>
-                    {errors.asphalt ? <p className={styles.errorText}>{errors.asphalt}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Cloacas
-                    </label>
-                    <select onChange={changeHandler} id="sewer">
-                        <option value="">Selecciona una opción</option>
-                        <option value="true">Si</option>
-                        <option value="false">No</option>
-                    </select>
-                    {errors.sewer ? <p className={styles.errorText}>{errors.sewer}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Antigüedad
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.antiquity}
-                        type="number"
-                        id="antiquity"
-                    />
-                    {errors.antiquity ? <p className={styles.errorText}>{errors.antiquity}</p> : null}
-
-                    <label className={styles.PropertyCustomFileLabel}>
-                        Descripción
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        placeholder={property.description}
-                        type="text"
-                        id="description"
-                    />
-                    {errors.description ? <p className={styles.errorText}>{errors.description}</p> : null}
-
-                    <label htmlFor="file" className={styles.PropertyCustomFileLabel}>
-                        Cargar imagen
-                    </label>
-                    <input
-                        onChange={changeHandler}
-                        type="file"
-                        id="file"
-                        accept="image/png, image/jpeg, image/jpg"
-                        className={styles.customFileInput}
-                    />
-
-                    <div className={styles.imageContainer}>
-                        <p>Toca una imagen para seleccionarla como imagen principal o para eliminarla</p>
-                        { form.images ? form.images.map((image) => (
-                            <Image src={image} key={image} alt={image} width="100" height="100" onClick={() => setMainImage(image)}/>
-                        )) : null}
+                    <div>
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Nombre
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.name}
+                            type="text"
+                            id="name"
+                        />
+                        {errors.name ? <p className={styles.errorText}>{errors.name}</p> : null}
                     </div>
-                    
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Precio
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.price}
+                            type="number"
+                            id="price"
+                        />
+                        {errors.price ? <p className={styles.errorText}>{errors.price}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Tipo de cambio
+                        </label>
+                        <select onChange={changeHandler} id="currency">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Dolares">U$D</option>
+                            <option value="Pesos">$</option>
+                        </select>
+                        {errors.currency ? <p className={styles.errorText}>{errors.currency}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Tipo de operación
+                        </label>
+                        <select onChange={changeHandler} id="operationType">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Venta">Venta</option>
+                            <option value="Alquiler">Alquiler</option>
+                        </select>
+                        {errors.operationType ? <p className={styles.errorText}>{errors.operationType}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Tipo de propiedad
+                        </label>
+                        <select onChange={changeHandler} id="propertyType">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Terreno">Terreno</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Departamento">Departamento</option>
+                        </select>
+                        {errors.propertyType ? <p className={styles.errorText}>{errors.propertyType}</p> : null}
+                    </div>
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Localidad
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.location}
+                            type="text"
+                            id="location"
+                        />
+                        {errors.location ? <p className={styles.errorText}>{errors.location}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Habitaciones
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.rooms}
+                            type="number"
+                            id="rooms"
+                        />
+                        {errors.location ? <p className={styles.errorText}>{errors.location}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Baños
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.bathrooms}
+                            type="number"
+                            id="bathrooms"
+                        />
+                        {errors.bathrooms ? <p className={styles.errorText}>{errors.bathrooms}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Superficie
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.area}
+                            type="number"
+                            id="area"
+                        />
+                        {errors.area ? <p className={styles.errorText}>{errors.area}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Medidas
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={form.measure_1}
+                            type="number"
+                            id="measure_1"
+                        />
+                        <input
+                            onChange={changeHandler}
+                            placeholder={form.measure_2}
+                            type="number"
+                            id="measure_2"
+                        />
+                        {/* {errors.measure ? <p className={styles.errorText}>{errors.measure}</p> : null} */}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Garage
+                        </label>
+                        <select onChange={changeHandler} id="garage">
+                            <option value="">Selecciona una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                        {errors.garage ? <p className={styles.errorText}>{errors.garage}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Luz
+                        </label>
+                        <select onChange={changeHandler} id="electricity">
+                            <option value="">Selecciona una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                        {errors.electricity ? <p className={styles.errorText}>{errors.electricity}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Gas
+                        </label>
+                        <select onChange={changeHandler} id="gas">
+                            <option value="">Selecciona una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                        {errors.gas ? <p className={styles.errorText}>{errors.gas}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Agua
+                        </label>
+                        <select onChange={changeHandler} id="water">
+                            <option value="">Selecciona una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                        {errors.water ? <p className={styles.errorText}>{errors.water}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Asfalto
+                        </label>
+                        <select onChange={changeHandler} id="asphalt">
+                            <option value="">Selecciona una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                        {errors.asphalt ? <p className={styles.errorText}>{errors.asphalt}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Cloacas
+                        </label>
+                        <select onChange={changeHandler} id="sewer">
+                            <option value="">Selecciona una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                        {errors.sewer ? <p className={styles.errorText}>{errors.sewer}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Antigüedad
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.antiquity}
+                            type="number"
+                            id="antiquity"
+                        />
+                        {errors.antiquity ? <p className={styles.errorText}>{errors.antiquity}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Descripción
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            placeholder={property.description}
+                            type="text"
+                            id="description"
+                        />
+                        {errors.description ? <p className={styles.errorText}>{errors.description}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label className={styles.PropertyCustomFileLabel}>
+                            Destacar
+                        </label>
+                        <select onChange={changeHandler} id="featured" value={form.featured === true ? "true" : "false"}>
+                            <option value="">Selecciona una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                        {errors.featured ? <p className={styles.errorText}>{errors.featured}</p> : null}
+                    </div>
+
+                    <div>
+
+                        <label htmlFor="file" className={styles.PropertyCustomFileLabel}>
+                            Cargar imagen
+                        </label>
+                        <input
+                            onChange={changeHandler}
+                            type="file"
+                            id="file"
+                            accept="image/png, image/jpeg, image/jpg"
+                            className={styles.customFileInput}
+                        />
+
+                        <div className={styles.imageContainer}>
+                            <p>Toca una imagen para seleccionarla como imagen principal o para eliminarla</p>
+                            {form.images ? form.images.map((image) => (
+                                <Image src={image} key={image} alt={image} width="100" height="100" onClick={() => setMainImage(image)} />
+                            )) : null}
+                        </div>
+                    </div>
+
                     <button
                         type="submit"
                         className={styles.propertyButton}

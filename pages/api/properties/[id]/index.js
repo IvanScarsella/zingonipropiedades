@@ -84,6 +84,7 @@ export default async function handler(req, res) {
                 images,
                 mainImage,
                 description,
+                featured
             } = req.body.form;
 
             try {
@@ -110,6 +111,8 @@ export default async function handler(req, res) {
                 const asphaltBoolean = asphalt === "true" ? true : false;
 
                 const sewerBoolean = sewer === "true" ? true : false;
+                
+                const featuredBoolean = featured === "true" ? true : false;
 
                 const updatedData = {
                     name: name !== "" ? name : property.name,
@@ -132,6 +135,7 @@ export default async function handler(req, res) {
                     images: images !== [] ? images : property.images,
                     mainImage: mainImage !== "" ? mainImage : property.mainImage,
                     description: description !== "" ? description : property.description,
+                    featured: featuredBoolean
                 };
                 
                 const updatedProperty = await prisma.property.update({

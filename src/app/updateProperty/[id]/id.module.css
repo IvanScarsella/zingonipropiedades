@@ -1,11 +1,10 @@
-.customFileLabel {
+.PropertyCustomFileLabel {
     display: inline-block;
     padding: 8px 12px;
     color: black;
     background-color: #f2f2f2;
     border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
   }
 
   .customFileInput {
@@ -14,10 +13,14 @@
 
   .propertyElementsList {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-column-gap: 50px;
     grid-row-gap: 34px;
     justify-items: center;
+}
+
+.propertyElementsList label{
+  margin: 5px;
 }
 
 .propertyButton {

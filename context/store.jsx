@@ -30,27 +30,35 @@ export const GlobalContextProvider = ({ children }) => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedRoomsQuantity, setSelectedRoomsQuantity] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post("/api/properties");
       const auxiliarResponse = await axios.post("/api/auxiliar");
       setIsLoading(true);
-      setProperties(response.data.sort(function (a, b) {
+
+      const featured = response.data.filter(property => property.featured).sort(function (a, b) {
         return a.name.localeCompare(b.name);;
-      }))
+      });
+
+      const noFeatured = response.data.filter(property => !property.featured).sort(function (a, b) {
+        return a.name.localeCompare(b.name);;
+      });
+      
+      const reorderedProperties = [...featured, ...noFeatured];
+      setProperties(reorderedProperties)
       setDataProperties(response.data)
       setAuxiliar(auxiliarResponse.data)
       setIsLoading(false);
     };
     fetchData();
   }, [])
-  
+
   useEffect(() => {
     const fetchFilteredProperties = async () => {
       const params = {};
       setIsLoading(true);
-      
+
       if (selectedOperationType) {
         params.operationType = selectedOperationType;
       }
@@ -63,7 +71,7 @@ export const GlobalContextProvider = ({ children }) => {
       if (selectedRoomsQuantity) {
         params.rooms = selectedRoomsQuantity;
       }
-      
+
       try {
         console.log(params, "params");
         const response = await axios.post('/api/propertiesFilters', { params });
