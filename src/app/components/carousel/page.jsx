@@ -16,7 +16,6 @@ function FeaturedPropertiesCarousel(
     const { properties, setProperties } = useGlobalContext();
 
     const [propertiesChunks, setPropertiesChunks] = useState([])
-console.log(propertiesChunks);
     useEffect(() => {
         if (properties) {
             const featuredProperties = properties.filter((property) => property.featured);
@@ -32,7 +31,7 @@ console.log(propertiesChunks);
     // }
 
     return (
-        <Carousel infiniteLoop autoPlay showThumbs={false}>
+        <Carousel infiniteLoop autoPlay showThumbs={false} interval={3000} >
             {propertiesChunks.length ?
                 propertiesChunks.map((chunk, index) => (
                     <div key={index} className={styles.carousel}>
