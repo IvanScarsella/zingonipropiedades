@@ -8,7 +8,6 @@ import Image from "next/image";
 import styles from "./id.module.css";
 import WhatsApp from "../../components/whatsapp/page";
 import Footer from "../../components/footer/page";
-import Background from "../../components/background/page";
 import rooms_logo from "../../../../public/rooms_logo.png";
 import bathrooms_logo from "../../../../public/bathrooms_logo.png";
 import area_logo from "../../../../public/area_logo.png";
@@ -211,7 +210,6 @@ function PropertyByID(id) {
             </div>
             {/* <button onClick={() => router.push('/home')}>Volver al inicio</button> */}
             <Footer />
-            <Background />
             <WhatsApp />
         </>
     );

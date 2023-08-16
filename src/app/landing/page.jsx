@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useGlobalContext } from "../../../context/store";
 import FeaturedPropertiesCarousel from '../components/carousel/page';
+import { useEffect, useState } from 'react';
 
 export default function Landing() {
 
@@ -15,8 +16,18 @@ export default function Landing() {
 
     const { properties, setProperties } = useGlobalContext();
 
-    const featuredProperties = properties.filter((property) => property.featured);
-    console.log(featuredProperties);
+    const [propertiesChunks, setPropertiesChunks] = useState([])
+    useEffect(() => {
+        if (properties) {
+            const featuredProperties = properties.filter((property) => property.featured);
+            const chunks = [];
+            for (let i = 0; i < featuredProperties.length; i += 3) {
+                chunks.push(featuredProperties.slice(i, i + 3));
+            };
+            setPropertiesChunks(chunks)
+        }
+    }, [properties])
+
     return (
         <div >
             <div className={styles.headerContainer}>
@@ -47,9 +58,9 @@ export default function Landing() {
             </div>
             <h1 className={styles.featuredPropertiesTitle}>Propiedades Destacadas</h1>
             <div >
-                {featuredProperties ?
+                {propertiesChunks.length ?
                     <FeaturedPropertiesCarousel
-                    //  properties={featuredProperties}
+                     properties={propertiesChunks}
                       />
                     : <p>Cargando propiedades...</p>}
             </div>

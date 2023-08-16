@@ -9,34 +9,18 @@ import { useGlobalContext } from "../../../../context/store";
 import { useEffect, useState } from 'react';
 
 function FeaturedPropertiesCarousel(
-    // { properties }
+    { properties }
 ) {
     const router = useRouter();
 
-    const { properties, setProperties } = useGlobalContext();
-
-    const [propertiesChunks, setPropertiesChunks] = useState([])
-    useEffect(() => {
-        if (properties) {
-            const featuredProperties = properties.filter((property) => property.featured);
-            const chunks = [];
-            for (let i = 0; i < featuredProperties.length; i += 3) {
-                chunks.push(featuredProperties.slice(i, i + 3));
-            };
-            setPropertiesChunks(chunks)
-        }
-    }, [properties])
-    // for (let i = 0; i < properties.length; i += 3) {
-    //     propertiesChunks.push(properties.slice(i, i + 3));
-    // }
+    const propertiesChunks = properties;
 
     return (
         <Carousel infiniteLoop autoPlay showThumbs={false} interval={3000} >
-            {propertiesChunks.length ?
-                propertiesChunks.map((chunk, index) => (
+               { propertiesChunks.map((chunk, index) => (
                     <div key={index} className={styles.carousel}>
                         {chunk.map((property) => (
-                            <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/${property.id}`)}>
+                            <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/property/${property.id}`)}>
                                 <Image
                                     src={property.mainImage || property.images[0]}
                                     key={property.mainImage}
@@ -57,9 +41,8 @@ function FeaturedPropertiesCarousel(
                             </div>
                         ))}
                     </div>
-                )) : (
-                    <p>Cargando propiedades...</p>
-                )}
+                )) 
+                }
         </Carousel>
     );
 }
