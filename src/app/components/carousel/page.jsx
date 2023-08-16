@@ -15,7 +15,7 @@ function FeaturedPropertiesCarousel({ properties }) {
     }
 
     return (
-        <Carousel infiniteLoop autoPlay >
+        <Carousel infiniteLoop autoPlay showThumbs={false}>
             {propertiesChunks.length ?
             propertiesChunks.map((chunk, index) => (
                 <div key={index} className={styles.carousel}>
@@ -34,11 +34,9 @@ function FeaturedPropertiesCarousel({ properties }) {
                                 <h4 className={styles.price}>
                                     {property.currency === 'Pesos' ? '$' : 'U$D'} {property.price}
                                 </h4>
-                                {property.description ? (
-                                    <h5 className={styles.propertyInfo}>{property.description}</h5>
-                                    ) : (
-                                        <h5 className={styles.propertyInfo}>descripción</h5>
-                                        )}
+                                <h4>
+                                    {property.operationType}
+                                </h4>
                             </div>
                         </div>
                     ))}
