@@ -48,7 +48,9 @@ export default function Landing() {
             <h1 className={styles.featuredPropertiesTitle}>Propiedades Destacadas</h1>
             <div >
                 {featuredProperties ?
-                    <FeaturedPropertiesCarousel properties={featuredProperties} />
+                    <FeaturedPropertiesCarousel
+                    //  properties={featuredProperties}
+                      />
                     : <p>Cargando propiedades...</p>}
             </div>
             <Footer />
