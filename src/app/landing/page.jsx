@@ -16,7 +16,7 @@ export default function Landing() {
     const { properties, setProperties } = useGlobalContext();
 
     const featuredProperties = properties.filter((property) => property.featured);
-
+    console.log(featuredProperties);
     return (
         <div >
             <div className={styles.headerContainer}>
@@ -47,7 +47,9 @@ export default function Landing() {
             </div>
             <h1 className={styles.featuredPropertiesTitle}>Propiedades Destacadas</h1>
             <div >
-                <FeaturedPropertiesCarousel properties={featuredProperties} />
+                {featuredProperties ?
+                    <FeaturedPropertiesCarousel properties={featuredProperties} />
+                    : <p>Cargando propiedades...</p>}
             </div>
             <Footer />
             <WhatsApp />
