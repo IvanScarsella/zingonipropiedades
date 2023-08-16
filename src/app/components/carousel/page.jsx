@@ -16,7 +16,7 @@ function FeaturedPropertiesCarousel({ properties }) {
 
     return (
         <Carousel infiniteLoop autoPlay >
-            {properties ?
+            {propertiesChunks.length ?
             propertiesChunks.map((chunk, index) => (
                 <div key={index} className={styles.carousel}>
                     {chunk.map((property) => (
