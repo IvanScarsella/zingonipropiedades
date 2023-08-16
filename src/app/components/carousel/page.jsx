@@ -17,7 +17,7 @@ function FeaturedPropertiesCarousel(
 
     return (
         <Carousel infiniteLoop autoPlay showThumbs={false} interval={3000} >
-               { propertiesChunks.map((chunk, index) => (
+               { propertiesChunks?.map((chunk, index) => (
                     <div key={index} className={styles.carousel}>
                         {chunk.map((property) => (
                             <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/property/${property.id}`)}>
