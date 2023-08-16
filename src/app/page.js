@@ -5,6 +5,7 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 import Home from "./home/page";
+import Landing from "./landing/page";
 
 function App() {
 //   // useEffect para configurar CORS cuando la aplicación se inicia
@@ -36,7 +37,7 @@ function App() {
 //       });
 //   }, []);
 
-  return <Home />;
+  return <Landing />;
 }
 
 export default App;
