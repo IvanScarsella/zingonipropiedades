@@ -8,31 +8,32 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
     const router = useRouter();
-    const [isHome, setIsHome] = useState(false);
+    // const [isHome, setIsHome] = useState(false);
 
-    useEffect(() => {
-        // Verificar si estamos en la página de inicio
-        setIsHome(router.pathname === "/home");
-    }, [router.pathname]);
+    // useEffect(() => {
+    //     setIsHome(router.pathname === "/home");
+    // }, [router.pathname]);
 
-    const handleHomeClick = () => {
-        if (isHome) {
-            window.location.reload();
-        } else {
-            router.push('/home'); // Ir a la página de inicio si no estamos en ella
-        }
-    };
+    // const handleHomeClick = () => {
+    //     if (isHome) {
+    //         window.location.reload();
+    //     } else {
+    //         router.push('/home');
+    //     }
+    // };
 
     return (
         <div className={styles.headerContainer}>
-            <div className={styles.headerLogo} onClick={handleHomeClick}>
+            <div className={styles.headerLogo}
+            //  onClick={handleHomeClick}
+             >
                 <Image
                     src={logo}
                     alt="Logo"
                     width={250}
                     height={250}
                     className="rounded-image"
-                    onClick={() => router.push('/home')}
+                    onClick={() => router.push('/landing')}
                 />
             </div>
             <div className={styles.headerButtonsContainer}>

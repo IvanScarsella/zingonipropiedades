@@ -43,7 +43,7 @@ function PropertiesContainer() {
                 // Mostrar los datos cuando la carga ha finalizado
                 <>
                     {renderizedProperties.map((property) => (
-                        <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/${property.id}`)}>
+                        <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/property/${property.id}`)}>
                             <Image
                                 src={property.mainImage || property.images[0]}
                                 key={property.mainImage}

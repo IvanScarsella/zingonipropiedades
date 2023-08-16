@@ -16,6 +16,8 @@ export const GlobalContext = createContext({
   setSelectedRoomsQuantity: () => [],
   auxiliar: [],
   setAuxiliar: () => [],
+  orderBy: "",
+  setOrderBy: () => []
 });
 
 
@@ -29,6 +31,8 @@ export const GlobalContextProvider = ({ children }) => {
   const [selectedPropertyType, setSelectedPropertyType] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedRoomsQuantity, setSelectedRoomsQuantity] = useState("");
+  const [orderBy, setOrderBy] = useState("");
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -44,7 +48,7 @@ export const GlobalContextProvider = ({ children }) => {
       const noFeatured = response.data.filter(property => !property.featured).sort(function (a, b) {
         return a.name.localeCompare(b.name);;
       });
-      
+
       const reorderedProperties = [...featured, ...noFeatured];
       setProperties(reorderedProperties)
       setDataProperties(response.data)
@@ -58,7 +62,7 @@ export const GlobalContextProvider = ({ children }) => {
     const fetchFilteredProperties = async () => {
       const params = {};
       setIsLoading(true);
-
+  
       if (selectedOperationType) {
         params.operationType = selectedOperationType;
       }
@@ -71,35 +75,67 @@ export const GlobalContextProvider = ({ children }) => {
       if (selectedRoomsQuantity) {
         params.rooms = selectedRoomsQuantity;
       }
-
+      if (orderBy) {
+        params.orderBy = orderBy;
+      }
+  
       try {
-        console.log(params, "params");
         const response = await axios.post('/api/propertiesFilters', { params });
-        setProperties(response.data.sort(function (a, b) {
-          return a.name.localeCompare(b.name);;
-        }))
+        // Aplicar ordenamiento si hay resultados y un criterio de orden
+        if (orderBy && response.data.length > 0) {
+          if (orderBy === "priceLowToHigh") {
+            response.data.sort(function (a, b) {
+              return a.price - b.price;
+            });
+          }
+          if (orderBy === "priceHighToLow") {
+            response.data.sort(function (a, b) {
+              return b.price - a.price;
+            });
+          }
+        }
+        setProperties(response.data);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
     };
-
+  
+    // Llamar a la función de filtrado si hay algún filtro activo
     if (
       selectedOperationType ||
       selectedPropertyType ||
       selectedLocation ||
-      selectedRoomsQuantity
+      selectedRoomsQuantity ||
+      orderBy
     ) {
       fetchFilteredProperties();
     } else if (properties !== dataProperties) {
-      setProperties(dataProperties)
+      // Restaurar las propiedades originales si no hay filtros ni ordenamientos activos
+      setProperties(dataProperties);
     }
   }, [
     selectedOperationType,
     selectedPropertyType,
     selectedLocation,
-    selectedRoomsQuantity
-  ])
+    selectedRoomsQuantity,
+    orderBy,
+  ]);
+
+//   useEffect(() => {
+//     if (orderBy) {
+//         if (orderBy === "priceLowToHigh") {
+//             setProperties(properties.sort(function (a, b) {
+//                 return a.price - b.price;
+//             }));
+//         }
+//         if (orderBy === "priceHighToLow") {
+//             setProperties(properties.sort(function (a, b) {
+//                 return b.price - a.price;
+//             }));
+//         }
+//     }
+// }, [orderBy]);
 
   return (
     <GlobalContext.Provider value={{
@@ -113,6 +149,8 @@ export const GlobalContextProvider = ({ children }) => {
       setSelectedLocation,
       selectedRoomsQuantity,
       setSelectedRoomsQuantity,
+      orderBy,
+      setOrderBy,
       auxiliar,
       setAuxiliar,
     }}>

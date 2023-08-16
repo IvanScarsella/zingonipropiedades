@@ -1,20 +1,24 @@
 'use client';
 
-import Header from '../components/header/page';
 import Footer from '../components/footer/page';
 import WhatsApp from '../components/whatsapp/page';
 import styles from './landing.module.css';
 import landing_logo from '../../../public/logo.png'
-import landing_logo_2 from '../../../public/landing_logo_2.png'
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useGlobalContext } from "../../../context/store";
+import FeaturedPropertiesCarousel from '../components/carousel/page';
 
 export default function Landing() {
 
     const router = useRouter();
 
+    const { properties, setProperties } = useGlobalContext();
+
+    const featuredProperties = properties.filter((property) => property.featured);
+
     return (
-        <div>
+        <div >
             <div className={styles.headerContainer}>
                 <div className={styles.headerLogo}>
                     <Image
@@ -25,14 +29,6 @@ export default function Landing() {
                         className="rounded-image"
                         onClick={() => router.push('/home')}
                     />
-                    {/* <Image
-                        src={landing_logo_2}
-                        alt="landing_logo_2"
-                        width={400}
-                        height={400}
-                        className="rounded-image"
-                        onClick={() => router.push('/home')}
-                    /> */}
                 </div>
                 <div>
                     <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Ventas</span></button>
@@ -48,6 +44,10 @@ export default function Landing() {
                 <div>
                     <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
                 </div>
+            </div>
+            <h1 className={styles.featuredPropertiesTitle}>Propiedades Destacadas</h1>
+            <div >
+                <FeaturedPropertiesCarousel properties={featuredProperties} />
             </div>
             <Footer />
             <WhatsApp />

@@ -304,7 +304,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Tipo de cambio
                         </label>
-                        <select onChange={changeHandler} id="currency">
+                        <select onChange={changeHandler} id="currency" value={form.currency.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="Dolares">U$D</option>
                             <option value="Pesos">$</option>
@@ -317,7 +317,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Tipo de operación
                         </label>
-                        <select onChange={changeHandler} id="operationType">
+                        <select onChange={changeHandler} id="operationType" value={form.operationType.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="Venta">Venta</option>
                             <option value="Alquiler">Alquiler</option>
@@ -330,7 +330,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Tipo de propiedad
                         </label>
-                        <select onChange={changeHandler} id="propertyType">
+                        <select onChange={changeHandler} id="propertyType" value={form.propertyType.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="Terreno">Terreno</option>
                             <option value="Casa">Casa</option>
@@ -419,7 +419,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Garage
                         </label>
-                        <select onChange={changeHandler} id="garage">
+                        <select onChange={changeHandler} id="garage" value={form.garage.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>
@@ -432,7 +432,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Luz
                         </label>
-                        <select onChange={changeHandler} id="electricity">
+                        <select onChange={changeHandler} id="electricity" value={form.electricity.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>
@@ -445,7 +445,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Gas
                         </label>
-                        <select onChange={changeHandler} id="gas">
+                        <select onChange={changeHandler} id="gas" value={form.gas.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>
@@ -458,7 +458,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Agua
                         </label>
-                        <select onChange={changeHandler} id="water">
+                        <select onChange={changeHandler} id="water" value={form.water.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>
@@ -471,7 +471,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Asfalto
                         </label>
-                        <select onChange={changeHandler} id="asphalt">
+                        <select onChange={changeHandler} id="asphalt" value={form.asphalt.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>
@@ -484,7 +484,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Cloacas
                         </label>
-                        <select onChange={changeHandler} id="sewer">
+                        <select onChange={changeHandler} id="sewer" value={form.sewer.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>
@@ -525,7 +525,7 @@ export default function UpdateProperty(id) {
                         <label className={styles.PropertyCustomFileLabel}>
                             Destacar
                         </label>
-                        <select onChange={changeHandler} id="featured" value={form.featured === true ? "true" : "false"}>
+                        <select onChange={changeHandler} id="featured" value={form.featured.toString()}>
                             <option value="">Selecciona una opción</option>
                             <option value="true">Si</option>
                             <option value="false">No</option>

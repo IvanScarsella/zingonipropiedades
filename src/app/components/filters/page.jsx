@@ -19,6 +19,7 @@ export default function Filters(
         setSelectedPropertyType,
         setSelectedLocation,
         setSelectedRoomsQuantity,
+        setOrderBy,
     } = useGlobalContext();
 
     const [operationType, setOperationType] = useState([]);
@@ -107,6 +108,18 @@ export default function Filters(
                         {room}
                     </option>
                 ))}
+            </select>
+            <select
+                onChange={(e) => setOrderBy(e.target.value)}
+                className={styles.customSelect}
+            >
+                <option value="">Ordenar por:</option>
+                    <option value="priceLowToHigh">
+                        Precio: menor a mayor
+                    </option>
+                    <option value="priceHighToLow">
+                        Precio: mayor a menor
+                    </option>
             </select>
         </div>
     )

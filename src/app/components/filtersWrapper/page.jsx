@@ -11,6 +11,7 @@ export default function FiltersWrapper() {
     setSelectedPropertyType,
     setSelectedLocation,
     setSelectedRoomsQuantity,
+    setOrderBy,
   } = useGlobalContext();
 
   useEffect(() => {
@@ -19,7 +20,8 @@ export default function FiltersWrapper() {
     setSelectedPropertyType('');
     setSelectedLocation('');
     setSelectedRoomsQuantity('');
-  });
+    setOrderBy('')
+  }, []);
 
   return (
     <Filters
@@ -27,6 +29,7 @@ export default function FiltersWrapper() {
       setSelectedPropertyType={setSelectedPropertyType}
       setSelectedLocation={setSelectedLocation}
       setSelectedRoomsQuantity={setSelectedRoomsQuantity}
+      setOrderBy={setOrderBy}
     />
   );
 }

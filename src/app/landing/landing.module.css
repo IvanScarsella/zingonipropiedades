@@ -1,5 +1,3 @@
-/* header.module.css */
-
 .headerContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -17,7 +15,7 @@
 }
 
 .headerContainer div {
-    margin: -20px auto 60px;
+    margin: -90px auto 60px;
 }
 
 .headerContainer .bottom-div {
@@ -60,7 +58,7 @@
 .headerButton {
     border: 0;
     background-image: linear-gradient(0deg,
-            #b085bd, #b085bd9c, #b085bd);
+            #ab78bb, #b085bd9c, #ab78bb);
     border-radius: 8px;
     color: #fff;
     display: flex;
@@ -75,6 +73,8 @@
 }
 
 .headerButton span {
+    background-image: linear-gradient(0deg,
+            #693d7ab0, #b085bd9c, #693d7ab0);
     background-color: #693d7ab0;
     padding: 16px 24px;
     border-radius: 6px;
@@ -100,6 +100,49 @@
     /* Centra horizontalmente los botones */
 }
 
-.headerButtonsContainer h2 {
+.featuredPropertiesTitle {
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-image: linear-gradient(0deg,
+            #693d7ab0, #b085bd9c, #693d7ab0);
+    background-color: #693d7ab0;
+}
+
+.featuredPropertiesTitle {
+    text-shadow: 5px 5px 12px #ffffff;
+}
+
+.propertyContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #40215c;
+    border-radius: 10px;
+    background-image: linear-gradient(0deg,
+            #b085bd, #b085bd9c, #b085bd);
+    box-shadow: 0 0 10px #000;
+}
+
+.propertyContainer:hover {
+    transform: scale(1.1);
+    transition: .2s;
+    cursor: pointer;
+}
+
+.propertyImage {
+    align-self: flex-start;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    float: left;
+    margin: 2%;
+}
+
+.price {
+    color: #2b9e08;
 }
