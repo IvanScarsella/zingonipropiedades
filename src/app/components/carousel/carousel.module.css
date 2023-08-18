@@ -15,6 +15,7 @@
     #b085bd, #b085bd9c,#b085bd);
     box-shadow: 0 0 10px #000;
     margin: 1%;
+    padding: 1%;
   }
 
   .propertyContainer:hover {
@@ -28,6 +29,7 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
+    border: 1px solid #40215c;
     border-radius: 10px;
     float: left;
     margin: 2%;

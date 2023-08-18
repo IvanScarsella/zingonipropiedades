@@ -8,7 +8,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./auxiliar.module.css";
 import axios from "axios";
-import Background from "../components/background/page";
 import Footer from "../components/footer/page";
 
 export default function Auxiliar() {
@@ -72,8 +71,7 @@ export default function Auxiliar() {
             <button onClick={() => router.push(`/createAuxiliar`)}>
                 Cargar nuevo Auxiliar
             </button>
-            {/* <Footer /> */}
-            <Background />
+            <Footer />
             <WhatsApp />
         </>
     )

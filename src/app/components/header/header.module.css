@@ -19,6 +19,7 @@
 .headerLogo {
     grid-area: 1 / 1 / 2 / 2;
     border-radius: 10%;
+    cursor: pointer;
     /* background-color: #b591c050; */
 }
 
@@ -28,7 +29,6 @@
     border-radius: 10px;
     color: #ece9ec;
     font-size:1.4em;
-    cursor: pointer;
 }
 
 .headerButton:hover {
