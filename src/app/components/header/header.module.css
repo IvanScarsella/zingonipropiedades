@@ -1,49 +1,26 @@
 /* header.module.css */
 
 .headerContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* Ahora el contenedor tiene tres columnas de igual ancho */
-    grid-template-rows: 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 34px;
-    justify-items: center;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 5%;
     background-color: #693d7a;
-    background-image: linear-gradient(0deg,
-    #693d7a, #b085bd9c,#693d7a);
+    background-image: linear-gradient(0deg, #693d7a, #b085bd9c, #693d7a);
     box-shadow: 0 0 10px #000;
+    padding: 10px 20px;
+    
 }
 
 .headerLogo {
-    grid-area: 1 / 1 / 2 / 2;
     border-radius: 10%;
     cursor: pointer;
-    /* background-color: #b591c050; */
+    margin-left: 20px; 
 }
-
-/* .headerButton {
-    background-color:#b591c050;
-    border: none;
-    border-radius: 10px;
-    color: #ece9ec;
-    font-size:1.4em;
-}
-
-.headerButton:hover {
-    background: none;
-    border: solid;
-    border-color: #000000;
-    color: #000000;
-    transform: translate(-3px);
-    cursor: pointer;
-  } */
 
 .headerButton {
     border: 0;
-    background-image: linear-gradient(0deg,
-    #b085bd, #b085bd9c, #b085bd);
+    background-image: linear-gradient(0deg, #b085bd, #b085bd9c, #b085bd);
     border-radius: 8px;
     color: #fff;
     display: flex;
@@ -54,6 +31,13 @@
     box-shadow: 0 0 10px #00000086;
     align-items: center;
     justify-content: center;
+    max-height: 70px;
+    flex: 1;
+    margin: auto;
+}
+
+.headerButton button {
+    max-height: 100px;
 }
 
 .headerButton span {
@@ -65,7 +49,7 @@
 
 .headerButton:hover span {
     background: none;
-    transform:scale(1.2);
+    transform: scale(1.2);
 }
 
 .headerButton:active {
@@ -74,12 +58,8 @@
 
 .headerButtonsContainer {
     display: flex;
-    gap: 30%;
-    /* Espacio entre los botones */
-    grid-area: 1 / 2 / 2 / 4;
-    /* Ocupa de la columna 2 a la columna 4 del grid */
-    justify-content: center;
-    /* Centra horizontalmente los botones */
+    gap: 20%;
+    margin-right: 10%;
 }
 
 .headerButtonsContainer h2 {

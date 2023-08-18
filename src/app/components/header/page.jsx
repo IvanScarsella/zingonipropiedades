@@ -8,25 +8,11 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
     const router = useRouter();
-    // const [isHome, setIsHome] = useState(false);
-
-    // useEffect(() => {
-    //     setIsHome(router.pathname === "/home");
-    // }, [router.pathname]);
-
-    // const handleHomeClick = () => {
-    //     if (isHome) {
-    //         window.location.reload();
-    //     } else {
-    //         router.push('/home');
-    //     }
-    // };
 
     return (
         <div className={styles.headerContainer}>
-            <div className={styles.headerLogo}
-            //  onClick={handleHomeClick}
-             >
+            <div className={styles.headerButtonsContainer}>
+            <div className={styles.headerLogo}>
                 <Image
                     src={logo}
                     alt="Logo"
@@ -36,11 +22,11 @@ export default function Header() {
                     onClick={() => router.push('/landing')}
                 />
             </div>
-            <div className={styles.headerButtonsContainer}>
-                <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Inicio</span></button>
+                <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Ventas</span></button>
+                <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Alquileres</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
-                <h2>(221) 5310582</h2>
+                {/* <h2>(221) 5310582</h2> */}
             </div>
         </div>
     );

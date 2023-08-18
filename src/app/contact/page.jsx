@@ -3,7 +3,7 @@
 import Header from "../components/header/page";
 import Link from "next/link";
 import WhatsApp from "../components/whatsapp/page";
-import Background from "../components/background/page";
+import Footer from "../components/footer/page";
 
 export default function Contact() {
     return (
@@ -19,7 +19,7 @@ export default function Contact() {
             <Link href="mailto:zingonipropiedades@gmail.com" target="_blank">
                 <h2>E-mail: zingonipropiedades@gmail.com</h2>
             </Link>
-            <Background />
+            <Footer />
             <WhatsApp />
         </>
     )

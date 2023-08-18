@@ -17,32 +17,32 @@ function FeaturedPropertiesCarousel(
 
     return (
         <Carousel infiniteLoop autoPlay showThumbs={false} interval={3000} >
-               { propertiesChunks?.map((chunk, index) => (
-                    <div key={index} className={styles.carousel}>
-                        {chunk.map((property) => (
-                            <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/property/${property.id}`)}>
-                                <Image
-                                    src={property.mainImage || property.images[0]}
-                                    key={property.mainImage}
-                                    alt="property image"
-                                    width="200"
-                                    height="200"
-                                    className={styles.propertyImage}
-                                />
-                                <div>
-                                    <h3>{property.name}</h3>
-                                    <h4 className={styles.price}>
-                                        {property.currency === 'Pesos' ? '$' : 'U$D'} {property.price}
-                                    </h4>
-                                    <h4>
-                                        {property.operationType}
-                                    </h4>
-                                </div>
+            {propertiesChunks?.map((chunk, index) => (
+                <div key={index} className={styles.carousel}>
+                    {chunk.map((property) => (
+                        <div key={property.id} className={styles.propertyContainer} onClick={() => router.push(`/property/${property.id}`)}>
+                            <Image
+                                src={property.mainImage || property.images[0]}
+                                key={property.mainImage}
+                                alt="property image"
+                                width="200"
+                                height="200"
+                                className={styles.propertyImage}
+                            />
+                            <div>
+                                <h3>{property.name}</h3>
+                                <h4 className={styles.price}>
+                                    {property.currency === 'Pesos' ? '$' : 'U$D'} {property.price}
+                                </h4>
+                                <h4>
+                                    {property.operationType.split('_').join(' ')}
+                                </h4>
                             </div>
-                        ))}
-                    </div>
-                )) 
-                }
+                        </div>
+                    ))}
+                </div>
+            ))
+            }
         </Carousel>
     );
 }

@@ -1,12 +1,12 @@
-.footerContainer {
+/* .footerContainer {
     display: flex;
     flex-direction: column;
     background-color: #693d7a;
     background-image: linear-gradient(0deg,
     #693d7a, #b085bd9c,#693d7a);
     color: #ece9ec;
-    display: flex; /* Utilizar flexbox para alinear los elementos en una fila */
-    justify-content: center; /* Centrar horizontalmente los elementos */
+    display: flex;
+    justify-content: center;
     margin-top: 1%;
     box-shadow: 0 0 10px #000;
     font-family: 'open sans', arial, sans-serif;
@@ -24,6 +24,53 @@
 }
 
 .emailLink {
-    color: #ece9ec; /* Reemplaza 'your-desired-color' por el color que desees */
-    text-decoration: none; /* Quitar la subrayado del enlace */
-}
+    color: #ece9ec;
+    text-decoration: none; 
+} */
+
+.footer {
+    background-color: #693d7a;
+    background-image: linear-gradient(0deg,
+    #693d7a, #b085bd9c,#693d7a);
+    padding: 20px 0;
+  }
+  
+  .footerContent {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .footerColumn {
+    flex: 1;
+    padding: 0 20px;
+  }
+  
+  .footerColumn h3 {
+    margin-bottom: 10px;
+  }
+  
+  .footerColumn p, .footerColumn a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  
+  .footerColumn ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .socialIcons li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  .socialIcons a {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .socialIcons a:hover {
+    color: #b085bd;
+  }
+  

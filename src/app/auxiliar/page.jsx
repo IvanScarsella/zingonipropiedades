@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import styles from "./auxiliar.module.css";
 import axios from "axios";
 import Footer from "../components/footer/page";
+import whatsapp_logo from "../../../public/whatsapp_logo.png"
+import Link from "next/link";
 
 export default function Auxiliar() {
 
@@ -46,25 +48,33 @@ export default function Auxiliar() {
             <Header />
             <div className={styles.auxiliarList}>
                 {auxiliar.map((aux) => (
-                    <div className={styles.auxiliarCard} key={aux.id}>
-                        <h4>{aux.name}</h4>
-                        <h4>{aux.position}</h4>
-                        <h4>{aux.phone}</h4>
-                        <Image
-                            src={aux.photo}
-                            key={aux.photo}
-                            alt="auxiliar image"
-                            width="200"
-                            height="200"
-                            className={styles.auxiliarImage}
-                        />
-                        <button onClick={() => router.push(`/auxiliar/${aux.id}`)}>
-                            Actualizar
-                        </button>
-                        <button onClick={() => deleteAuxiliar(aux.id)}>
-                            Eliminar
-                        </button>
-                    </div>
+                    <>
+                        <div className={styles.auxiliarCard} key={aux.id}>
+                            <h4>{aux.name}</h4>
+                            <h4>{aux.position}</h4>
+                            <Link href={`https://api.whatsapp.com/send/?phone=549${aux.phone}`} target="_blank">
+                                <h4>
+                                    <Image className={styles.whatsapp} src={whatsapp_logo}
+                                        alt="whatsapp_logo" width={15} height={15} />
+                                    {aux.phone}
+                                </h4>
+                            </Link>
+                            <Image
+                                src={aux.photo}
+                                key={aux.photo}
+                                alt="auxiliar image"
+                                width="200"
+                                height="200"
+                                className={styles.auxiliarImage}
+                            />
+                            <button onClick={() => router.push(`/auxiliar/${aux.id}`)}>
+                                Actualizar
+                            </button>
+                            <button onClick={() => deleteAuxiliar(aux.id)}>
+                                Eliminar
+                            </button>
+                        </div>
+                    </>
                 ))
                 }
             </div>
