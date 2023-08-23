@@ -43,13 +43,13 @@ export default function Landing() {
                     />
                 </div>
                 <div>
-                    <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Ventas</span></button>
+                    <button className={`${styles.headerButton}`} onClick={() => router.push('/home?type=Venta')}><span>Ventas</span></button>
                 </div>
                 <div>
                     <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
                 </div>
                 <div>
-                    <button className={`${styles.headerButton}`} onClick={() => router.push('/home')}><span>Alquileres</span></button>
+                    <button className={`${styles.headerButton}`} onClick={() => router.push('/home?type=Alquiler')}><span>Alquileres</span></button>
                 </div>
                 <div>
                 </div>
