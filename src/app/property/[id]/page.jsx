@@ -20,6 +20,7 @@ import asphalt_logo from "../../../../public/asphalt_logo.png";
 import sewer_logo from "../../../../public/sewer_logo.png";
 import antiquity_logo from "../../../../public/antiquity_logo.png";
 import location_logo from "../../../../public/location_logo.png";
+import MailForm from "../../components/mailForm/page";
 
 function PropertyByID(id) {
     const router = useRouter();
@@ -187,7 +188,7 @@ function PropertyByID(id) {
                         <h3><Image src={antiquity_logo} alt='property image' width='20' height='20'/>   Antigüedad: {property.antiquity} años</h3>
                         : null}
                 </div>
-                <h2>(Acá iría la sección de enviar mail)</h2>
+                <MailForm id={id}/>
                 {/* <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="file" className={styles.customFileLabel}>

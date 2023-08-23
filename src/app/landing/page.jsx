@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useGlobalContext } from "../../../context/store";
 import FeaturedPropertiesCarousel from '../components/carousel/page';
 import { useEffect, useState } from 'react';
+import MailForm from '../components/mailForm/page';
 
 export default function Landing() {
 
@@ -63,6 +64,9 @@ export default function Landing() {
                      properties={propertiesChunks}
                       />
                     : <p>Cargando propiedades...</p>}
+            </div>
+            <div className={styles.mailForm}>
+                <MailForm />
             </div>
             <Footer />
             <WhatsApp />

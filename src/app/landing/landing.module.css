@@ -146,3 +146,11 @@
 .price {
     color: #2b9e08;
 }
+
+.mailForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* max-width: 60%; */
+    margin: 1%;
+}
