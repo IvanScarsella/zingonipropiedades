@@ -210,7 +210,7 @@ export default function CreateProperty() {
     return (
         <>
             <Header />
-            <h1>Cargar nueva Propiedad</h1>
+            <h1 className={styles.title}>Cargar nueva Propiedad</h1>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.propertyElementsList}>
 

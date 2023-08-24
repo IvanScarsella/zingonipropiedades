@@ -168,10 +168,10 @@ console.log(form);
     return (
         <>
             <Header />
-            <h1>Cargar nuevo Auxiliar</h1>
+            <h1 className={styles.title}>Cargar nuevo Auxiliar</h1>
             {/* {form.photo ?
                 <Image className={styles.mainImage} src={form.photo} alt='auxiliar image' width='200' height='200' /> : null} */}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.auxiliarElementsList}>
                     <label className={styles.auxiliarCustomFileLabel}>
                         Nombre
