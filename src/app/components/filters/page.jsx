@@ -15,10 +15,15 @@ export default function Filters(
 ) {
 
     const {
+        selectedOperationType,
         setSelectedOperationType,
+        selectedPropertyType,
         setSelectedPropertyType,
+        selectedLocation,
         setSelectedLocation,
+        selectedRoomsQuantity,
         setSelectedRoomsQuantity,
+        orderBy,
         setOrderBy,
     } = useGlobalContext();
 
@@ -71,7 +76,11 @@ export default function Filters(
             >
                 <option value="">Tipo de operación</option>
                 {operationType.map((operation, index) => (
-                    <option key={index} value={operation}>
+                    <option
+                        key={index}
+                        value={operation}
+                        selected={selectedOperationType === operation}
+                    >
                         {operation}
                     </option>
                 ))}
@@ -82,7 +91,11 @@ export default function Filters(
             >
                 <option value="">Tipo de propiedad</option>
                 {propertyType.map((property, index) => (
-                    <option key={index} value={property}>
+                    <option
+                        key={index}
+                        value={property}
+                        selected={selectedPropertyType === property}
+                    >
                         {property}
                     </option>
                 ))}
@@ -93,7 +106,11 @@ export default function Filters(
             >
                 <option value="">Localidad</option>
                 {location.map((location, index) => (
-                    <option key={index} value={location}>
+                    <option
+                        key={index}
+                        value={location}
+                        selected={selectedLocation === location}
+                    >
                         {location}
                     </option>
                 ))}
@@ -104,7 +121,11 @@ export default function Filters(
             >
                 <option value="">Ambientes</option>
                 {rooms.map((room, index) => (
-                    <option key={index} value={room}>
+                    <option
+                        key={index}
+                        value={room}
+                        selected={selectedRoomsQuantity === room.toString()}
+                    >
                         {room}
                     </option>
                 ))}
@@ -112,15 +133,60 @@ export default function Filters(
             <select
                 onChange={(e) => setOrderBy(e.target.value)}
                 className={styles.customSelect}
+                value={orderBy}
             >
                 <option value="">Ordenar por:</option>
-                    <option value="priceLowToHigh">
-                        Precio: menor a mayor
-                    </option>
-                    <option value="priceHighToLow">
-                        Precio: mayor a menor
-                    </option>
+                <option
+                 value="priceLowToHigh"
+                 >
+                    Precio: menor a mayor
+                </option>
+                <option value="priceHighToLow">
+                    Precio: mayor a menor
+                </option>
             </select>
+
+            {selectedOperationType && (
+                <button
+                    className={styles.filterButton}
+                    onClick={() => setSelectedOperationType("")}
+                >
+                    {selectedOperationType} &#x2716;
+                </button>
+            )}
+            {selectedPropertyType && (
+                <button
+                    className={styles.filterButton}
+                    onClick={() => setSelectedPropertyType("")}
+                >
+                    {selectedPropertyType} &#x2716;
+                </button>
+            )}
+            {selectedLocation && (
+                <button
+                    className={styles.filterButton}
+                    onClick={() => setSelectedLocation("")}
+                >
+                    {selectedLocation} &#x2716;
+                </button>
+            )}
+            {selectedRoomsQuantity && (
+                <button
+                    className={styles.filterButton}
+                    onClick={() => setSelectedRoomsQuantity("")}
+                >
+                    {selectedRoomsQuantity} Ambientes &#x2716;
+                </button>
+            )}
+            {orderBy && (
+                <button
+                    className={styles.filterButton}
+                    onClick={() => setOrderBy("")}
+                >
+                    {orderBy === "priceLowToHigh" ? "Precio: menor a mayor" : "Precio: mayor a menor"} &#x2716;
+                </button>
+            )}
+
         </div>
     )
 }

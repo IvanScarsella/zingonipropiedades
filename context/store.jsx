@@ -7,7 +7,7 @@ export const GlobalContext = createContext({
   properties: [],
   setProperties: () => [],
   selectedOperationType: "",
-  setSelectedOperationType: () => [],
+  setSelectedOperationType: () => {},
   selectedPropertyType: "",
   setSelectedPropertyType: () => [],
   selectedLocation: "",
