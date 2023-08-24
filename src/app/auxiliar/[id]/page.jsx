@@ -132,7 +132,7 @@ export default function AuxiliarById(id) {
     return (
         <>
             <Header />
-            <h1>Actualizar {auxiliar.name}</h1>
+            <h1 className={styles.title}>Actualizar {auxiliar.name}</h1>
             {auxiliar.photo ?
                 <Image className={styles.mainImage} src={auxiliar.photo} alt='auxiliar image' width='200' height='200' /> : null}
             <form onSubmit={handleSubmit}>

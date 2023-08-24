@@ -1,25 +1,39 @@
 .customFileLabel {
-    display: inline-block;
-    padding: 8px 12px;
-    color: black;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+  display: inline-block;
+  padding: 8px 12px;
+  color: black;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  .customFileInput {
-    display: none;
-  }
+.customFileInput {
+  display: none;
+}
 
-  .auxiliarElementsList {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 34px;
-    justify-items: center;
+.auxiliarElementsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 34px;
+  justify-items: center;
 }
 
 .auxiliarButton {
   font-size: large;
+}
+
+.mainImage {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  border-radius: 100px;
+  margin: auto;
 }
