@@ -211,7 +211,7 @@ export default function CreateProperty() {
         <>
             <Header />
             <h1>Cargar nueva Propiedad</h1>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.propertyElementsList}>
 
                     <div>
@@ -498,12 +498,12 @@ export default function CreateProperty() {
                         </div>
                     </div>
 
+                </div>
                     <button
                         type="submit"
-                        className={styles.PropertyButton}
+                        className={`${styles.propertyButton} ${!isFormValid() && styles.disabledButton}`}
                         disabled={!isFormValid()}
                     >Cargar nueva Propiedad</button>
-                </div>
             </form>
         </>
     );
