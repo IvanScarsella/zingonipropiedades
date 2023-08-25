@@ -1,26 +1,23 @@
+.landingContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .headerContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 34px;
+    display: flex;
+    flex-direction: row;
     justify-items: center;
-    align-items: center;
     margin-bottom: 5%;
-    /* padding: 4%; */
-    /* background-color: #693d7a; */
     background-image: linear-gradient(0deg,
             #693d7a, #b085bd9c, #693d7a);
     box-shadow: 0 0 10px #000;
-}
-
-.headerContainer div {
-    margin: -90px auto 60px;
+    min-width: 300px;
+    max-width: 100%;
+    justify-content: space-around;
 }
 
 .headerContainer .bottom-div {
     margin: 20px auto 40px;
-    /* Margen superior y margen inferior para los elementos de abajo */
 }
 
 .headerLogo {
@@ -28,32 +25,29 @@
     border-radius: 10%;
     grid-column: 2;
     margin-bottom: 0%;
-    /* box-shadow: 0 0 20px #ffffff; */
+    order: 2;
 }
 
 .headerLogo img {
     margin-top: 100px;
-    /* box-shadow: 0 0 20px #ffffff; */
     filter: drop-shadow(8px 8px 5px #ffffff)
 }
 
-/* .headerButton {
-    background-color:#b591c050;
-    border: none;
-    border-radius: 10px;
-    color: #ece9ec;
-    font-size:1.4em;
-    cursor: pointer;
+.headerButtons1 {
+    display: flex;
+    order: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.headerButton:hover {
-    background: none;
-    border: solid;
-    border-color: #000000;
-    color: #000000;
-    transform: translate(-3px);
-    cursor: pointer;
-  } */
+.headerButtons2 {
+    display: flex;
+    order: 3;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .headerButton {
     border: 0;
@@ -93,11 +87,8 @@
 .headerButtonsContainer {
     display: flex;
     gap: 30%;
-    /* Espacio entre los botones */
     grid-area: 1 / 2 / 2 / 4;
-    /* Ocupa de la columna 2 a la columna 4 del grid */
     justify-content: center;
-    /* Centra horizontalmente los botones */
 }
 
 .featuredPropertiesTitle {
@@ -151,6 +142,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* max-width: 60%; */
     margin: 1%;
+}
+
+@media (max-width: 600px) {
+    .headerContainer{
+        flex-direction: column;
+    }
+
+    .headerLogo {
+        order: 1;
+    }
+
+    .headerButtons1 {
+        order: 2;
+    }
+    .headerButtons1 {
+        order: 3;
+    }
 }

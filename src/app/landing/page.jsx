@@ -30,7 +30,7 @@ export default function Landing() {
     }, [properties])
 
     return (
-        <div >
+        <div className={styles.landingContainer}>
             <div className={styles.headerContainer}>
                 <div className={styles.headerLogo}>
                     <Image
@@ -42,27 +42,31 @@ export default function Landing() {
                         onClick={() => router.push('/home')}
                     />
                 </div>
-                <div>
-                    <button className={`${styles.headerButton}`} onClick={() => router.push('/home?type=Venta')}><span>Ventas</span></button>
+                <div className={styles.headerButtons1}>
+
+                    <div>
+                        <button className={`${styles.headerButton}`} onClick={() => router.push('/home?type=Venta')}><span>Ventas</span></button>
+                    </div>
+                    <div>
+                        <button className={`${styles.headerButton}`} onClick={() => router.push('/home?type=Alquiler')}><span>Alquileres</span></button>
+                    </div>
                 </div>
-                <div>
-                    <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
-                </div>
-                <div>
-                    <button className={`${styles.headerButton}`} onClick={() => router.push('/home?type=Alquiler')}><span>Alquileres</span></button>
-                </div>
-                <div>
-                </div>
-                <div>
-                    <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
+                <div className={styles.headerButtons2}>
+
+                    <div>
+                        <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
+                    </div>
+                    <div>
+                        <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
+                    </div>
                 </div>
             </div>
             <h1 className={styles.featuredPropertiesTitle}>Propiedades Destacadas</h1>
             <div >
                 {propertiesChunks.length ?
                     <FeaturedPropertiesCarousel
-                     properties={propertiesChunks}
-                      />
+                        properties={propertiesChunks}
+                    />
                     : <p>Cargando propiedades...</p>}
             </div>
             <div className={styles.mailForm}>
