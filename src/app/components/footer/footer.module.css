@@ -33,6 +33,7 @@
     background-image: linear-gradient(0deg,
     #693d7a, #b085bd9c,#693d7a);
     padding: 20px 0;
+    min-width: 100%;
   }
   
   .footerContent {
@@ -73,4 +74,9 @@
   .socialIcons a:hover {
     color: #b085bd;
   }
-  
+
+  @media (max-width: 600px) {
+    .footer {
+      min-width: 100%;
+    }
+  }

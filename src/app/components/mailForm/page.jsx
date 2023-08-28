@@ -40,6 +40,16 @@ export default function MailForm(id) {
         console.log('Formulario enviado:', formData);
     };
 
+    const isFormValid = () => {
+        if (
+            formData.name &&
+            formData.email &&
+            formData.phone &&
+            formData.reason
+        )
+            return true
+    }
+
     return (
         <form onSubmit={handleSubmit} className={styles.formContainer}>
             <div>
@@ -85,7 +95,11 @@ export default function MailForm(id) {
                     className={styles.textarea}
                 />
             </div>
-            <button type="submit" className={styles.button}>Enviar</button>
+            <button
+                type="submit"
+                className={`${styles.button} ${!isFormValid() && styles.disabledButton}`}
+                disabled={!isFormValid()}
+            >Enviar</button>
         </form>
     );
 }

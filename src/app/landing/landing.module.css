@@ -110,22 +110,8 @@
 
 }
 
-.propertyContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    border: 1px solid #40215c;
-    border-radius: 10px;
-    background-image: linear-gradient(0deg,
-            #b085bd, #b085bd9c, #b085bd);
-    box-shadow: 0 0 10px #000;
-}
-
-.propertyContainer:hover {
-    transform: scale(1.1);
-    transition: .2s;
-    cursor: pointer;
+.featuredProperties {
+    margin-left: 1px;
 }
 
 .propertyImage {
@@ -188,5 +174,9 @@
     .featuredPropertiesTitle {
         font-size: 1.5em;
         min-width: 100%;
+    }
+
+    .featuredProperties {
+        margin-left: 10px;
     }
 }

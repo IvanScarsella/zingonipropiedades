@@ -36,6 +36,11 @@
     cursor: pointer;
 }
 
+.disabledButton {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 .button:hover {
     background-color: #693d7a;
 }

@@ -62,7 +62,7 @@ export default function Landing() {
                 </div>
             </div>
             <h1 className={styles.featuredPropertiesTitle}>Propiedades Destacadas</h1>
-            <div >
+            <div className={styles.featuredProperties}>
                 {propertiesChunks.length ?
                     <FeaturedPropertiesCarousel
                         properties={propertiesChunks}
