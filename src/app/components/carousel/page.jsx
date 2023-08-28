@@ -29,7 +29,7 @@ function FeaturedPropertiesCarousel(
                                 height="200"
                                 className={styles.propertyImage}
                             />
-                            <div>
+                            <div className={styles.propertyData}>
                                 <h3>{property.name}</h3>
                                 <h4 className={styles.price}>
                                     {property.currency === 'Pesos' ? '$' : 'U$D'} {property.price}

@@ -40,6 +40,10 @@
   color: #2b9e08;
 }
 
+.propertyData h3 h4 {
+  font-size: 1em;
+}
+
 @media (max-width: 600px) {
   .carousel {
     justify-content:center;
@@ -48,10 +52,15 @@
 
   .propertyContainer {
     flex-direction: column;
-    max-width: 15%;
+    width: 10%;
+    max-width: auto;
     /* margin: auto; */
   }
-
+  
+  
+  .propertyData h3 h4 {
+    font-size: 1em;
+  }
   .propertyContainer img {
     /* width: 50%; */
     height: 50%;
