@@ -1,41 +1,59 @@
 .carousel {
-    display: flex;
-    flex-direction: row;
-    margin: 5%;
+  display: flex;
+  flex-direction: row;
+  margin: 5%;
 }
 
 .propertyContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    border: 1px solid #40215c;
-    border-radius: 10px;
-    background-image: linear-gradient(0deg,
-    #b085bd, #b085bd9c,#b085bd);
-    box-shadow: 0 0 10px #000;
-    margin: 1%;
-    padding: 1%;
-    max-width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #40215c;
+  border-radius: 10px;
+  background-image: linear-gradient(0deg,
+      #b085bd, #b085bd9c, #b085bd);
+  box-shadow: 0 0 10px #000;
+  margin: 1%;
+  padding: 1%;
+  max-width: 30%;
+}
+
+.propertyContainer:hover {
+  transform: scale(1.1);
+  transition: .2s;
+  cursor: pointer;
+}
+
+.propertyImage {
+  align-self: flex-start;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #40215c;
+  border-radius: 10px;
+  float: left;
+  margin: 2%;
+}
+
+.price {
+  color: #2b9e08;
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    justify-content:center;
+    margin: auto;
   }
 
-  .propertyContainer:hover {
-    transform: scale(1.1);
-    transition: .2s;
-    cursor: pointer;
+  .propertyContainer {
+    flex-direction: column;
+    max-width: 15%;
+    /* margin: auto; */
   }
 
-  .propertyImage {
-    align-self: flex-start;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 1px solid #40215c;
-    border-radius: 10px;
-    float: left;
-    margin: 2%;
+  .propertyContainer img {
+    /* width: 50%; */
+    height: 50%;
   }
-
-  .price {
-    color: #2b9e08;
-  }
+}
