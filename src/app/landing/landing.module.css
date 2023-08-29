@@ -13,7 +13,7 @@
             #693d7a, #b085bd9c, #693d7a);
     box-shadow: 0 0 10px #000;
     min-width: 100%;
-    max-width: 100%;
+    /* max-width: 100%; */
     justify-content: space-around;
 
 }

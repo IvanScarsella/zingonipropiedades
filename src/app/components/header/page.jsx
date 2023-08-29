@@ -46,7 +46,6 @@ export default function Header() {
                 <button className={`${styles.headerButton}`} onClick={() => {router.push('/home'); setSelectedOperationType('Alquiler')}}><span>Alquileres</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
-                {/* <h2>(221) 5310582</h2> */}
             </div>
         </div>
     );

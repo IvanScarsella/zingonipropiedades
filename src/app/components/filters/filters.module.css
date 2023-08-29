@@ -67,4 +67,11 @@
     transform: scale(1.1);
     transition: .1s;
     cursor: pointer;
-  }
+}
+
+@media (max-width: 600px) {
+    .filtersContainer {
+        flex-direction: row;
+        margin: auto;
+    }
+}

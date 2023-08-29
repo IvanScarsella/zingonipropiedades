@@ -6,3 +6,10 @@
 .whatsapp:hover{
     transform:scale(1.2);
 }
+
+@media(max-width: 600px) {
+    .whatsapp {
+        bottom: 20px;
+        right: 20px;
+    }
+}
