@@ -34,7 +34,6 @@
 }
 
 .propertyImage {
-  align-self: flex-start;
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -177,5 +176,6 @@
     display: flex;
     flex-direction: column;
     min-width: 100%;
+    align-items: center;
   }
 }
