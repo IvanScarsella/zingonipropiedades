@@ -137,56 +137,57 @@ export default function Filters(
             >
                 <option value="">Ordenar por:</option>
                 <option
-                 value="priceLowToHigh"
-                 >
+                    value="priceLowToHigh"
+                >
                     Precio: menor a mayor
                 </option>
                 <option value="priceHighToLow">
                     Precio: mayor a menor
                 </option>
             </select>
+            {/* <div> */}
 
-            {selectedOperationType && (
-                <button
-                    className={styles.filterButton}
-                    onClick={() => setSelectedOperationType("")}
-                >
-                    {selectedOperationType} &#x2716;
-                </button>
-            )}
-            {selectedPropertyType && (
-                <button
-                    className={styles.filterButton}
-                    onClick={() => setSelectedPropertyType("")}
-                >
-                    {selectedPropertyType} &#x2716;
-                </button>
-            )}
-            {selectedLocation && (
-                <button
-                    className={styles.filterButton}
-                    onClick={() => setSelectedLocation("")}
-                >
-                    {selectedLocation} &#x2716;
-                </button>
-            )}
-            {selectedRoomsQuantity && (
-                <button
-                    className={styles.filterButton}
-                    onClick={() => setSelectedRoomsQuantity("")}
-                >
-                    {selectedRoomsQuantity} Ambientes &#x2716;
-                </button>
-            )}
-            {orderBy && (
-                <button
-                    className={styles.filterButton}
-                    onClick={() => setOrderBy("")}
-                >
-                    {orderBy === "priceLowToHigh" ? "Precio: menor a mayor" : "Precio: mayor a menor"} &#x2716;
-                </button>
-            )}
-
+                {selectedOperationType && (
+                    <button
+                        className={styles.filterButton}
+                        onClick={() => setSelectedOperationType("")}
+                    >
+                        {selectedOperationType} &#x2716;
+                    </button>
+                )}
+                {selectedPropertyType && (
+                    <button
+                        className={styles.filterButton}
+                        onClick={() => setSelectedPropertyType("")}
+                    >
+                        {selectedPropertyType} &#x2716;
+                    </button>
+                )}
+                {selectedLocation && (
+                    <button
+                        className={styles.filterButton}
+                        onClick={() => setSelectedLocation("")}
+                    >
+                        {selectedLocation} &#x2716;
+                    </button>
+                )}
+                {selectedRoomsQuantity && (
+                    <button
+                        className={styles.filterButton}
+                        onClick={() => setSelectedRoomsQuantity("")}
+                    >
+                        {selectedRoomsQuantity} Ambientes &#x2716;
+                    </button>
+                )}
+                {orderBy && (
+                    <button
+                        className={styles.filterButton}
+                        onClick={() => setOrderBy("")}
+                    >
+                        {orderBy === "priceLowToHigh" ? "Precio: menor a mayor" : "Precio: mayor a menor"} &#x2716;
+                    </button>
+                )}
+            {/* </div> */}
         </div>
     )
 }

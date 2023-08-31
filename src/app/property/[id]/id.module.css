@@ -15,11 +15,9 @@
 }
 
 .propertyData {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 50px;
-  grid-row-gap: 34px;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid #ffffff;
   background-color: #ffffffaf;
 }
@@ -41,6 +39,9 @@
 .propertyImages {
   display: flex;
   flex-direction: row;
+  max-width: 80%;
+  flex-wrap: wrap;
+justify-content: center;
 }
 
 .image {
@@ -48,16 +49,19 @@
   cursor: pointer;
 }
 
+.propertyDescription{
+  max-width: 50%;
+  margin: 2%;
+}
+
 .propertyDetails {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* Dos columnas de igual tamaño */
   gap: 10px;
-  /* Espacio entre las columnas */
   align-items: flex-start;
-  /* Alinea los elementos al inicio verticalmente */
   border: 1px solid #b9b9b9;
   padding: 5px;
+  margin: 2%;
 }
 
 .featureTitle {
@@ -67,10 +71,6 @@
   background-position: left center; /* Posición del icono */
 }
 
-/* .feature-1 {
-  background-image: url('ruta-del-icono-1.png');
-}
+@media (max-width: 600px) {
 
-.feature-2 {
-  background-image: url('image.png');
-} */
+}

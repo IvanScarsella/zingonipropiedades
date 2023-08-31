@@ -139,7 +139,7 @@ function PropertyByID(id) {
                     <Image className={styles.mainImage} src={image} alt='property image' width='200' height='200' /> : null}
                 <h1>{property.name}</h1>
                 {property.currency === 'Pesos' ? <h2 className={styles.price}> Valor: $ {property.price}</h2> : <h2 className={styles.price}> Valor: U$D {property.price}</h2>}
-                <h2>Tipo de operación: {property.operationType}</h2>
+                <h2>{property.operationType}</h2>
                 <div className={styles.propertyImages}>
                     {property.images ?
                         property.images.map((image) => {
@@ -150,8 +150,8 @@ function PropertyByID(id) {
                         : null}
                 </div>
                 {property.description ?
-                        <h4>{property.description}</h4>
-                        : <h4>Descripción de la propiedad...</h4>}
+                        <h4 className={styles.propertyDescription}>{property.description}</h4>
+                        : <h4 className={styles.propertyDescription}>Descripción de la propiedad...</h4>}
                 {/* <h2>{property.propertyType}</h2> */}
                 <h2>Caracterícticas:</h2>
                 <div className={styles.propertyDetails}>

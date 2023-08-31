@@ -53,7 +53,7 @@
 .filterButton {
     border-radius: 5px;
     margin: 3%;
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,6 +72,23 @@
 @media (max-width: 600px) {
     .filtersContainer {
         flex-direction: row;
-        margin: auto;
+        margin: 10px 10px 10px 10px;
+       margin-left: 0%;
+        min-width: 100%;
+        flex-wrap: wrap;
+        padding: 0%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .customSelect {
+        min-width: 25%;
+        max-width: 25%;
+        justify-content: space-between;
+    }
+
+    .filterButton {
+        /* min-width: 25%; */
+        max-width: 25%;
     }
 }
