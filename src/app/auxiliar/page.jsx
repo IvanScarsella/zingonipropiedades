@@ -35,14 +35,6 @@ export default function Auxiliar() {
         fetchAuxiliares();
     }, [setAuxiliar]);
 
-    const deleteAuxiliar = async (id) => {
-        const response = await axios.delete(`/api/auxiliar/${id}`);
-        if (response) {
-            alert("Auxiliar eliminado con éxito")
-            window.location.reload();
-        }
-    }
-
     return (
         <>
             <Header />
@@ -67,20 +59,11 @@ export default function Auxiliar() {
                                 height="200"
                                 className={styles.auxiliarImage}
                             />
-                            <button onClick={() => router.push(`/auxiliar/${aux.id}`)}>
-                                Actualizar
-                            </button>
-                            <button onClick={() => deleteAuxiliar(aux.id)}>
-                                Eliminar
-                            </button>
                         </div>
                     </>
                 ))
                 }
             </div>
-            <button onClick={() => router.push(`/createAuxiliar`)}>
-                Cargar nuevo Auxiliar
-            </button>
             <Footer />
             <WhatsApp />
         </>

@@ -189,6 +189,7 @@ function PropertyByID(id) {
                         <h3><Image src={antiquity_logo} alt='property image' width='20' height='20'/>   Antigüedad: {property.antiquity} años</h3>
                         : null}
                 </div>
+                
 
                 <MailForm id={id}/>
                 {/* <form onSubmit={handleSubmit}>
@@ -207,9 +208,6 @@ function PropertyByID(id) {
                     </div>
                     <button type="submit">Subir imagen</button>
                 </form> */}
-                <button onClick={() => router.push(`/updateProperty/${id.params.id}`)}>
-                    Actualizar
-                </button>
             </div>
             {/* <button onClick={() => router.push('/home')}>Volver al inicio</button> */}
             <Footer />

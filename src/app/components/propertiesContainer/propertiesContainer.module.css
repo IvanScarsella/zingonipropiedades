@@ -46,6 +46,7 @@
   display: flex;
   justify-content: center;
   padding: auto;
+  margin-bottom: 1%;
 }
 
 .propertiesContainer button {

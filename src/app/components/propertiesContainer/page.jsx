@@ -73,9 +73,6 @@ function PropertiesContainer() {
                     </div>
                 </>
             )}
-            <button onClick={() => router.push(`/createProperty`)} className={styles.loadButton}>
-                Cargar nueva propiedad
-            </button>
         </div>
     );
 }
