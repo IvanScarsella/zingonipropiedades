@@ -16,7 +16,6 @@
 
 .filtersContainer>* {
     padding: 10px 0;
-    /* Ajusta el valor de padding según tus necesidades */
 }
 
 .filtersContainer select {
@@ -37,7 +36,6 @@
     width: 100%;
     border: none;
     background-color: #fff;
-    /* Color de fondo inicial */
     box-shadow: 0 0 10px #000;
     border-radius: 5px;
     padding: 10px;
@@ -45,9 +43,7 @@
 
 .customSelect option:checked {
     background-color: #693d7a;
-    /* Cambia el color de fondo */
     color: #fff;
-    /* Cambia el color del texto */
 }
 
 .filterButton {
@@ -88,7 +84,6 @@
     }
 
     .filterButton {
-        /* min-width: 25%; */
         max-width: 25%;
     }
 }

@@ -16,7 +16,6 @@ export default async function handler(req, res) {
 
 async function getProperties(paramsFilters) {
     const { operationType, propertyType, location, rooms, orderBy } = paramsFilters.params;
-    console.log(propertyType);
 
     let where = {};
 
@@ -50,23 +49,6 @@ async function getProperties(paramsFilters) {
     const properties = await prisma.property.findMany({
         where
     })
-
-    // if (orderBy) {
-    //     if (orderBy === "priceLowToHigh") {
-    //         return properties.sort(function (a, b) {
-    //             return a.price - b.price;
-    //         });
-    //     }
-    //     if (orderBy === "priceHighToLow") {
-    //         return properties.sort(function (a, b) {
-    //             return b.price - a.price;
-    //         });
-    //     }
-    // } else {
-    //     return properties.sort(function (a, b) {
-    //         return a.name.localeCompare(b.name);;
-    //       })
-    // }
 
     return properties
 }

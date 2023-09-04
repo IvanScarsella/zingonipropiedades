@@ -1,25 +1,19 @@
-/* contact.module.css */
-
-/* Estilos para el contenedor principal */
 .contactContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh; /* Ajusta la altura como desees */
+    min-height: 80vh;
     padding: 20px;
-    /* background-color: #f2f2f2; */
     background-image: linear-gradient(0deg,
       #b085bdbd, #b085bd9c, #b085bdbd);
   }
   
-  /* Estilos para el título */
   .title {
     font-size: 2rem;
     margin-bottom: 20px;
   }
   
-  /* Estilos para la lista de iconos sociales */
   .socialIcons {
     list-style: none;
     padding: 0;
@@ -27,11 +21,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Espacio entre los elementos */
+    gap: 10px;
     margin-bottom: 20px;
   }
   
-  /* Estilos para cada ícono y texto */
   .socialIcons p {
     display: flex;
     align-items: center;
@@ -50,22 +43,16 @@
     background-color: #693d7ab0;
     border-radius: 10px;
     transition: 0.3s;
-    min-width: 60%; /* Ajusta el ancho según sea necesario */
+    min-width: 60%;
     padding: 1%;
     width: 100%;
   }
 
   .socialIcons li:hover {
-    /* background: none; */
     transform: scale(1.15);
   }
   
-  /* Estilos para el formulario de correo */
   .mailForm {
-    width: 80%; /* Ajusta el ancho del formulario según sea necesario */
-    max-width: 500px; /* Establece un ancho máximo */
+    width: 80%;
+    max-width: 500px;
   }
-  
-  /* Estilos para el pie de página */
-  /* Agrega aquí los estilos que necesites para el pie de página */
-  

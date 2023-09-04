@@ -10,7 +10,6 @@ const Footer = () => {
             <div className={styles.footerContent}>
                 <div className={styles.footerColumn}>
                     <h3>Contacto</h3>
-                    {/* <p>Dirección: Calle Principal, Ciudad</p> */}
                     <Link href="https://api.whatsapp.com/send/?phone=5492215310582" target="_blank">
                         <p>221531582</p>
                     </Link>
@@ -41,7 +40,6 @@ const Footer = () => {
                                     alt="facebook_logo" width={15} height={15} />Zingoni Propiedades</p>
                             </Link>
                         </li>
-                        {/* <li><a href="#"><i className="fa fa-twitter"></i></a></li> */}
                         <li>
                             <Link href="https://www.instagram.com/zingoni_propiedades/" target="_blank">
                                 <p><Image className={styles.whatsapp} src={instagram_logo}

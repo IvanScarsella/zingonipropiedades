@@ -19,7 +19,7 @@ export default async function handler(req, res) {
                 phone,
             } = req.body.form;
             const photo = req.body.photo
-// console.log(req.body);
+            
             try {
                 const newAuxiliar = await prisma.auxiliar.create({
                     data: {

@@ -4,7 +4,6 @@ import transporter from "./transporter/index";
 export default async function register(req, res) {
     const { method } = req;
     if (method == "POST") {
-        // console.log(req);
         const {
             name,
             email,

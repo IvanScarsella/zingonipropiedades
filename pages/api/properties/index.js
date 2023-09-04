@@ -36,8 +36,6 @@ export default async function handler(req, res) {
                 description
             } = req.body.form;
 
-            console.log(req.body.form);
-
             const priceNumber = parseFloat(price)
 
             const roomsNumber = parseFloat(rooms)

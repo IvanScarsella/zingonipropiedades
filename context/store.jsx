@@ -122,21 +122,6 @@ export const GlobalContextProvider = ({ children }) => {
     orderBy,
   ]);
 
-//   useEffect(() => {
-//     if (orderBy) {
-//         if (orderBy === "priceLowToHigh") {
-//             setProperties(properties.sort(function (a, b) {
-//                 return a.price - b.price;
-//             }));
-//         }
-//         if (orderBy === "priceHighToLow") {
-//             setProperties(properties.sort(function (a, b) {
-//                 return b.price - a.price;
-//             }));
-//         }
-//     }
-// }, [orderBy]);
-
   return (
     <GlobalContext.Provider value={{
       properties,

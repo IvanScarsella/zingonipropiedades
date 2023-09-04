@@ -17,13 +17,13 @@ export default function Auxiliar() {
     const router = useRouter();
 
     const { auxiliar, setAuxiliar } = useGlobalContext();
-    const [loading, setLoading] = useState(true); // Agregar estado de loading
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchAuxiliares = async () => {
             try {
                 setLoading(true);
-                const response = await axios.post("/api/auxiliar"); // Cambia la ruta de acuerdo a tu API
+                const response = await axios.post("/api/auxiliar");
                 setAuxiliar(response.data);
                 setLoading(false);
             } catch (error) {

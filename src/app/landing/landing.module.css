@@ -13,7 +13,6 @@
             #693d7a, #b085bd9c, #693d7a);
     box-shadow: 0 0 10px #000;
     min-width: 100%;
-    /* max-width: 100%; */
     justify-content: space-around;
 
 }
@@ -64,7 +63,6 @@
     padding: 4px;
     cursor: pointer;
     transition: .3s;
-    /* box-shadow: 0 0 10px #00000086; */
     align-items: center;
     justify-content: center;
     filter: drop-shadow(6px 6px 5px #ffffff);
@@ -167,8 +165,6 @@
 
     .headerButton {
         font-size: 1.5em;
-        /* height: 50%;
-        width: 50%; */
     }
 
     .featuredPropertiesTitle {

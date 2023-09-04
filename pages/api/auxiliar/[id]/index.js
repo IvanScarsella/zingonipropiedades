@@ -53,15 +53,12 @@ export default async function handler(req, res) {
     } else if (req.method === "DELETE") {
         const id = req.query.id;
 
-        console.log(req.query);
-
         const deletedAuxiliar = await prisma.auxiliar.delete({
             where: {
                 id: id
             },
         })
 
-        console.log(deletedAuxiliar);
         return res.status(200).json({ message: "Auxiliar eliminado con éxito"})
     }
 }

@@ -30,7 +30,6 @@
   align-self: flex-start;
   width: 200px;
   height: 200px;
-  /* object-fit: cover; */
   border: 1px solid #40215c;
   border-radius: 10px;
   float: left;
@@ -52,10 +51,8 @@
   }
 
   .propertyContainer {
-    /* flex-direction: column; */
     width: 30%;
     max-width: auto;
-    /* margin: auto; */
   }
   
   
@@ -63,7 +60,6 @@
     font-size: 1em;
   }
   .propertyContainer img {
-    /* width: 50%; */
     height: 50%;
   }
 }

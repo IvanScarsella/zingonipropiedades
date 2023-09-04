@@ -5,14 +5,7 @@ import { useGlobalContext } from '../../../../context/store';
 import axios from "axios";
 import styles from "./filters.module.css";
 
-export default function Filters(
-    //     {
-    //     setSelectedOperationType,
-    //     setSelectedPropertyType,
-    //     setSelectedLocation,
-    //     setSelectedRoomsQuantity,
-    // }
-) {
+export default function Filters() {
 
     const {
         selectedOperationType,
@@ -38,7 +31,6 @@ export default function Filters(
     useEffect(() => {
         async function fetchData() {
             const response = await axios.post('/api/properties');
-            // console.log(response.data, 'filtro');
             if (response) {
                 const properties = response.data;
                 const allOperationTypes = [];
@@ -145,8 +137,6 @@ export default function Filters(
                     Precio: mayor a menor
                 </option>
             </select>
-            {/* <div> */}
-
                 {selectedOperationType && (
                     <button
                         className={styles.filterButton}
@@ -187,7 +177,6 @@ export default function Filters(
                         {orderBy === "priceLowToHigh" ? "Precio: menor a mayor" : "Precio: mayor a menor"} &#x2716;
                     </button>
                 )}
-            {/* </div> */}
         </div>
     )
 }

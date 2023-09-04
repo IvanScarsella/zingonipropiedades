@@ -19,22 +19,13 @@ export default function Home() {
   const router = useRouter();
   const { query } = router;
 
-  // console.log(router);
-
   useEffect(() => {
-    // Lógica para aplicar el filtro según el parámetro 'type' en 'query'
     if (query) {
 
       if (query.type === 'Venta') {
-        // Filtrar propiedades de venta
-        // Por ejemplo: setFilteredProperties(allProperties.filter(property => property.type === 'venta'));
         setSelectedOperationType('Venta')
       } else if (query.type === 'Alquiler') {
-        // Filtrar propiedades de alquiler
-        // Por ejemplo: setFilteredProperties(allProperties.filter(property => property.type === 'alquiler'));
       } else {
-        // Sin filtro, mostrar todas las propiedades
-        // Por ejemplo: setFilteredProperties(allProperties);
         setSelectedOperationType('Alquiler')
       }
     }
