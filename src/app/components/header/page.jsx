@@ -4,7 +4,6 @@ import Image from "next/image";
 import logo from "../../../../public/logo.png";
 import styles from "./header.module.css";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { useGlobalContext } from '@/context/store';
 
 export default function Header() {
@@ -13,21 +12,6 @@ export default function Header() {
     const {
         setSelectedOperationType,
     } = useGlobalContext();
-
-    // useEffect(() => {
-        
-    //     if (router.query.type) {
-
-    //         const type = router.query.type;
-    //         if (type === 'Venta') {
-    //             setSelectedOperationType('Venta')
-    //         } else if (type === 'Alquiler') {
-    //             setSelectedOperationType('Alquiler')
-    //         } else {
-    //             setSelectedOperationType('')
-    //         }
-    //     }
-    // }, []);
 
     return (
         <div className={styles.headerContainer}>

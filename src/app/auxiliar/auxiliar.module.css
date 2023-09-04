@@ -43,7 +43,8 @@
   padding: 1%;
   background-image: linear-gradient(0deg,
       #693d7a, #b085bd9c, #693d7a);
-}
+  margin: 1%;
+    }
 
 .auxiliarCard h4 {
   color: #ccc;

@@ -44,7 +44,7 @@
 
   .socialIcons li {
     display: flex;
-    align-items: center;
+    justify-content: center;
     font-size: 1.5rem;
     color: #fff;
     background-color: #693d7ab0;
@@ -52,6 +52,7 @@
     transition: 0.3s;
     min-width: 60%; /* Ajusta el ancho según sea necesario */
     padding: 1%;
+    width: 100%;
   }
 
   .socialIcons li:hover {

@@ -94,6 +94,22 @@
   color: #2b9e08;
 }
 
+.propertyInfo {
+  font-size: x-small;
+}
+
+.showMoreButton {
+  border: 0;
+  background-image: linear-gradient(0deg,
+      #b085bd, #b085bd9c, #b085bd);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.4em;
+  padding: 4px;
+  cursor: pointer;
+  transition: .3s;
+}
+
 .loadButton {
   border: 0;
   background-image: linear-gradient(0deg,

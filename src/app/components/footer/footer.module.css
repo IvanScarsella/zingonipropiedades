@@ -81,7 +81,12 @@
 
   @media (max-width: 600px) {
     .footer {
-      min-width: 100%;
+      max-width: 100%;
       font-size: .6em;
     }
+
+    .footerContent {
+      flex-direction: column;
+    }
+
   }
