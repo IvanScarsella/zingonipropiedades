@@ -31,7 +31,7 @@ function PropertyByID(id) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.post(`/api/properties/${id.params.id}`);
+                const response = await axios.get(`/api/properties/${id.params.id}`);
                 if (response.data) {
                     setProperty(response.data);
                     setImage(response.data.mainImage)
