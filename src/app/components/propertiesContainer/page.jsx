@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../../../context/store";
 import styles from "./propertiesContainer.module.css";
@@ -51,7 +53,6 @@ function PropertiesContainer() {
             <div
               key={property.id}
               className={styles.propertyContainer}
-              onClick={() => router.push(`/property/${property.id}`)}
             >
               <Image
                 src={property.mainImage || property.images[0]}
