@@ -53,6 +53,7 @@ function PropertiesContainer() {
             <div
               key={property.id}
               className={styles.propertyContainer}
+              onClick={() => router.push(`/property/${property.id}`)}
             >
               <Image
                 src={property.mainImage || property.images[0]}
