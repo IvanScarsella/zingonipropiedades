@@ -7,6 +7,8 @@ import Image from "next/image";
 import styles from "./id.module.css";
 import WhatsApp from "../../components/whatsapp/page";
 import Footer from "../../components/footer/page";
+import GoogleMap from "../../components/maps/page";
+
 import rooms_logo from "../../../../public/rooms_logo.png";
 import bathrooms_logo from "../../../../public/bathrooms_logo.png";
 import area_logo from "../../../../public/area_logo.png";
@@ -21,12 +23,13 @@ import antiquity_logo from "../../../../public/antiquity_logo.png";
 import location_logo from "../../../../public/location_logo.png";
 import MailForm from "../../components/mailForm/page";
 
-
 function PropertyByID(id) {
 
     const [property, setProperty] = useState({});
 
     const [image, setImage] = useState("");
+
+    // const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.GOOGLEMAPS_KEY}`
 
     useEffect(() => {
         async function fetchData() {
@@ -100,7 +103,13 @@ function PropertyByID(id) {
                         : null}
                 </div>
                 
-
+                        <GoogleMap
+                        propertyName={property.name}
+                        lat={property.lat}
+                        lng={property.lng}
+                        //  googleMapURL={googleMapURL}
+                        //  loadingElement={<p>Cargando...</p>}
+                        />
                 <MailForm id={id}/>
             </div>
             <Footer />

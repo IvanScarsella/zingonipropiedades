@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className={styles.footerColumn}>
                     <h3>Contacto</h3>
                     <Link href="https://api.whatsapp.com/send/?phone=5492215310582" target="_blank">
-                        <p>221531582</p>
+                        <p>2215310582</p>
                     </Link>
                     <Link href="mailto:zingonipropiedades@gmail.com" target="_blank">
                         <p>E-mail: zingonipropiedades@gmail.com</p>

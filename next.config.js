@@ -8,7 +8,8 @@ const nextConfig = {
   },
   env: {
     CLOUD_NAME: process.env.CLOUD_NAME,
-    CLOUDINARY_UPLOAD_PRESET: process.env.CLOUDINARY_UPLOAD_PRESET
+    CLOUDINARY_UPLOAD_PRESET: process.env.CLOUDINARY_UPLOAD_PRESET,
+    GOOGLEMAPS_KEY: process.env.GOOGLEMAPS_KEY
   }
 };
 
