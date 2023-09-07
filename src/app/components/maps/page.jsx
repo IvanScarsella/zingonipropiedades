@@ -17,13 +17,7 @@ function GoogleMap({
         zoom: 15
     };
 
-    const points = [
-        { id: 1, title: "Round Pond", lat: 48.8584, lng: 2.2945 },
-        { id: 2, title: "The Long Water", lat: 51.508, lng: -0.175 },
-        { id: 3, title: "The Serpentine", lat: 51.505, lng: -0.164 }
-    ];
-
-    console.log(defaultProps)
+    // function _onClick(obj){ console.log(obj.x, obj.y, obj.lat, obj.lng, obj.event);}
 
     return (
         // Important! Always set the container height explicitly
@@ -38,13 +32,9 @@ function GoogleMap({
                     // mapTypeControl: false,
                     // fullscreenControl: false,
                 }}
+                // onClick={_onClick}
             >
                 <MyMarker lat={defaultProps.center.lat} lng={defaultProps.center.lng} text={propertyName} tooltip={propertyName} />
-                {/* {points.map(({ id, title }) => {
-                    return (
-                        <MyMarker key={id} lat={lat} lng={lng} text={id} tooltip={propertyName} />
-                    );
-                })} */}
             </GoogleMapReact>
         </div>
     );
