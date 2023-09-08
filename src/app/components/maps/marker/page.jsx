@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./marker.module.css";
 import { useState } from "react";
 
