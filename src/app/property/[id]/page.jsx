@@ -102,14 +102,14 @@ function PropertyByID(id) {
                         <h3><Image src={antiquity_logo} alt='property image' width='20' height='20'/>   Antigüedad: {property.antiquity} años</h3>
                         : null}
                 </div>
-                
+                {property.name ? 
                         <GoogleMap
                         propertyName={property.name}
                         lat={property.lat}
                         lng={property.lng}
                         //  googleMapURL={googleMapURL}
                         //  loadingElement={<p>Cargando...</p>}
-                        />
+                        /> : null}
                 <MailForm id={id}/>
             </div>
             <Footer />

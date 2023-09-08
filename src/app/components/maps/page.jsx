@@ -11,8 +11,8 @@ function GoogleMap({
 
     const defaultProps = {
         center: {
-            lat: lat > 0 ? lat : 0.0,
-            lng: lng > 0 ? lng : 0.0
+            lat: lat,
+            lng: lng,
         },
         zoom: 15
     };
