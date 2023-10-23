@@ -54,7 +54,7 @@ function PropertyByID(id) {
                     <Image className={styles.mainImage} src={image} alt='property image' width='200' height='200' /> : null}
                 <h1>{property.name}</h1>
                 {property.currency === 'Pesos' ? <h2 className={styles.price}> Valor: $ {property.price}</h2> : <h2 className={styles.price}> Valor: U$D {property.price}</h2>}
-                <h2>{property.operationType}</h2>
+                <h2>{property.operationType.replace(/_/g, ' ')}</h2>
                 <div className={styles.propertyImages}>
                     {property.images ?
                         property.images.map((image) => {

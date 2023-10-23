@@ -39,7 +39,7 @@ export default function Filters() {
                 const allRooms = [];
                 properties.forEach((property) => {
                     if (!allOperationTypes.includes(property.operationType)) {
-                        allOperationTypes.push(property.operationType.replace(/_/g, ' '))
+                        allOperationTypes.push(property.operationType)
                     };
                     if (!allPropertyTypes.includes(property.propertyType)) {
                         allPropertyTypes.push(property.propertyType)
@@ -73,7 +73,7 @@ export default function Filters() {
                         value={operation}
                         selected={selectedOperationType === operation}
                     >
-                        {operation}
+                        {operation.replace(/_/g, ' ')}
                     </option>
                 ))}
             </select>
