@@ -16,6 +16,7 @@ export default async function handler(req, res) {
 
 async function getProperties(paramsFilters) {
     const { operationType, propertyType, location, rooms, orderBy } = paramsFilters.params;
+    console.log(propertyType);
 
     let where = {};
 
@@ -46,9 +47,21 @@ async function getProperties(paramsFilters) {
         };
     }
 
-    const properties = await prisma.property.findMany({
+    
+    let properties = await prisma.property.findMany({
         where
     })
+    console.log(where)
+    if(where.operationType.equals === "Alquiler"){
+        const rentProperties = await prisma.property.findMany({
+            where:{
+                operationType: "Alquiler_Temporario"
+            }
+        })
+        for(let i = 0; i<rentProperties.length; i++){
+            properties.push(rentProperties[i])
+        }
+    }
 
     return properties
 }

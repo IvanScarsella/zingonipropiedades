@@ -38,11 +38,11 @@ export default function Filters() {
                 const allLocations = [];
                 const allRooms = [];
                 properties.forEach((property) => {
-                    if (!allOperationTypes.includes(property.operationType)) {
-                        allOperationTypes.push(property.operationType)
+                    if (!allOperationTypes.includes(property.operationType.replace(/_/g, ' '))) {
+                        allOperationTypes.push(property.operationType.replace(/_/g, ' '))
                     };
                     if (!allPropertyTypes.includes(property.propertyType)) {
-                        allPropertyTypes.push(property.propertyType)
+                        allPropertyTypes.push(property.propertyType.replace(/_/g, ' '))
                     };
                     if (!allLocations.includes(property.location)) {
                         allLocations.push(property.location)

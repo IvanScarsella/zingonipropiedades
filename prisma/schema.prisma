@@ -45,12 +45,27 @@ model auxiliar {
 }
 
 enum propertyType {
-  Terreno
+  Barrio_Cerrado
+  Campo
   Casa
-  Departamento
   Casa_Quinta
+  Cochera
+  Country
+  Club_de_Campo
+  Departamento
+  Deposito
   Duplex
+  Edificio_Comercial
+  Emprendimiento
+  En_Construccion
+  Fondo_de_Comercio
+  Galpon
+  Hotel
+  Local
   Lote
+  Oficina
+  Terreno
+  Triplex
 }
 
 enum operationType {
