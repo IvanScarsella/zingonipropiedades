@@ -14,7 +14,7 @@ export default function Header() {
     } = useGlobalContext();
 
     return (
-        <div className={styles.headerContainer}>
+        <div className=''>
             <div className={styles.headerButtonsContainer}>
                 <div className={styles.headerLogo}>
                     <Image
@@ -26,11 +26,29 @@ export default function Header() {
                         onClick={() => router.push('/landing')}
                     />
                 </div>
-                <button className={`${styles.headerButton}`} onClick={() => {router.push('/home'); setSelectedOperationType('Venta')}}><span>Ventas</span></button>
-                <button className={`${styles.headerButton}`} onClick={() => {router.push('/home'); setSelectedOperationType('Alquiler')}}><span>Alquileres</span></button>
+                <button className={`${styles.headerButton}`} onClick={() => { router.push('/home'); setSelectedOperationType('Venta') }}><span>Ventas</span></button>
+                <button className={`${styles.headerButton}`} onClick={() => { router.push('/home'); setSelectedOperationType('Alquiler') }}><span>Alquileres</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
                 <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
             </div>
         </div>
+        // <div className={styles.headerContainer}>
+        //     <div className={styles.headerButtonsContainer}>
+        //         <div className={styles.headerLogo}>
+        //             <Image
+        //                 src={logo}
+        //                 alt="Logo"
+        //                 width={250}
+        //                 height={250}
+        //                 className="rounded-image"
+        //                 onClick={() => router.push('/landing')}
+        //             />
+        //         </div>
+        //         <button className={`${styles.headerButton}`} onClick={() => {router.push('/home'); setSelectedOperationType('Venta')}}><span>Ventas</span></button>
+        //         <button className={`${styles.headerButton}`} onClick={() => {router.push('/home'); setSelectedOperationType('Alquiler')}}><span>Alquileres</span></button>
+        //         <button className={`${styles.headerButton}`} onClick={() => router.push('/auxiliar')}><span>Auxiliares</span></button>
+        //         <button className={`${styles.headerButton}`} onClick={() => router.push('/contact')}><span>Contacto</span></button>
+        //     </div>
+        // </div>
     );
 }

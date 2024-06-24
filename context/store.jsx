@@ -7,7 +7,7 @@ export const GlobalContext = createContext({
   properties: [],
   setProperties: () => [],
   selectedOperationType: "",
-  setSelectedOperationType: () => {},
+  setSelectedOperationType: () => { },
   selectedPropertyType: "",
   setSelectedPropertyType: () => [],
   selectedLocation: "",
@@ -34,11 +34,11 @@ export const GlobalContextProvider = ({ children }) => {
   const [orderBy, setOrderBy] = useState("");
 
   const [isLoading, setIsLoading] = useState(true);
-
+  // DESCOMENTAR LINEAS DEL USEEFFECT
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post("/api/properties");
-      const auxiliarResponse = await axios.post("/api/auxiliar");
+      // const auxiliarResponse = await axios.post("/api/auxiliar");
       setIsLoading(true);
 
       const featured = response.data.filter(property => property.featured).sort(function (a, b) {
@@ -48,11 +48,11 @@ export const GlobalContextProvider = ({ children }) => {
       const noFeatured = response.data.filter(property => !property.featured).sort(function (a, b) {
         return a.name.localeCompare(b.name);;
       });
-
       const reorderedProperties = [...featured, ...noFeatured];
-      setProperties(reorderedProperties)
+      // setProperties(reorderedProperties)
+      setProperties(response.data)
       setDataProperties(response.data)
-      setAuxiliar(auxiliarResponse.data)
+      // setAuxiliar(auxiliarResponse.data)
       setIsLoading(false);
     };
     fetchData();
@@ -62,7 +62,7 @@ export const GlobalContextProvider = ({ children }) => {
     const fetchFilteredProperties = async () => {
       const params = {};
       setIsLoading(true);
-  
+
       if (selectedOperationType) {
         params.operationType = selectedOperationType;
       }
@@ -78,7 +78,7 @@ export const GlobalContextProvider = ({ children }) => {
       if (orderBy) {
         params.orderBy = orderBy;
       }
-  
+
       try {
         const response = await axios.post('/api/propertiesFilters', { params });
         // Aplicar ordenamiento si hay resultados y un criterio de orden
@@ -100,7 +100,7 @@ export const GlobalContextProvider = ({ children }) => {
         console.error(error);
       }
     };
-  
+
     // Llamar a la función de filtrado si hay algún filtro activo
     if (
       selectedOperationType ||
