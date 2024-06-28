@@ -11,22 +11,18 @@ import { useEffect } from 'react';
 import styles from './home.module.css';
 
 export default function Home() {
-
-  const {
-    setSelectedOperationType,
-  } = useGlobalContext();
+  const { setSelectedOperationType } = useGlobalContext();
 
   const router = useRouter();
   const { query } = router;
 
   useEffect(() => {
     if (query) {
-
       if (query.type === 'Venta') {
-        setSelectedOperationType('Venta')
+        setSelectedOperationType('Venta');
       } else if (query.type === 'Alquiler') {
       } else {
-        setSelectedOperationType('Alquiler')
+        setSelectedOperationType('Alquiler');
       }
     }
   }, [query]);
@@ -34,7 +30,10 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className={styles.filtersAndProperties}>
+      <div
+        className='flex flex-row max-sm:flex-col max:sm items-center'
+        //  className={styles.filtersAndProperties}
+      >
         <FiltersWrapper />
         <PropertiesContainer />
       </div>

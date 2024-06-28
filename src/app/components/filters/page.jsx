@@ -61,10 +61,14 @@ export default function Filters() {
     }, []);
 
     return (
-        <div className={styles.filtersContainer}>
+        <div
+            className="flex flex-col items-start self-start p-10 text-center border border-[#40215c] rounded-lg bg-gradient-custom-3 shadow-lg max-w-[300px] ml-10"
+        //  className={styles.filtersContainer}
+        >
             <select
                 onChange={(e) => setSelectedOperationType(e.target.value)}
-                className={styles.customSelect}
+                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
+            // className={styles.customSelect}
             >
                 <option value="">Tipo de operación</option>
                 {operationType.map((operation, index) => (
@@ -79,7 +83,8 @@ export default function Filters() {
             </select>
             <select
                 onChange={(e) => setSelectedPropertyType(e.target.value)}
-                className={styles.customSelect}
+                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
+            // className={styles.customSelect}
             >
                 <option value="">Tipo de propiedad</option>
                 {propertyType.map((property, index) => (
@@ -94,7 +99,8 @@ export default function Filters() {
             </select>
             <select
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className={styles.customSelect}
+                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
+            // className={styles.customSelect}
             >
                 <option value="">Localidad</option>
                 {location.map((location, index) => (
@@ -109,7 +115,8 @@ export default function Filters() {
             </select>
             <select
                 onChange={(e) => setSelectedRoomsQuantity(e.target.value)}
-                className={styles.customSelect}
+                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
+            // className={styles.customSelect}
             >
                 <option value="">Ambientes</option>
                 {rooms.map((room, index) => (
@@ -124,7 +131,8 @@ export default function Filters() {
             </select>
             <select
                 onChange={(e) => setOrderBy(e.target.value)}
-                className={styles.customSelect}
+                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
+                // className={styles.customSelect}
                 value={orderBy}
             >
                 <option value="">Ordenar por:</option>
@@ -137,46 +145,51 @@ export default function Filters() {
                     Precio: mayor a menor
                 </option>
             </select>
-                {selectedOperationType && (
-                    <button
-                        className={styles.filterButton}
-                        onClick={() => setSelectedOperationType("")}
-                    >
-                        {selectedOperationType} &#x2716;
-                    </button>
-                )}
-                {selectedPropertyType && (
-                    <button
-                        className={styles.filterButton}
-                        onClick={() => setSelectedPropertyType("")}
-                    >
-                        {selectedPropertyType} &#x2716;
-                    </button>
-                )}
-                {selectedLocation && (
-                    <button
-                        className={styles.filterButton}
-                        onClick={() => setSelectedLocation("")}
-                    >
-                        {selectedLocation} &#x2716;
-                    </button>
-                )}
-                {selectedRoomsQuantity && (
-                    <button
-                        className={styles.filterButton}
-                        onClick={() => setSelectedRoomsQuantity("")}
-                    >
-                        {selectedRoomsQuantity} Ambientes &#x2716;
-                    </button>
-                )}
-                {orderBy && (
-                    <button
-                        className={styles.filterButton}
-                        onClick={() => setOrderBy("")}
-                    >
-                        {orderBy === "priceLowToHigh" ? "Precio: menor a mayor" : "Precio: mayor a menor"} &#x2716;
-                    </button>
-                )}
+            {selectedOperationType && (
+                <button
+                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
+                    // className={styles.filterButton}
+                    onClick={() => setSelectedOperationType("")}
+                >
+                    {selectedOperationType} &#x2716;
+                </button>
+            )}
+            {selectedPropertyType && (
+                <button
+                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
+                    // className={styles.filterButton}
+                    onClick={() => setSelectedPropertyType("")}
+                >
+                    {selectedPropertyType} &#x2716;
+                </button>
+            )}
+            {selectedLocation && (
+                <button
+                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
+                    // className={styles.filterButton}
+                    onClick={() => setSelectedLocation("")}
+                >
+                    {selectedLocation} &#x2716;
+                </button>
+            )}
+            {selectedRoomsQuantity && (
+                <button
+                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
+                    // className={styles.filterButton}
+                    onClick={() => setSelectedRoomsQuantity("")}
+                >
+                    {selectedRoomsQuantity} Ambientes &#x2716;
+                </button>
+            )}
+            {orderBy && (
+                <button
+                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
+                    // className={styles.filterButton}
+                    onClick={() => setOrderBy("")}
+                >
+                    {orderBy === "priceLowToHigh" ? "Precio: menor a mayor" : "Precio: mayor a menor"} &#x2716;
+                </button>
+            )}
         </div>
     )
 }

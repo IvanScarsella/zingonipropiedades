@@ -7,7 +7,7 @@ import instagram_logo from "../../../../public/instagram_logo.png"
 const Footer = () => {
     return (
         <footer
-            className='bg-[#693d7a] bg-gradient-custom px-5 min-w-full'
+            className='bg-custom px-5 min-w-full'
         // className={styles.footer}
         >
             <div

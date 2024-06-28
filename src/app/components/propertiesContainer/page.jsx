@@ -44,15 +44,22 @@ function PropertiesContainer() {
   };
 
   return (
-    <div className={styles.propertiesContainer}>
+    <div
+      className="flex  flex-col justify-center items-end w-1/2 m-0"
+    //  className={styles.propertiesContainer}
+    >
       {loading ? (
-        <div className={styles.loading}></div>
+        <div
+          className="w-[50px] h-[50px] animate-spin"
+        // className={styles.loading}
+        ></div>
       ) : (
         <>
           {renderizedProperties.map((property) => (
             <div
               key={property.id}
-              className={styles.propertyContainer}
+              className="flex flex-row items-center text-center border border-[#40215c] rounded-xl bg-gradient-custom-4 shadow-lg hover:scale-110 transition-all hover:cursor-pointer"
+              // className={styles.propertyContainer}
               onClick={() => router.push(`/property/${property.id}`)}
             >
               <Image
