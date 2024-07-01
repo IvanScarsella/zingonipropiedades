@@ -33,16 +33,17 @@ export default function Header() {
         <>
             <div className="flex flex-col fixed top-0 w-full z-30 h-[123px] ">
                 <div className=" bg-custom-3  flex flex-row justify-between xl:px-40 items-center px-4 my-auto h-full">
-                    <div className="ml-2 my-auto w-[74px] h-[74px] hover:scale-110 cursor-pointer transition-all">
+                    <div className="ml-2 mb-4 w-[74px] h-[74px] overflow-hidden cursor-pointer transition-transform scale-110 hover:scale-[1.2]">
                         <Image
                             src={logo}
                             alt="logo"
                             width={740}
                             height={740}
-                            className="container h-[74px]"
+                            className="w-[107px] h-[107px] transform scale-[0.76]"
                             onClick={() => router.push('/')}
                         />
                     </div>
+
                     <div className=" w-16 h-16 lg:hidden my-auto" hidden={toggle}>
                         <div
                             className="flex flex-col gap-1.5 px-2 py-5 hover:gap-1 transition-all w-full min-w-16 h-full hover:cursor-pointer"
