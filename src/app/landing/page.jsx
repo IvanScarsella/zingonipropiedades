@@ -12,12 +12,19 @@ import { useEffect, useState } from 'react';
 import MailForm from '../components/mailForm/page';
 import Header from '../components/header/page';
 import logo from "../../../public/logo.png";
+import landing from "../../../public/landing.jpg";
 
 export default function Landing() {
 
     const router = useRouter();
 
     const { properties, setProperties } = useGlobalContext();
+
+    const clients = [
+        { name: 'name', review: 'review' },
+        { name: 'name', review: 'review' },
+        { name: 'name', review: 'review' },
+    ]
 
     const [propertiesChunks, setPropertiesChunks] = useState([])
     useEffect(() => {
@@ -56,12 +63,63 @@ export default function Landing() {
                         onClick={() => router.push('/')}
                     />
                 </div>
-                <button className='border-2 border-[#fff] hover:border-custom-4 text-sm text-[#fff] hover:bg-[#fff] hover:text-custom-4 h-14 w-60 mx-auto ease-in-out transition-all'>
+                <button className='border-2 border-[#fff] hover:border-custom-4 text-sm text-[#fff] font-bold hover:bg-[#fff] hover:text-custom-4 h-14 w-60 mx-auto ease-in-out transition-all'>
 
                     Ver propiedades
                 </button>
-
             </div>
+            <div className='flex flex-row max-sm:flex-col items-center gap-4 px-10 max-sm:px-4 mt-4'>
+                <div className="w-1/2 max-sm:w-full h-[174px] overflow-hidden transition-transform mx-auto">
+                    <Image
+                        src={landing}
+                        alt="logo"
+                        width={1740}
+                        height={1740}
+                        className="w-[450px] max-sm:w-80 h-[400px] max-sm:h-80 transform translate-y-[-16%] bg-[#fff] mx-auto"
+                        onClick={() => router.push('/')}
+                    />
+                </div>
+                <p className='text-base w-1/2 max-sm:w-full'>Martillera y corredora pública Nacional .U.N.L.P. Perito Jud.
+                    Colegio de Martilleros y Corredores públicos Dto Judicial de La Plata.
+                    Colegiada N°7588</p>
+            </div>
+            <div className='flex flex-row justify-around gap-4 max-sm:flex-col w-full px-4 mt-4'>
+                <div className='relative w-5/12 max-sm:w-full hover:scale-110 cursor-pointer transition-all hover:grayscale-[.5] grayscale-0 hover:text-[#000] text-[#fff]'>
+                    <Image
+                        src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
+                        width={1500}
+                        height={1500}
+                        className='w-full h-full object-cover'
+                    />
+                    <p className='absolute inset-0 flex items-center justify-center text-4xl lg:text-6xl backdrop-contrast-125'>
+                        Ventas
+                    </p>
+                </div>
+                <div className='relative w-5/12 max-sm:w-full hover:scale-110 cursor-pointer transition-all hover:grayscale-[.6] grayscale-0 hover:text-[#000] text-3xl text-[#fff] '>
+                    <Image
+                        src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
+                        width={1500}
+                        height={1500}
+                        className='w-full h-full object-cover '
+                    />
+                    <p className='absolute inset-0 flex items-center justify-center text-4xl lg:text-6xl backdrop-contrast-125 '>
+                        Alquileres
+                    </p>
+                </div>
+            </div>
+            <div className='mt-4'>
+                <h2 className='text-3xl'>Nuestros clientes</h2>
+                <div className='overflow-x-auto flex flex-row'>
+                    {clients.map((client) => (
+                        <div className='flex flex-col items-center border border-custom-4 bg-custom text-[#fff]w-full'>
+                            <p className='text-xl'>{client.name}</p>
+                            <div className='bg-custom-4 h-1 w-full mx-4' />
+                            <p className='text-xl'>{client.review}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
             {/* <Header /> */}
             {/* <div
                 className='flex flex-row justify-items-center justify-center min-w-full mb-10 bg-gradient-custom shadow-lg shadow-black max-[600px]:flex-col max-[600px]:items-center max-[600px]:p-10'
@@ -147,6 +205,6 @@ export default function Landing() {
             </div> */}
             {/* <Footer /> */}
             <WhatsApp />
-        </div>
+        </div >
     );
 }

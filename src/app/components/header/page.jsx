@@ -32,7 +32,7 @@ export default function Header() {
     return (
         <>
             <div className="flex flex-col fixed top-0 w-full z-30 h-[123px] ">
-                <div className=" bg-custom-3  flex flex-row justify-between xl:px-40 items-center px-4 my-auto h-full">
+                <div className="   flex flex-row justify-between xl:px-40 items-center px-4 my-auto h-full">
                     <div className="ml-2 mb-4 w-[74px] h-[74px] overflow-hidden cursor-pointer transition-transform scale-110 hover:scale-[1.2]">
                         <Image
                             src={logo}
@@ -46,7 +46,7 @@ export default function Header() {
 
                     <div className=" w-16 h-16 lg:hidden my-auto" hidden={toggle}>
                         <div
-                            className="flex flex-col gap-1.5 px-2 py-5 hover:gap-1 transition-all w-full min-w-16 h-full hover:cursor-pointer"
+                            className="flex flex-col justify-around gap-0 px-2 py-4 hover:gap-1 transition-all w-full min-w-16 h-full hover:cursor-pointer"
                             onClick={() => setToggle((toggle) => !toggle)}
                         >
                             <div className="bg-[#000] w-full h-1" />
@@ -56,7 +56,7 @@ export default function Header() {
                     </div>
                     <div className="w-16 h-16 lg:hidden" hidden={!toggle}>
                         <RxCross1
-                            className="w-full h-full"
+                            className="w-full h-full cursor-pointer"
                             onClick={() => setToggle((toggle) => !toggle)}
                         />
                     </div>
