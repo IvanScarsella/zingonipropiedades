@@ -18,12 +18,18 @@ export default function Landing() {
 
     const router = useRouter();
 
-    const { properties, setProperties } = useGlobalContext();
+    const { properties, setProperties, setSelectedOperationType } = useGlobalContext();
+
+    const buttons = [
+        { name: 'Ventas', image: 'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg', onClick: () => { router.push('/home'); setSelectedOperationType('Venta') } },
+        { name: 'Alquileres', image: 'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg', onClick: () => { router.push('/home'); setSelectedOperationType('Alquiler') } },
+    ]
 
     const clients = [
-        { name: 'name', review: 'review' },
-        { name: 'name', review: 'review' },
-        { name: 'name', review: 'review' },
+        { name: 'name', review: 'review review review review review review review review review review review review' },
+        { name: 'name', review: 'review review review review review review review review review review review review' },
+        { name: 'name', review: 'review review review review review review review review review review review review' },
+        { name: 'name', review: 'review review review review review review review review review review review review' },
     ]
 
     const [propertiesChunks, setPropertiesChunks] = useState([])
@@ -84,41 +90,33 @@ export default function Landing() {
                     Colegiada N°7588</p>
             </div>
             <div className='flex flex-row justify-around gap-4 max-sm:flex-col w-full px-4 mt-4'>
-                <div className='relative w-5/12 max-sm:w-full hover:scale-110 cursor-pointer transition-all hover:grayscale-[.5] grayscale-0 hover:text-[#000] text-[#fff]'>
-                    <Image
-                        src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
-                        width={1500}
-                        height={1500}
-                        className='w-full h-full object-cover'
-                    />
-                    <p className='absolute inset-0 flex items-center justify-center text-4xl lg:text-6xl backdrop-contrast-125'>
-                        Ventas
-                    </p>
-                </div>
-                <div className='relative w-5/12 max-sm:w-full hover:scale-110 cursor-pointer transition-all hover:grayscale-[.6] grayscale-0 hover:text-[#000] text-3xl text-[#fff] '>
-                    <Image
-                        src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
-                        width={1500}
-                        height={1500}
-                        className='w-full h-full object-cover '
-                    />
-                    <p className='absolute inset-0 flex items-center justify-center text-4xl lg:text-6xl backdrop-contrast-125 '>
-                        Alquileres
-                    </p>
-                </div>
+                {buttons.map((button) => (
+                    <div className='relative w-5/12 max-sm:w-full  cursor-pointer transition-all ease-in-out hover:grayscale-[.5] grayscale-0 text-[#fff] hover:overflow-hidden zoom' onClick={button.onClick}>
+                        <Image
+                            src={button.image}
+                            width={1500}
+                            height={1500}
+                            className='w-full h-full object-cover  hover:scale-110 z-50'
+                        />
+                        <p className='absolute inset-0 flex items-center justify-center text-4xl lg:text-6xl backdrop-contrast-125'>
+                            {button.name}
+                        </p>
+                    </div>
+                ))}
             </div>
-            <div className='mt-4'>
-                <h2 className='text-3xl'>Nuestros clientes</h2>
-                <div className='overflow-x-auto flex flex-row'>
+            <div className='mt-8 flex flex-col items-center w-full px-4 bg-custom-4'>
+                <h2 className='text-3xl font-bold my-6 text-[#fff]'>Nuestros clientes</h2>
+                <div className='overflow-x-auto flex flex-row gap-6 py-4 w-full '>
                     {clients.map((client) => (
-                        <div className='flex flex-col items-center border border-custom-4 bg-custom text-[#fff]w-full'>
-                            <p className='text-xl'>{client.name}</p>
-                            <div className='bg-custom-4 h-1 w-full mx-4' />
-                            <p className='text-xl'>{client.review}</p>
+                        <div key={client.name} className='flex flex-col min-w-[280px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px] items-center border border-gray-300 bg-white shadow-lg rounded-lg p-6 bg-[#fff]'>
+                            <p className='text-2xl font-semibold mb-2 text-gray-700'>{client.name}</p>
+                            <div className='bg-custom-4 h-0.5 w-full mb-4' />
+                            <p className='text-lg text-gray-600'>{client.review}</p>
                         </div>
                     ))}
                 </div>
             </div>
+
 
             {/* <Header /> */}
             {/* <div
