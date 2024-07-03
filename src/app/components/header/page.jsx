@@ -2,37 +2,31 @@
 
 import Image from "next/image";
 import logo from "../../../../public/logo.png";
-import styles from "./header.module.css";
 import { useGlobalContext } from '@/context/store';
 import Link from 'next/link';
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
-import { IoIosWine } from 'react-icons/io';
 import { useRouter, usePathname } from 'next/navigation';
 import { IoMenu } from 'react-icons/io5';
 
 export default function Header() {
     const router = useRouter();
-
-    const pathname = usePathname()
-
+    const pathname = usePathname();
     const [toggle, setToggle] = useState(false);
 
     const itemsNav = [
-        { title: 'Ventas', onClick: () => { router.push('/home'); setSelectedOperationType('Venta') } },
-        { title: 'Alquileres', onClick: () => { router.push('/home'); setSelectedOperationType('Alquiler') } },
-        { title: 'Auxiliares', onClick: () => router.push('/auxiliar') },
-        { title: 'Contacto', onClick: () => router.push('/contact') },
+        { title: 'Ventas', onClick: () => { router.push('/home'); setSelectedOperationType('Venta'); setToggle(false); } },
+        { title: 'Alquileres', onClick: () => { router.push('/home'); setSelectedOperationType('Alquiler'); setToggle(false); } },
+        { title: 'Auxiliares', onClick: () => { router.push('/auxiliar'); setToggle(false); } },
+        { title: 'Contacto', onClick: () => { router.push('/contact'); setToggle(false); } },
     ];
 
-    const {
-        setSelectedOperationType,
-    } = useGlobalContext();
+    const { setSelectedOperationType } = useGlobalContext();
 
     return (
         <>
-            <div className="flex flex-col fixed top-0 w-full z-30 h-[123px] ">
-                <div className="   flex flex-row justify-between xl:px-40 items-center px-4 my-auto h-full">
+            <div className="flex flex-col fixed top-0 w-full z-30 h-[123px]">
+                <div className="flex flex-row justify-between xl:px-40 items-center px-4 my-auto h-full">
                     <div className="ml-2 mb-4 w-[74px] h-[74px] overflow-hidden cursor-pointer transition-transform scale-110 hover:scale-[1.2]">
                         <Image
                             src={logo}
@@ -44,26 +38,21 @@ export default function Header() {
                         />
                     </div>
 
-                    <div className=" w-16 h-16 lg:hidden my-auto" hidden={toggle}>
+                    <div className="w-16 h-16 lg:hidden my-auto" hidden={toggle}>
                         <div
                             className="flex flex-col justify-around gap-0 px-2 py-4 hover:gap-1 transition-all w-full min-w-16 h-full hover:cursor-pointer"
-                            onClick={() => setToggle((toggle) => !toggle)}
+                            onClick={() => setToggle(true)}
                         >
                             <div className="bg-[#000] w-full h-1" />
                             <div className="bg-[#000] w-full h-1" />
                             <div className="bg-[#000] w-full h-1" />
                         </div>
                     </div>
-                    <div className="w-16 h-16 lg:hidden" hidden={!toggle}>
-                        <RxCross1
-                            className="w-full h-full cursor-pointer"
-                            onClick={() => setToggle((toggle) => !toggle)}
-                        />
-                    </div>
+
                     <div className="flex flex-row items-center gap-6 max-lg:hidden">
                         {itemsNav.map((item) => (
                             <div
-                                className=" "
+                                className=""
                                 onClick={item.onClick}
                                 key={item.title}
                             >
@@ -73,56 +62,26 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            {toggle ? (
-                <div className="bg-custom-3 lg:hidden  fixed top-24 w-full z-30">
+            <div className={`fixed top-0 right-0 h-full w-auto bg-custom-3 bg-opacity-75 z-40 transform ${toggle ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 lg:hidden`}>
+                <div className="flex flex-col items-end mt-6 p-4 pl-8">
+                    <div className="self-end mb-4">
+                        <RxCross1
+                            className="w-8 h-8 cursor-pointer text-white mr-4"
+                            onClick={() => setToggle(false)}
+                        />
+                    </div>
                     {itemsNav.map((item) => (
                         <div
-                            className="flex flex-row items-center p-1 gap-2 pl-2"
+                            className="flex flex-row items-center p-4"
                             onClick={item.onClick}
                             key={item.title}
                         >
-                            <p className="text-sm cursor-pointer hover:underline text-[#fff] transition-all">{item.title}</p>
+                            <p className="text-xl cursor-pointer hover:underline text-[#fff] transition-all">{item.title}</p>
                         </div>
                     ))}
-                </div >
-            ) : null
-            }
+                </div>
+            </div>
         </>
     );
-
-    // return (
-    //     <div className='flex flex-row justify-items-center mb-10 bg-[#693d7a94] bg-gradient-custom shadow-lg shadow-black pt-2.5 px-5 max-[600px]:items-center max-[600px]:p-10'
-    //     // className={styles.headerContainer}
-    //     >
-    //         <div className='flex flex-row flex-wrap mr-20 justify-between min-w-full max-w-full max-[600px]:flex-col max-[600px]:items-center'
-    //         // className={styles.headerButtonsContainer}
-    //         >
-    //             <div className='cursor-pointer  w-60 max-[600px]:w-[120px] max-[600px]:m-auto max-[600px]:flex max-[600px]:items-center'
-    //             // className={styles.headerLogo}
-    //             >
-    //                 <Image
-    //                     src={logo}
-    //                     alt="Logo"
-    //                     width={250}
-    //                     height={250}
-    //                     className="container drop-shadow-md "
-    //                     onClick={() => router.push('/landing')}
-    //                 />
-    //             </div>
-    //             <button
-    //                 className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-xl p-1 cursor-pointer transition-all shadow-lg shadow-[##000000ab] items-center justify-center max-w-[200px] flex-1 m-auto max-h-[100px] active:scale-90 max-[600px]:text-xl max-[600px]:m-4 max-[600px]:w-[185px] max-[600px]:min-w-full max-[600px]:max-h-full'
-    //                 onClick={() => { router.push('/home'); setSelectedOperationType('Venta') }}
-    //             >
-    //                 <span className="bg-[#693d7ab0] bg-gradient-custom py-4 px-6 rounded-md transition-all ease-in-out min-w-[150px] hover:bg-none hover:scale-[1.2]">
-    //                     Ventas
-    //                 </span>
-    //             </button>
-    //             <button className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-xl p-1 cursor-pointer transition-all shadow-lg shadow-[##000000ab] items-center justify-center max-w-[200px] flex-1 m-auto max-h-[100px] active:scale-90 max-[600px]:text-xl max-[600px]:m-4 max-[600px]:w-[185px] max-[600px]:min-w-full max-[600px]:max-h-full'
-    //                 // className={`${styles.headerButton}`}
-    //                 onClick={() => { router.push('/home'); setSelectedOperationType('Alquiler') }}><span className="bg-[#693d7ab0] bg-gradient-custom py-4 px-6 rounded-md transition-all ease-in-out min-w-[150px] hover:bg-none hover:scale-[1.2]">Alquileres</span></button>
-    //             <button className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-xl p-1 cursor-pointer transition-all shadow-lg shadow-[##000000ab] items-center justify-center max-w-[200px] flex-1 m-auto max-h-[100px] active:scale-90 max-[600px]:text-xl max-[600px]:m-4 max-[600px]:w-[185px] max-[600px]:min-w-full max-[600px]:max-h-full' onClick={() => router.push('/auxiliar')}><span className="bg-[#693d7ab0] bg-gradient-custom py-4 px-6 rounded-md transition-all ease-in-out min-w-[150px] hover:bg-none hover:scale-[1.2]">Auxiliares</span></button>
-    //             <button className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-xl p-1 cursor-pointer transition-all shadow-lg shadow-[##000000ab] items-center justify-center max-w-[200px] flex-1 m-auto max-h-[100px] active:scale-90 max-[600px]:text-xl max-[600px]:m-4 max-[600px]:w-[185px] max-[600px]:min-w-full max-[600px]:max-h-full' onClick={() => router.push('/contact')}><span className="bg-[#693d7ab0] bg-gradient-custom py-4 px-6 rounded-md transition-all ease-in-out min-w-[150px] hover:bg-none hover:scale-[1.2]">Contacto</span></button>
-    //         </div>
-    //     </div>
-    // );
 }
+
