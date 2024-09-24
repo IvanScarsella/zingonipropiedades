@@ -2,13 +2,13 @@
 module.exports = {
   content: ['./src/**/*.{html,js,jsx}'],
   theme: {
-    colors: {
-      custom: '#b591c0',
-      'custom-2': '#b085bd',
-      'custom-3': '#ab78bb',
-      'custom-4': '#693d7a',
-    },
     extend: {
+      colors: {
+        custom: '#b591c0',
+        'custom-2': '#b085bd',
+        'custom-3': '#ab78bb',
+        'custom-4': '#693d7a',
+      },
       backgroundImage: {
         'gradient-custom':
           'linear-gradient(180deg, #693d7a, #b085bd9c 50%, #693d7a)',

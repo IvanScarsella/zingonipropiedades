@@ -5,6 +5,7 @@ import favicon from '../../public/favicon.ico';
 import { Karla } from 'next/font/google';
 import Header from './components/header/page';
 import Footer from './components/footer/page';
+import WhatsApp from './components/whatsapp/page';
 
 const inter = Karla({ weight: '400', subsets: ['latin'] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
+          <WhatsApp />
         </GlobalContextProvider>
       </body>
     </html>

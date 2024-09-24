@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useGlobalContext } from '../../../../context/store';
+import { useGlobalContext } from "../../../../context/store";
 import axios from "axios";
-import styles from "./filters.module.css";
 
 export default function Filters() {
-
     const {
         selectedOperationType,
         setSelectedOperationType,
@@ -21,16 +19,13 @@ export default function Filters() {
     } = useGlobalContext();
 
     const [operationType, setOperationType] = useState([]);
-
     const [location, setLocation] = useState([]);
-
     const [propertyType, setPropertyType] = useState([]);
-
     const [rooms, setRooms] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.post('/api/properties');
+            const response = await axios.post("/api/properties");
             if (response) {
                 const properties = response.data;
                 const allOperationTypes = [];
@@ -38,158 +33,137 @@ export default function Filters() {
                 const allLocations = [];
                 const allRooms = [];
                 properties.forEach((property) => {
-                    if (!allOperationTypes.includes(property.operationType.replace(/_/g, ' '))) {
-                        allOperationTypes.push(property.operationType.replace(/_/g, ' '))
-                    };
+                    if (!allOperationTypes.includes(property.operationType.replace(/_/g, " "))) {
+                        allOperationTypes.push(property.operationType.replace(/_/g, " "));
+                    }
                     if (!allPropertyTypes.includes(property.propertyType)) {
-                        allPropertyTypes.push(property.propertyType.replace(/_/g, ' '))
-                    };
+                        allPropertyTypes.push(property.propertyType.replace(/_/g, " "));
+                    }
                     if (!allLocations.includes(property.location)) {
-                        allLocations.push(property.location)
-                    };
+                        allLocations.push(property.location);
+                    }
                     if (property.rooms !== 0 && !allRooms.includes(property.rooms)) {
-                        allRooms.push(property.rooms)
-                    };
-                })
+                        allRooms.push(property.rooms);
+                    }
+                });
                 setOperationType(allOperationTypes.sort());
                 setPropertyType(allPropertyTypes.sort());
                 setLocation(allLocations.sort());
-                setRooms(allRooms.sort())
+                setRooms(allRooms.sort());
             }
         }
         fetchData();
     }, []);
 
     return (
-        <div
-            className="flex flex-col items-start self-start p-10 text-center border border-[#40215c] rounded-lg bg-gradient-custom-3 shadow-lg max-w-[300px] ml-10"
-        //  className={styles.filtersContainer}
-        >
+        <div className="flex flex-col items-start self-start p-8 border border-[#40215c] rounded-lg bg-gradient-to-t from-[#693d7acc] to-[#693d7a] shadow-lg max-w-[300px] max-sm:w-full max-sm:max-w-none sm:mx-6">
             <select
                 onChange={(e) => setSelectedOperationType(e.target.value)}
-                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
-            // className={styles.customSelect}
+                className="w-full mb-3 border-none bg-white shadow-md rounded-md p-2 focus:outline-none"
+                value={selectedOperationType}
             >
                 <option value="">Tipo de operación</option>
                 {operationType.map((operation, index) => (
-                    <option
-                        key={index}
-                        value={operation}
-                        selected={selectedOperationType === operation}
-                    >
-                        {operation.replace(/_/g, ' ')}
+                    <option key={index} value={operation}>
+                        {operation.replace(/_/g, " ")}
                     </option>
                 ))}
             </select>
+
             <select
                 onChange={(e) => setSelectedPropertyType(e.target.value)}
-                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
-            // className={styles.customSelect}
+                className="w-full mb-3 border-none bg-white shadow-md rounded-md p-2 focus:outline-none"
+                value={selectedPropertyType}
             >
                 <option value="">Tipo de propiedad</option>
                 {propertyType.map((property, index) => (
-                    <option
-                        key={index}
-                        value={property}
-                        selected={selectedPropertyType === property}
-                    >
+                    <option key={index} value={property}>
                         {property}
                     </option>
                 ))}
             </select>
+
             <select
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
-            // className={styles.customSelect}
+                className="w-full mb-3 border-none bg-white shadow-md rounded-md p-2 focus:outline-none"
+                value={selectedLocation}
             >
                 <option value="">Localidad</option>
-                {location.map((location, index) => (
-                    <option
-                        key={index}
-                        value={location}
-                        selected={selectedLocation === location}
-                    >
-                        {location}
+                {location.map((loc, index) => (
+                    <option key={index} value={loc}>
+                        {loc}
                     </option>
                 ))}
             </select>
+
             <select
                 onChange={(e) => setSelectedRoomsQuantity(e.target.value)}
-                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
-            // className={styles.customSelect}
+                className="w-full mb-3 border-none bg-white shadow-md rounded-md p-2 focus:outline-none"
+                value={selectedRoomsQuantity}
             >
                 <option value="">Ambientes</option>
                 {rooms.map((room, index) => (
-                    <option
-                        key={index}
-                        value={room}
-                        selected={selectedRoomsQuantity === room.toString()}
-                    >
+                    <option key={index} value={room}>
                         {room}
                     </option>
                 ))}
             </select>
+
             <select
                 onChange={(e) => setOrderBy(e.target.value)}
-                className="m-1.5 w-full border-none bg-white shadow-lg rounded-md p-2.5 focus:outline-none"
-                // className={styles.customSelect}
+                className="w-full mb-3 border-none bg-white shadow-md rounded-md p-2 focus:outline-none"
                 value={orderBy}
             >
-                <option value="">Ordenar por:</option>
-                <option
-                    value="priceLowToHigh"
-                >
-                    Precio: menor a mayor
-                </option>
-                <option value="priceHighToLow">
-                    Precio: mayor a menor
-                </option>
+                <option value="">Ordenar por</option>
+                <option value="priceLowToHigh">Precio: menor a mayor</option>
+                <option value="priceHighToLow">Precio: mayor a menor</option>
             </select>
+
             {selectedOperationType && (
                 <button
-                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
-                    // className={styles.filterButton}
+                    className="w-full mt-2 flex justify-center items-center py-2 bg-gradient-to-t from-[#b085bd9c] to-[#b085bd] rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer"
                     onClick={() => setSelectedOperationType("")}
                 >
                     {selectedOperationType} &#x2716;
                 </button>
             )}
+
             {selectedPropertyType && (
                 <button
-                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
-                    // className={styles.filterButton}
+                    className="w-full mt-2 flex justify-center items-center py-2 bg-gradient-to-t from-[#b085bd9c] to-[#b085bd] rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer"
                     onClick={() => setSelectedPropertyType("")}
                 >
                     {selectedPropertyType} &#x2716;
                 </button>
             )}
+
             {selectedLocation && (
                 <button
-                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
-                    // className={styles.filterButton}
+                    className="w-full mt-2 flex justify-center items-center py-2 bg-gradient-to-t from-[#b085bd9c] to-[#b085bd] rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer"
                     onClick={() => setSelectedLocation("")}
                 >
                     {selectedLocation} &#x2716;
                 </button>
             )}
+
             {selectedRoomsQuantity && (
                 <button
-                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
-                    // className={styles.filterButton}
+                    className="w-full mt-2 flex justify-center items-center py-2 bg-gradient-to-t from-[#b085bd9c] to-[#b085bd] rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer"
                     onClick={() => setSelectedRoomsQuantity("")}
                 >
                     {selectedRoomsQuantity} Ambientes &#x2716;
                 </button>
             )}
+
             {orderBy && (
                 <button
-                    className="rounded-md m-1.5 w-full flex justify-center items-center shadow-lg cursor-pointer bg-gradient-custom-4"
-                    // className={styles.filterButton}
+                    className="w-full mt-2 flex justify-center items-center py-2 bg-gradient-to-t from-[#b085bd9c] to-[#b085bd] rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer"
                     onClick={() => setOrderBy("")}
                 >
                     {orderBy === "priceLowToHigh" ? "Precio: menor a mayor" : "Precio: mayor a menor"} &#x2716;
                 </button>
             )}
         </div>
-    )
+    );
 }
+

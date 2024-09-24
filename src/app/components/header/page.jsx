@@ -13,6 +13,7 @@ export default function Header() {
     const router = useRouter();
     const pathname = usePathname();
     const [toggle, setToggle] = useState(false);
+    const { setSelectedOperationType } = useGlobalContext();
 
     const itemsNav = [
         { title: 'Ventas', onClick: () => { router.push('/home'); setSelectedOperationType('Venta'); setToggle(false); } },
@@ -21,12 +22,13 @@ export default function Header() {
         { title: 'Contacto', onClick: () => { router.push('/contact'); setToggle(false); } },
     ];
 
-    const { setSelectedOperationType } = useGlobalContext();
-
     return (
         <>
-            <div className="flex flex-col fixed top-0 w-full z-30 h-[123px]">
-                <div className="flex flex-row justify-between xl:px-40 items-center px-4 my-auto h-full">
+            {/* Navbar */}
+            <header className="fixed top-0 w-full z-30 bg-opacity-70 bg-custom-4">
+                <div className="flex justify-between items-center h-[123px] xl:px-40 px-4">
+                    {/* Logo */}
+
                     <div className="ml-2 mb-4 w-[74px] h-[74px] overflow-hidden cursor-pointer transition-transform scale-110 hover:scale-[1.2]">
                         <Image
                             src={logo}
@@ -38,50 +40,51 @@ export default function Header() {
                         />
                     </div>
 
-                    <div className="w-16 h-16 lg:hidden my-auto" hidden={toggle}>
-                        <div
-                            className="flex flex-col justify-around gap-0 px-2 py-4 hover:gap-1 transition-all w-full min-w-16 h-full hover:cursor-pointer"
+                    {/* Mobile Menu Icon */}
+                    <div className="lg:hidden">
+                        <IoMenu
+                            className="w-8 h-8 cursor-pointer text-black"
+                            aria-label="Open menu"
                             onClick={() => setToggle(true)}
-                        >
-                            <div className="bg-[#000] w-full h-1" />
-                            <div className="bg-[#000] w-full h-1" />
-                            <div className="bg-[#000] w-full h-1" />
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row items-center gap-6 max-lg:hidden">
-                        {itemsNav.map((item) => (
-                            <div
-                                className=""
-                                onClick={item.onClick}
-                                key={item.title}
-                            >
-                                <p className="text-sm cursor-pointer hover:underline text-[#fff] transition-all">{item.title}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-            <div className={`fixed top-0 right-0 h-full w-auto bg-custom-3 bg-opacity-75 z-40 transform ${toggle ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 lg:hidden`}>
-                <div className="flex flex-col items-end mt-6 p-4 pl-8">
-                    <div className="self-end mb-4">
-                        <RxCross1
-                            className="w-8 h-8 cursor-pointer text-white mr-4"
-                            onClick={() => setToggle(false)}
                         />
                     </div>
+
+                    {/* Desktop Links */}
+                    <nav className="hidden lg:flex items-center gap-6 ">
+                        {itemsNav.map((item) => (
+                            <button
+                                key={item.title}
+                                onClick={item.onClick}
+                                className="text-white text-sm hover:underline transition-all"
+                            >
+                                {item.title}
+                            </button>
+                        ))}
+                    </nav>
+                </div>
+            </header>
+
+            {/* Mobile Menu */}
+            <div className={`fixed top-0 right-0 h-full w-64 bg-custom-3 bg-opacity-75 z-40 transition-transform duration-300 transform ${toggle ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
+                <div className="flex flex-col p-4">
+                    {/* Close Icon */}
+                    <RxCross1
+                        className="w-8 h-8 text-white self-end cursor-pointer mb-4"
+                        aria-label="Close menu"
+                        onClick={() => setToggle(false)}
+                    />
+                    {/* Mobile Links */}
                     {itemsNav.map((item) => (
-                        <div
-                            className="flex flex-row items-center p-4"
-                            onClick={item.onClick}
+                        <button
                             key={item.title}
+                            onClick={item.onClick}
+                            className="text-white text-xl p-4 hover:underline transition-all"
                         >
-                            <p className="text-xl cursor-pointer hover:underline text-[#fff] transition-all">{item.title}</p>
-                        </div>
+                            {item.title}
+                        </button>
                     ))}
                 </div>
             </div>
         </>
     );
 }
-

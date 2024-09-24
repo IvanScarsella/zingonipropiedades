@@ -19,7 +19,7 @@
 body {
   /* background-color: #000; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin: 0;
   /* background: url('../../public/backgroundLogo.png') repeat; */
   /* background-size: cover; */
@@ -54,7 +54,7 @@ p {
 h1,
 h2,
 h3 {
-  color: #40215c;
+  /* color: #40215c; */
 }
 
 p,
@@ -63,18 +63,18 @@ span {
 }
 
 button {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   /* background-color: #b591c000; */
 }
 
 option,
 select {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background-color: #b591c0b0;
 }
 
 label {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background-color: #b591c050;
 }
 

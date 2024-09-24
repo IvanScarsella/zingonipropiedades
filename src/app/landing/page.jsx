@@ -1,80 +1,76 @@
 'use client';
 
-import Footer from '../components/footer/page';
-import WhatsApp from '../components/whatsapp/page';
-import styles from './landing.module.css';
-import landing_logo from '../../../public/logo.png'
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useGlobalContext } from "../../../context/store";
-import FeaturedPropertiesCarousel from '../components/carousel/page';
 import { useEffect, useState } from 'react';
-import MailForm from '../components/mailForm/page';
-import Header from '../components/header/page';
 import logo from "../../../public/logo.png";
 import landing from "../../../public/landing.jpg";
+import FeaturedPropertiesCarousel from '../components/carousel/page'; // Si no lo usas, podrías quitarlo
 
 export default function Landing() {
-
     const router = useRouter();
-
-    const { properties, setProperties, setSelectedOperationType } = useGlobalContext();
+    const { properties, setSelectedOperationType } = useGlobalContext();
 
     const buttons = [
-        { name: 'Ventas', image: 'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg', onClick: () => { router.push('/home'); setSelectedOperationType('Venta') } },
-        { name: 'Alquileres', image: 'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg', onClick: () => { router.push('/home'); setSelectedOperationType('Alquiler') } },
-    ]
+        { name: 'Ventas', image: 'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg', onClick: () => { router.push('/home'); setSelectedOperationType('Venta'); } },
+        { name: 'Alquileres', image: 'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg', onClick: () => { router.push('/home'); setSelectedOperationType('Alquiler'); } },
+    ];
 
     const clients = [
-        { name: 'name', review: 'review review review review review review review review review review review review' },
-        { name: 'name', review: 'review review review review review review review review review review review review' },
-        { name: 'name', review: 'review review review review review review review review review review review review' },
-        { name: 'name', review: 'review review review review review review review review review review review review' },
-    ]
+        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
+        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
+        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
+        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
+    ];
 
-    const [propertiesChunks, setPropertiesChunks] = useState([])
+    const [propertiesChunks, setPropertiesChunks] = useState([]);
     useEffect(() => {
         if (properties) {
-            const featuredProperties = properties.filter((property) => property.featured);
+            const featuredProperties = properties.filter(property => property.featured);
             const chunks = [];
             for (let i = 0; i < featuredProperties.length; i += 3) {
                 chunks.push(featuredProperties.slice(i, i + 3));
-            };
-            setPropertiesChunks(chunks)
+            }
+            setPropertiesChunks(chunks);
         }
-    }, [properties])
+    }, [properties]);
 
     return (
-        <div
-            className='flex flex-col items-center'
-        //  className={styles.landingContainer}
-        >
+        <div className="flex flex-col items-center">
+            {/* Imagen de fondo */}
             <div className="relative w-full h-screen overflow-hidden">
                 <Image
-                    src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg/v1/fill/w_1419,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto h-auto min-w-[1000px] min-h-[1000px]"
-                    // style={{ width: 'auto', height: 'auto', minWidth: '1000px', minHeight: '1000px' }}
+                    src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
+                    alt="Imagen de fondo"
+                    className="absolute inset-0 object-cover w-full h-full"
                     width={1500}
                     height={1500}
                 />
             </div>
-            <div className='absolute top-60 left-0 right-0 flex flex-col items-center h-screen w-full'>
-                <div className="w-full h-[174px] overflow-hidden transition-transform mx-auto">
+
+            {/* Logo y botón principal */}
+            <div className="absolute top-60 left-0 right-0 flex flex-col items-center h-screen w-full">
+                <div className="w-full h-[174px] transition-transform mx-auto">
                     <Image
                         src={logo}
-                        alt="logo"
+                        alt="Logo de la empresa"
                         width={740}
                         height={740}
-                        className="w-[400px] max-sm:w-80 h-[400px] max-sm:h-80 transform translate-y-[-75%] bg-[#fff] mx-auto"
+                        className="w-[400px] max-sm:w-80 h-[400px] max-sm:h-80 transform translate-y-[-75%] bg-[#fff] mx-auto cursor-pointer"
                         onClick={() => router.push('/')}
                     />
                 </div>
-                <button className='border-2 border-[#fff] hover:border-custom-4 text-sm text-[#fff] font-bold hover:bg-[#fff] hover:text-custom-4 h-14 w-60 mx-auto ease-in-out transition-all'>
-
+                <button
+                    className="border-2 border-white hover:border-custom-4 text-sm text-white font-bold hover:bg-white hover:text-custom-4 h-14 w-60 mx-auto transition-all"
+                    onClick={() => router.push('/home')}
+                >
                     Ver propiedades
                 </button>
             </div>
-            <div className='flex flex-row max-sm:flex-col items-center gap-4 px-10 max-sm:px-4 mt-4'>
+
+            {/* Logo adicional e información */}
+            <div className="flex flex-row max-sm:flex-col items-center gap-4 px-10 max-sm:px-4 mt-4">
                 <div className="w-1/2 max-sm:w-full h-[174px] overflow-hidden transition-transform mx-auto">
                     <Image
                         src={landing}
@@ -85,124 +81,48 @@ export default function Landing() {
                         onClick={() => router.push('/')}
                     />
                 </div>
-                <p className='text-base w-1/2 max-sm:w-full'>Martillera y corredora pública Nacional .U.N.L.P. Perito Jud.
+                <p className="text-base w-1/2 max-sm:w-full">
+                    Martillera y corredora pública Nacional .U.N.L.P. Perito Jud.
                     Colegio de Martilleros y Corredores públicos Dto Judicial de La Plata.
-                    Colegiada N°7588</p>
+                    Colegiada N°7588
+                </p>
             </div>
-            <div className='flex flex-row justify-around gap-4 max-sm:flex-col w-full px-4 mt-4'>
-                {buttons.map((button) => (
-                    <div className='relative w-5/12 max-sm:w-full  cursor-pointer transition-all ease-in-out hover:grayscale-[.5] grayscale-0 text-[#fff] hover:overflow-hidden zoom' onClick={button.onClick}>
+
+            {/* Botones de Ventas y Alquileres */}
+            <div className="flex flex-row justify-around gap-4 max-sm:flex-col w-full px-4 mt-4">
+                {buttons.map(button => (
+                    <div
+                        key={button.name}
+                        className="relative w-5/12 max-sm:w-full cursor-pointer transition-all hover:grayscale-[.5] text-white overflow-hidden zoom"
+                        onClick={button.onClick}
+                    >
                         <Image
                             src={button.image}
+                            alt={`Imagen de ${button.name}`}
                             width={1500}
                             height={1500}
-                            className='w-full h-full object-cover  hover:scale-110 z-50'
+                            className="w-full h-full object-cover hover:scale-110"
                         />
-                        <p className='absolute inset-0 flex items-center justify-center text-4xl lg:text-6xl backdrop-contrast-125'>
+                        <p className="absolute inset-0 flex items-center justify-center text-4xl lg:text-6xl backdrop-contrast-125">
                             {button.name}
                         </p>
                     </div>
                 ))}
             </div>
-            <div className='mt-8 flex flex-col items-center w-full px-4 bg-custom-4'>
-                <h2 className='text-3xl font-bold my-6 text-[#fff]'>Nuestros clientes</h2>
-                <div className='overflow-x-auto flex flex-row gap-6 py-4 w-full '>
-                    {clients.map((client) => (
-                        <div key={client.name} className='flex flex-col min-w-[280px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px] items-center border border-gray-300 bg-white shadow-lg rounded-lg p-6 bg-[#fff]'>
-                            <p className='text-2xl font-semibold mb-2 text-gray-700'>{client.name}</p>
-                            <div className='bg-custom-4 h-0.5 w-full mb-4' />
-                            <p className='text-lg text-gray-600'>{client.review}</p>
+
+            {/* Reseñas de Clientes */}
+            <div className="mt-8 flex flex-col items-center w-full px-4 bg-custom-4">
+                <h2 className="text-3xl font-bold my-6 text-white">Nuestros clientes</h2>
+                <div className="overflow-x-auto flex flex-row gap-6 py-4 w-full">
+                    {clients.map(client => (
+                        <div key={client.name} className="flex flex-col min-w-[280px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px] items-center border border-gray-300 bg-white shadow-lg rounded-lg p-6">
+                            <p className="text-2xl font-semibold mb-2 text-gray-700">{client.name}</p>
+                            <div className="bg-custom-4 h-0.5 w-full mb-4" />
+                            <p className="text-lg text-gray-600">{client.review}</p>
                         </div>
                     ))}
                 </div>
             </div>
-
-
-            {/* <Header /> */}
-            {/* <div
-                className='flex flex-row justify-items-center justify-center min-w-full mb-10 bg-gradient-custom shadow-lg shadow-black max-[600px]:flex-col max-[600px]:items-center max-[600px]:p-10'
-            // className={styles.headerContainer}
-            >
-                <div
-                    className='flex rounded-2xl grid-cols-2 mb-0 order-2 items-center'
-                // className={styles.headerLogo}
-                >
-                    <Image
-                        src={landing_logo}
-                        alt="landing_logo"
-                        width={400}
-                        height={400}
-                        className="mx-[100px] drop-shadow-lg"
-                        onClick={() => router.push('/home')}
-                    />
-                </div>
-                <div
-                    className='flex order-1 flex-col justify-around items-center'
-                //  className={styles.headerButtons1}
-                >
-
-                    <div>
-                        <button
-                            className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-4xl cursor-pointer transition-all items-center justify-center drop-shadow-lg active:scale-90'
-                            //  className={`${styles.headerButton}`} 
-                            onClick={() => router.push('/home?type=Venta')}>
-                            <span
-                                className='bg-gradient-custom bg-[#693d7ab0] px-4 py-6 rounded-md transition-all w-[200px] hover:bg-none hover:scale-[1.2]'
-                            >Ventas</span></button>
-                    </div>
-                    <div>
-                        <button
-                            className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-4xl cursor-pointer transition-all items-center justify-center drop-shadow-lg active:scale-90'
-                            //  className={`${styles.headerButton}`}
-                            onClick={() => router.push('/home?type=Alquiler')}><span
-                                className='bg-gradient-custom bg-[#693d7ab0] px-4 py-6 rounded-md transition-all w-[200px] hover:bg-none hover:scale-[1.2]'
-                            >Alquileres</span></button>
-                    </div>
-                </div>
-                <div
-                    className='flex order-3 flex-col justify-around items-center'
-                //  className={styles.headerButtons2}
-                >
-
-                    <div>
-                        <button
-                            className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-4xl cursor-pointer transition-all items-center justify-center drop-shadow-lg active:scale-90'
-                            //  className={`${styles.headerButton}`}
-                            onClick={() => router.push('/auxiliar')}><span
-                                className='bg-gradient-custom bg-[#693d7ab0] px-4 py-6 rounded-md transition-all w-[200px] hover:bg-none hover:scale-[1.2]'
-                            >Auxiliares</span></button>
-                    </div>
-                    <div>
-                        <button
-                            className='border-0 bg-gradient-custom-2 rounded-lg text-white flex text-4xl cursor-pointer transition-all items-center justify-center drop-shadow-lg active:scale-90'
-                            // className={`${styles.headerButton}`} 
-                            onClick={() => router.push('/contact')}><span className='bg-gradient-custom bg-[#693d7ab0] px-4 py-6 rounded-md transition-all w-[200px] hover:bg-none hover:scale-[1.2]'
-                            >Contacto</span></button>
-                    </div>
-                </div>
-            </div> */}
-            {/* <h1
-                className='text-white flex justify-center items-center text-4xl bg-gradient-custom bg-[#693d7ab0] drop-shadow-md min-w-full'
-            //  className={styles.featuredPropertiesTitle}
-            >Propiedades Destacadas</h1> */}
-            {/* <div
-                className='ml-[1px]'
-            //  className={styles.featuredProperties}
-            >
-                {propertiesChunks.length ?
-                    <FeaturedPropertiesCarousel
-                        properties={propertiesChunks}
-                    />
-                    : <p>Cargando propiedades...</p>}
-            </div> */}
-            {/* <div
-                className='flex items-center justify-center m-1'
-            //  className={styles.mailForm}
-            >
-                <MailForm />
-            </div> */}
-            {/* <Footer /> */}
-            <WhatsApp />
-        </div >
+        </div>
     );
 }

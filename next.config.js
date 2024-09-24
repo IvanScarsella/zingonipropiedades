@@ -9,6 +9,7 @@ const nextConfig = {
       'www.google.com',
       'static.wixstatic.com',
       'www.zingonipropiedades.com.ar',
+      'cdn.sanity.io',
     ],
   },
   env: {

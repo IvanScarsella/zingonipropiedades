@@ -18,7 +18,7 @@ export default function FiltersWrapper() {
     setSelectedPropertyType('');
     setSelectedLocation('');
     setSelectedRoomsQuantity('');
-    setOrderBy('')
+    setOrderBy('');
   }, []);
 
   return (
