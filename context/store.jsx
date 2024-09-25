@@ -81,19 +81,6 @@ export const GlobalContextProvider = ({ children }) => {
 
       try {
         const response = await axios.post('/api/propertiesFilters', { params });
-        // Aplicar ordenamiento si hay resultados y un criterio de orden
-        if (orderBy && response.data.length > 0) {
-          if (orderBy === "priceLowToHigh") {
-            response.data.sort(function (a, b) {
-              return a.price - b.price;
-            });
-          }
-          if (orderBy === "priceHighToLow") {
-            response.data.sort(function (a, b) {
-              return b.price - a.price;
-            });
-          }
-        }
         setProperties(response.data);
         setIsLoading(false);
       } catch (error) {

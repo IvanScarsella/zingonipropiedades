@@ -60,7 +60,7 @@ export default function MailForm({ id }) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 md:w-2/5">
             {successMessage && <div className="text-green-500">{successMessage}</div>}
             {errorMessage && <div className="text-red-500">{errorMessage}</div>}
 

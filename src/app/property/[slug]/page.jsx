@@ -63,7 +63,7 @@ async function PropertyByID({ params }) {
                         ))}
                 </div>
 
-                <h4 className="max-w-lg mt-4">{property?.description || "Descripción de la propiedad..."}</h4>
+                <h4 className="max-w-[1000px] mt-4 text-base max-sm:text-sm text-justify">{property?.description || "Descripción de la propiedad..."}</h4>
 
                 <h2 className="text-xl mt-4">Características:</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl mt-4 border p-4 rounded-lg">

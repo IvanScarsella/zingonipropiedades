@@ -1,7 +1,6 @@
 import { sanityFetch } from '@/src/sanity/lib/fetch';
-import client from '@/src/sanity/lib/client'; // Asegúrate de tener el cliente de Sanity configurado
+import client from '@/src/sanity/lib/client';
 
-// El query que se utiliza para obtener las propiedades (puedes ajustarlo según tu esquema en Sanity)
 const propertiesQuery = '*[_type == "property"]';
 
 export default async function handler(req, res) {

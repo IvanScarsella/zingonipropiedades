@@ -6,6 +6,7 @@ import { Karla } from 'next/font/google';
 import Header from './components/header/page';
 import Footer from './components/footer/page';
 import WhatsApp from './components/whatsapp/page';
+import ClientWrapper from './ClientWrapper';
 
 const inter = Karla({ weight: '400', subsets: ['latin'] });
 
@@ -22,15 +23,9 @@ export default function RootLayout({ children }) {
           rel='shortcut icon'
           href={favicon.src}
         />
-        {/* Otros elementos head si los tienes */}
       </head>
       <body className={`${inter.className} `}>
-        <GlobalContextProvider>
-          <Header />
-          {children}
-          <Footer />
-          <WhatsApp />
-        </GlobalContextProvider>
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );

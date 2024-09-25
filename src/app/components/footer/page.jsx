@@ -8,28 +8,7 @@ const Footer = () => {
     return (
         <footer className="bg-custom-4 px-5 py-10 w-full">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-6xl mx-auto space-y-8 md:space-y-0">
-                <div className="flex-1 flex flex-col items-center md:items-start">
-                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Contacto</h3>
-                    <Link href="https://api.whatsapp.com/send/?phone=5492215310582" target="_blank">
-                        <p className="text-[#fff] text-sm mb-1">2215310582</p>
-                    </Link>
-                    <Link href="mailto:zingonipropiedades@gmail.com" target="_blank">
-                        <p className="text-[#fff] text-sm mb-1">E-mail: zingonipropiedades@gmail.com</p>
-                    </Link>
-                    <Link href="mailto:scarsellaivan@gmail.com" target="_blank">
-                        <p className="text-[#fff] text-sm mb-1">Sitio web diseñado por Iván Scarsella</p>
-                    </Link>
-                </div>
-                <div className="flex-1 flex flex-col items-center md:items-start">
-                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Enlaces</h3>
-                    <ul className="space-y-1">
-                        <li><Link href="/landing"><p className="text-[#fff] text-sm">Inicio</p></Link></li>
-                        <li><Link href="/home"><p className="text-[#fff] text-sm">Propiedades</p></Link></li>
-                        <li><Link href="/auxiliar"><p className="text-[#fff] text-sm">Auxiliar</p></Link></li>
-                        <li><Link href="/contact"><p className="text-[#fff] text-sm">Contacto</p></Link></li>
-                    </ul>
-                </div>
-                <div className="flex-1 flex flex-col items-center md:items-start">
+                <div className="flex-1 flex flex-col items-center">
                     <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Redes Sociales</h3>
                     <ul className="space-y-1">
                         <li>
@@ -49,6 +28,28 @@ const Footer = () => {
                             </Link>
                         </li>
                     </ul>
+                </div>
+                <div className="flex-1 flex flex-col items-center">
+                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Enlaces</h3>
+                    <ul className="space-y-1">
+                        <li><Link href="/landing"><p className="text-[#fff] text-sm">Inicio</p></Link></li>
+                        <li><Link href="/home"><p className="text-[#fff] text-sm">Propiedades</p></Link></li>
+                        <li><Link href="/auxiliar"><p className="text-[#fff] text-sm">Auxiliar</p></Link></li>
+                        <li><Link href="/contact"><p className="text-[#fff] text-sm">Contacto</p></Link></li>
+                    </ul>
+                </div>
+                <div className="flex-1 flex flex-col items-center ">
+                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Contacto</h3>
+                    <Link href="https://api.whatsapp.com/send/?phone=5492215310582" target="_blank">
+                        <p className="text-[#fff] text-sm mb-1">2215310582</p>
+                    </Link>
+                    <Link href="mailto:zingonipropiedades@gmail.com" target="_blank">
+                        <p className="text-[#fff] text-sm mb-1">zingonipropiedades@gmail.com</p>
+                    </Link>
+                    <br />
+                    <Link href="mailto:scarsellaivan@gmail.com" target="_blank">
+                        <p className="text-[#fff] text-sm mb-1">Sitio web diseñado por Iván Scarsella</p>
+                    </Link>
                 </div>
             </div>
         </footer>

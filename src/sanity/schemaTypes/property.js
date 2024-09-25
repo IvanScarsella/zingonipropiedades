@@ -33,7 +33,7 @@ export default {
         list: [
           { title: 'Venta', value: 'Venta' },
           { title: 'Alquiler', value: 'Alquiler' },
-          { title: 'Alquiler Temporario', value: 'Alquiler_Temporario' },
+          { title: 'Alquiler Temporario', value: 'Alquiler Temporario' },
         ],
       },
     },

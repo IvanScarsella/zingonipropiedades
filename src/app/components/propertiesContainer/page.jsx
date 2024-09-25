@@ -10,7 +10,7 @@ import client from "@/src/sanity/lib/client";
 const builder = imageUrlBuilder(client);
 
 function PropertiesContainer() {
-  const { properties } = useGlobalContext();
+  const { properties, setSelectedLocation, setSelectedOperationType, setSelectedPropertyType, setSelectedRoomsQuantity, setOrderBy } = useGlobalContext();
   const [pages, setPages] = useState(1);
   const [renderizedProperties, setRenderizedProperties] = useState(properties);
   const [loading, setLoading] = useState(true);
@@ -42,32 +42,47 @@ function PropertiesContainer() {
         <div className="w-12 h-12 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>
       ) : (
         <>
-          {renderizedProperties.map((property) => (
-            <div
-              key={property.id}
-              className="w-full sm:w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 bg-white border border-gray-200 rounded-xl shadow-md p-4 sm:p-6 flex flex-col sm:flex-row items-center transition-transform transform hover:scale-105 hover:shadow-lg cursor-pointer"
-              onClick={() => router.push(`/property/${property.slug.current}`)}
-            >
-              <Image
-                src={property.mainImage ? builder.image(property.mainImage).width(1000).height(1000).url() : ''}
-                alt="property image"
-                width={200}
-                height={200}
-                className="rounded-lg object-cover mb-4 sm:mb-0 sm:mr-6 w-full sm:w-auto"
-              />
-              <div className="flex flex-col space-y-2 sm:space-y-3 w-full">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
-                  {property.name}
-                </h3>
-                <h4 className="text-md sm:text-lg md:text-xl font-medium text-purple-600">
-                  {property.currency === "Pesos" ? "$" : "U$D"} {property.price}
-                </h4>
-                <p className="text-sm sm:text-base md:text-lg text-gray-700 line-clamp-3">
-                  {property.description}
-                </p>
+          {renderizedProperties.length ?
+            renderizedProperties.map((property) => (
+              <div
+                key={property.id}
+                className="w-full sm:w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 bg-white border border-gray-200 rounded-xl shadow-md p-4 sm:p-6 flex flex-col sm:flex-row items-center transition-transform transform hover:scale-105 hover:shadow-lg cursor-pointer"
+                onClick={() => router.push(`/property/${property.slug.current}`)}
+              >
+                <Image
+                  src={property.mainImage ? builder.image(property.mainImage).width(1000).height(1000).url() : ''}
+                  alt="property image"
+                  width={200}
+                  height={200}
+                  className="rounded-lg object-cover mb-4 sm:mb-0 sm:mr-6 w-full sm:w-auto"
+                />
+                <div className="flex flex-col space-y-2 sm:space-y-3 w-full">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
+                    {property.name}
+                  </h3>
+                  <h4 className="text-md sm:text-lg md:text-xl font-medium text-purple-600">
+                    {property.currency === "Pesos" ? "$" : "U$D"} {property.price}
+                  </h4>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-700 line-clamp-3">
+                    {property.description}
+                  </p>
+                </div>
               </div>
+            )) :
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-xl text-justify">No hay propiedades que coincidan con los filtros de búsqueda</p>
+              <button
+                className="text-xl bg-custom-4 text-white rounded-xl p-2"
+                onClick={() => {
+                  setSelectedLocation('')
+                  setSelectedOperationType('')
+                  setSelectedPropertyType('')
+                  setSelectedRoomsQuantity('')
+                  setOrderBy('')
+                }}>Borrar Filtros</button>
             </div>
-          ))}
+
+          }
 
           <div className="flex space-x-2 sm:space-x-3 my-4">
             {Array.from({ length: pages }, (_, index) => index + 1).map(
