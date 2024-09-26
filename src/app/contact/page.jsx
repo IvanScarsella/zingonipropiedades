@@ -33,7 +33,7 @@ export default function Contact() {
                     </li>
                 </ul>
                 <h3>Puede enviarnos su consulta desde aquí:</h3>
-                <div className="w-4/5 max-w-[500px]">
+                <div className="w-4/5 md:w-1/2 xl:w-2/5">
                     <MailForm />
                 </div>
             </div>

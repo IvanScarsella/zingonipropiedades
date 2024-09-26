@@ -9,7 +9,7 @@ const Footer = () => {
         <footer className="bg-custom-4 px-5 py-10 w-full">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-6xl mx-auto space-y-8 md:space-y-0">
                 <div className="flex-1 flex flex-col items-center">
-                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Redes Sociales</h3>
+                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold tracking-wide">Redes Sociales</h3>
                     <ul className="space-y-1">
                         <li>
                             <Link href="https://www.facebook.com/Zingonipropiedades" target="_blank">
@@ -30,7 +30,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="flex-1 flex flex-col items-center">
-                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Enlaces</h3>
+                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold tracking-wide">Enlaces</h3>
                     <ul className="space-y-1">
                         <li><Link href="/landing"><p className="text-[#fff] text-sm">Inicio</p></Link></li>
                         <li><Link href="/home"><p className="text-[#fff] text-sm">Propiedades</p></Link></li>
@@ -39,7 +39,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="flex-1 flex flex-col items-center ">
-                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold">Contacto</h3>
+                    <h3 className="mb-2.5 text-xl text-[#fff] font-semibold tracking-wide">Contacto</h3>
                     <Link href="https://api.whatsapp.com/send/?phone=5492215310582" target="_blank">
                         <p className="text-[#fff] text-sm mb-1">2215310582</p>
                     </Link>

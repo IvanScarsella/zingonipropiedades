@@ -37,7 +37,7 @@ export default function Landing() {
     }, [properties]);
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mb-4">
             {/* Imagen de fondo */}
             <div className="relative w-full h-screen overflow-hidden">
                 <Image
@@ -70,14 +70,14 @@ export default function Landing() {
             </div>
 
             {/* Logo adicional e información */}
-            <div className="flex flex-row max-sm:flex-col items-center gap-4 px-10 max-sm:px-4 mt-4">
-                <div className="w-1/2 max-sm:w-full h-[174px] overflow-hidden transition-transform mx-auto">
+            <div className="flex flex-row max-lg:flex-col items-center gap-4 lg:px-8 px-2 mt-4">
+                <div className="max-sm:w-full  overflow-hidden transition-transform mx-auto">
                     <Image
                         src={landing}
                         alt="logo"
-                        width={1740}
-                        height={1740}
-                        className="w-[450px] max-sm:w-80 h-[400px] max-sm:h-80 transform translate-y-[-16%] bg-[#fff] mx-auto"
+                        width={959}
+                        height={439}
+                        className="w-[480px] h-[220px] max-sm:h-auto transform bg-[#fff] mx-auto"
                         onClick={() => router.push('/')}
                     />
                 </div>
@@ -111,7 +111,7 @@ export default function Landing() {
             </div>
 
             {/* Reseñas de Clientes */}
-            <div className="mt-8 flex flex-col items-center w-full px-4 bg-custom-4">
+            <div className="mt-8 flex flex-col items-center w-full p-4 bg-custom-4">
                 <h2 className="text-3xl font-bold my-6 text-white">Nuestros clientes</h2>
                 <div className="overflow-x-auto flex flex-row gap-6 py-4 w-full">
                     {clients.map(client => (

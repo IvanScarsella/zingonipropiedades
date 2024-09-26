@@ -17,7 +17,7 @@ export default function Header() {
 
     const itemsNav = [
         { title: 'Ventas', onClick: () => { router.push('/home'); setSelectedOperationType('Venta'); setToggle(false); } },
-        { title: 'Alquileres', onClick: () => { router.push('/home'); setSelectedOperationType('Alquiler'); setToggle(false); } },
+        { title: 'Alquileres', onClick: () => { router.push('/home'); setSelectedOperationType('Alquiler Temporario'); setToggle(false); } },
         { title: 'Auxiliares', onClick: () => { router.push('/auxiliar'); setToggle(false); } },
         { title: 'Contacto', onClick: () => { router.push('/contact'); setToggle(false); } },
     ];

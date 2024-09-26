@@ -84,7 +84,9 @@ async function PropertyByID({ params }) {
                 {property?.name && (
                     <GoogleMap propertyName={property?.name} lat={property?.lat} lng={property?.lng} />
                 )}
-                <MailForm id={slug} />
+                <div className="w-4/5 md:w-1/2 xl:w-2/5">
+                    <MailForm id={slug} />
+                </div>
             </div>
         </>
     );

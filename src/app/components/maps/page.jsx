@@ -21,7 +21,7 @@ function GoogleMap({
 
     return (
         // Important! Always set the container height explicitly
-        <div style={{ height: '50vh', width: '60%' }}>
+        <div style={{ height: '50vh', width: '70%' }}>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: process.env.GOOGLEMAPS_KEY }}
                 defaultCenter={defaultProps.center}
@@ -32,7 +32,7 @@ function GoogleMap({
                     // mapTypeControl: false,
                     // fullscreenControl: false,
                 }}
-                // onClick={_onClick}
+            // onClick={_onClick}
             >
                 <MyMarker lat={defaultProps.center.lat} lng={defaultProps.center.lng} text={propertyName} tooltip={propertyName} />
             </GoogleMapReact>
@@ -41,7 +41,7 @@ function GoogleMap({
 }
 
 export default GoogleMap
- //MARKER:
+//MARKER:
 
 // [Function: t] {
 //     propTypes: {
