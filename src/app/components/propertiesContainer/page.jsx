@@ -34,8 +34,8 @@ function PropertiesContainer() {
     const currentProperties = properties.slice(startIndex, endIndex);
     setRenderizedProperties(currentProperties);
     setLoading(false);
+    console.log(renderizedProperties[2].price)
   };
-
   return (
     <div className="w-full flex flex-col gap-6 py-6 items-center mt-10 bg-gray-100">
       {loading ? (
@@ -46,7 +46,7 @@ function PropertiesContainer() {
             renderizedProperties.map((property) => (
               <div
                 key={property.id}
-                className="w-full sm:w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 bg-white border border-gray-200 rounded-xl shadow-md p-4 sm:p-6 flex flex-col sm:flex-row items-center transition-transform transform hover:scale-105 hover:shadow-lg cursor-pointer"
+                className="w-full sm:w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 bg-white border border-gray-200 rounded-xl shadow-md p-4 sm:p-6 flex flex-col sm:flex-row items-center transition-transform transform hover:scale-105 hover:shadow-lg cursor-pointer overflow-hidden"
                 onClick={() => router.push(`/property/${property.slug.current}`)}
               >
                 <Image
@@ -57,12 +57,21 @@ function PropertiesContainer() {
                   className="rounded-lg object-cover mb-4 sm:mb-0 sm:mr-6 w-full sm:w-auto"
                 />
                 <div className="flex flex-col space-y-2 sm:space-y-3 w-full">
+                  {property.featured ?
+                    <h2 className="bg-custom-4 text-white font-bold tracking-wider text-center w-[240px] mx-auto absolute top-10 -right-16 rotate-45 filter border-4 border-custom shadow-md">OPORTUNIDAD</h2>
+                    : null}
                   <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
                     {property.name}
                   </h3>
-                  <h4 className="text-md sm:text-lg md:text-xl font-medium text-purple-600">
-                    {property.currency === "Pesos" ? "$" : "U$D"} {property.price}
-                  </h4>
+                  {property.price ?
+                    <h4 className="text-md sm:text-lg md:text-xl font-medium text-purple-600">
+                      {property.currency === "Pesos" ? "$" : "U$D"} {property.price}
+                    </h4>
+                    :
+                    <h4 className="text-md sm:text-lg md:text-xl font-medium text-purple-600">
+                      Consulte
+                    </h4>
+                  }
                   <p className="text-sm sm:text-base md:text-lg text-gray-700 line-clamp-3">
                     {property.description}
                   </p>

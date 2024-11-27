@@ -2,7 +2,7 @@ import { groq } from 'next-sanity';
 
 export const propertiesQuery = groq`*[_type == "property"]`;
 
-export const propertyQuery = groq`*[_type == "property" && slug.current == $slug][0]{ name, description, images, location, _type, antiquity, area, electricity, currency, lng, asphalt, water, measure, gas, operationType, slug, garage, rooms, propertyType, lat, price, sewer, bathrooms, mainImage }`;
+export const propertyQuery = groq`*[_type == "property" && slug.current == $slug][0]{ name, description, images, location, _type, antiquity, area, electricity, currency, lng, asphalt, water, measure, gas, operationType, slug, garage, rooms, propertyType, lat, price, sewer, bathrooms, mainImage, featured }`;
 
 export const propertyPathsQuery = groq`*[_type == "property" && defined(slug.current)][]{
    "params": {"slug":slug.current}

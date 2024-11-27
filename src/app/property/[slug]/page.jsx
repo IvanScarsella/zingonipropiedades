@@ -44,9 +44,15 @@ async function PropertyByID({ params }) {
                     />
                 ) : null}
                 <h1 className="text-2xl">{property?.name}</h1>
-                <h2 className={`text-xl ${property?.currency === 'Pesos' ? 'text-green-600' : 'text-blue-600'}`}>
-                    Valor: {property?.currency === 'Pesos' ? `$ ${property?.price}` : `U$D ${property?.price}`}
-                </h2>
+                {property && property.price ?
+                    <h2 className={`text-xl ${property?.currency === 'Pesos' ? 'text-blue-600' : 'text-green-600'}`}>
+                        Valor: {property?.currency === 'Pesos' ? `$ ${property?.price}` : `U$D ${property?.price}` ? property?.price === 0 : 'Consulte'}
+                    </h2>
+                    :
+                    <h2 className={`text-2xl text-green-600`}>
+                        Consulte
+                    </h2>
+                }
                 <h2 className="text-xl">{property?.operationType?.replace(/_/g, " ")}</h2>
 
                 <div className="flex flex-wrap justify-center max-w-4xl gap-2">

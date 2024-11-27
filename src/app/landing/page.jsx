@@ -18,10 +18,10 @@ export default function Landing() {
     ];
 
     const clients = [
-        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
-        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
-        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
-        { name: 'Nombre del Cliente', review: 'Reseña del cliente sobre el servicio. Texto demostrativo.' },
+        { name: 'Gabriela', review: 'Gracias a Sandra pude vender una casa y concretar el viaje soñado.' },
+        { name: 'Andrés', review: 'Me encantaron las casas en alquiler en Mar Azul.' },
+        { name: 'Violeta', review: 'Me encantó conocer Ignacio Correas y haber invertido ahí.' },
+        { name: 'José', review: 'Pudimos terminar el proyecto de venta de lotes propios junto a Zingoni Propiedades.' },
     ];
 
     const [propertiesChunks, setPropertiesChunks] = useState([]);
