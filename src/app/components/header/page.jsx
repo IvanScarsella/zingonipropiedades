@@ -25,7 +25,7 @@ export default function Header() {
     return (
         <>
             {/* Navbar */}
-            <header className="fixed top-0 w-full z-30 bg-opacity-70 bg-custom-4">
+            <header className="fixed top-0 w-full z-30 bg-opacity-90 bg-custom-4">
                 <div className="flex justify-between items-center h-[123px] xl:px-40 px-4">
                     {/* Logo */}
 

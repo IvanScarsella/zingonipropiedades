@@ -7,6 +7,9 @@ import { useEffect, useState } from 'react';
 import logo from "../../../public/logo.png";
 import landing from "../../../public/landing.jpg";
 import FeaturedPropertiesCarousel from '../components/carousel/page'; // Si no lo usas, podrías quitarlo
+import imageUrlBuilder from "@sanity/image-url";
+import client from "@/src/sanity/lib/client";
+const builder = imageUrlBuilder(client);
 
 export default function Landing() {
     const router = useRouter();
@@ -24,29 +27,55 @@ export default function Landing() {
         { name: 'José', review: 'Pudimos terminar el proyecto de venta de lotes propios junto a Zingoni Propiedades.' },
     ];
 
-    const [propertiesChunks, setPropertiesChunks] = useState([]);
+    const [images, setImages] = useState([])
+
     useEffect(() => {
-        if (properties) {
-            const featuredProperties = properties.filter(property => property.featured);
-            const chunks = [];
-            for (let i = 0; i < featuredProperties.length; i += 3) {
-                chunks.push(featuredProperties.slice(i, i + 3));
+        let propertyImages = []
+        properties.forEach((property) => {
+            if (property.featured && property.mainImage) {
+                propertyImages.push(property.mainImage)
             }
-            setPropertiesChunks(chunks);
-        }
-    }, [properties]);
+        })
+        setImages(propertyImages)
+        console.log(propertyImages)
+    }, [properties])
+
+    const [randomImage, setRandomImage] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setRandomImage(Math.floor(Math.random() * images.length))
+        }, 3000)
+
+        return () => clearInterval(interval)
+    }, [images.length])
 
     return (
         <div className="flex flex-col items-center mb-4">
             {/* Imagen de fondo */}
             <div className="relative w-full h-screen overflow-hidden">
-                <Image
-                    src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
-                    alt="Imagen de fondo"
-                    className="absolute inset-0 object-cover w-full h-full"
-                    width={1500}
-                    height={1500}
-                />
+                {images.length ?
+                    <Image
+                        src={
+                            images.length ?
+                                builder.image(images[randomImage]).width(2000).height(2000).url() :
+                                'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'}
+                        // src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
+                        alt="Imagen de fondo"
+                        className="absolute inset-0 object-cover w-full h-full"
+                        width={1500}
+                        height={1500}
+                    />
+                    :
+                    <Image
+                        src={'https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'}
+                        // src='https://static.wixstatic.com/media/8d96af_23eb09f032ec4ee68e39e861a5a66412~mv2.jpg'
+                        alt="Imagen de fondo"
+                        className="absolute inset-0 object-cover w-full h-full"
+                        width={1500}
+                        height={1500}
+                    />
+                }
             </div>
 
             {/* Logo y botón principal */}

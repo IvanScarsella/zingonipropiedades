@@ -34,7 +34,6 @@ function PropertiesContainer() {
     const currentProperties = properties.slice(startIndex, endIndex);
     setRenderizedProperties(currentProperties);
     setLoading(false);
-    console.log(renderizedProperties[2].price)
   };
   return (
     <div className="w-full flex flex-col gap-6 py-6 items-center mt-10 bg-gray-100">
