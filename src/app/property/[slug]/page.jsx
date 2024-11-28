@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import GoogleMap from "../../components/maps/page";
+import PropertyMainData from "../../components/propertyMainData/page";
 
 import rooms_logo from "../../../../public/rooms_logo.png";
 import bathrooms_logo from "../../../../public/bathrooms_logo.png";
@@ -34,7 +35,8 @@ async function PropertyByID({ params }) {
     return (
         <>
             <div className="flex flex-col items-center border bg-white/70 p-4 mt-32">
-                {property && property.mainImage ? (
+                <PropertyMainData prop={property} />
+                {/* {property && property.mainImage ? (
                     <Image
                         className="rounded-lg"
                         src={builder.image(property.mainImage).width(1000).height(1000).url()}
@@ -67,7 +69,7 @@ async function PropertyByID({ params }) {
                                 className="cursor-pointer"
                             />
                         ))}
-                </div>
+                </div> */}
 
                 <h4 className="max-w-[1000px] mt-4 text-base max-sm:text-sm text-justify">{property?.description || "Descripción de la propiedad..."}</h4>
 
