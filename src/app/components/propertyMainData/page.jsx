@@ -63,7 +63,7 @@ export default function PropertyMainData(prop) {
          <div className="flex flex-wrap justify-center max-w-4xl gap-2">
             {images &&
                images.map((image, index) => (
-                  <div>
+                  <div key={index}>
                      <Image
                         src={logo}
                         alt="logo"
