@@ -4,6 +4,7 @@ import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 import client from "@/src/sanity/lib/client";
 import { useEffect, useState } from "react";
+import logo from "../../../../public/logo.png"
 
 const builder = imageUrlBuilder(client);
 
@@ -28,13 +29,24 @@ export default function PropertyMainData(prop) {
    return (
       <div className="flex flex-col items-center">
          {property && mainImage ? (
-            <Image
-               className="rounded-lg"
-               src={builder.image(mainImage).width(1000).height(1000).url()}
-               alt="property image"
-               width={400}
-               height={400}
-            />
+            <div>
+               <Image
+                  src={logo}
+                  alt="logo"
+                  width={40}
+                  height={40}
+                  // hidden={!property.mainImage}
+                  className="relative top-16 left-4"
+               />
+               <Image
+                  className="rounded-lg"
+                  src={builder.image(mainImage).width(1000).height(1000).url()}
+                  alt="property image"
+                  width={400}
+                  height={400}
+               />
+            </div>
+
          ) : null}
          <h1 className="text-2xl">{property?.name}</h1>
          {property && property.price ?
@@ -51,15 +63,25 @@ export default function PropertyMainData(prop) {
          <div className="flex flex-wrap justify-center max-w-4xl gap-2">
             {images &&
                images.map((image, index) => (
-                  <Image
-                     key={index}
-                     src={builder.image(image).width(1000).height(1000).url()}
-                     alt="property image"
-                     width={100}
-                     height={100}
-                     className="cursor-pointer"
-                     onClick={() => setMainImage(image)}
-                  />
+                  <div>
+                     <Image
+                        src={logo}
+                        alt="logo"
+                        width={15}
+                        height={15}
+                        // hidden={!property.mainImage}
+                        className="relative top-8 left-4"
+                     />
+                     <Image
+                        key={index}
+                        src={builder.image(image).width(1000).height(1000).url()}
+                        alt="property image"
+                        width={100}
+                        height={100}
+                        className="cursor-pointer"
+                        onClick={() => setMainImage(image)}
+                     />
+                  </div>
                ))}
          </div>
       </div>

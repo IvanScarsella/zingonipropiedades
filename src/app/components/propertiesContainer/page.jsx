@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../../../context/store";
 import { useRouter } from "next/navigation";
+import logo from "../../../../public/logo.png"
 import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 import client from "@/src/sanity/lib/client";
@@ -54,6 +55,14 @@ function PropertiesContainer() {
                   width={200}
                   height={200}
                   className="rounded-lg object-cover mb-4 sm:mb-0 sm:mr-6 w-full sm:w-auto"
+                />
+                <Image
+                  src={logo}
+                  alt="logo"
+                  width={25}
+                  height={25}
+                  hidden={!property.mainImage}
+                  className="absolute top-10 left-10"
                 />
                 <div className="flex flex-col space-y-2 sm:space-y-3 w-full">
                   {property.featured ?

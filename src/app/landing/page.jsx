@@ -80,18 +80,18 @@ export default function Landing() {
 
             {/* Logo y botón principal */}
             <div className="absolute top-60 left-0 right-0 flex flex-col items-center h-screen w-full">
-                <div className="w-full h-[450px] transition-transform mx-auto">
+                <div className="w-full h-[450px] transition-transform mx-auto max-sm:h-72">
                     <Image
                         src={logo}
                         alt="Logo de la empresa"
                         width={740}
                         height={740}
-                        className="w-[400px] max-sm:w-80 h-[400px] max-sm:h-80 transform bg-[#fff] mx-auto cursor-pointer"
+                        className="w-[400px] max-sm:w-48 h-[400px] max-sm:h-64 transform bg-gradient-to-b from-transparent via-transparent via-70% to-[#ebd3ff53] to-80% bg-opacity-10 bg-bottom mx-auto cursor-pointer"
                         onClick={() => router.push('/')}
                     />
                 </div>
                 <button
-                    className="border-2 border-white hover:border-custom-4 text-sm text-white font-bold bg-custom-2 hover:bg-white hover:text-custom-4 h-14 w-60 mx-auto transition-all"
+                    className="border-2 border-white hover:border-custom-4 text-sm max-sm:font-medium text-white font-bold bg-custom-2 hover:bg-white hover:text-custom-4 h-14 max-sm:h-10 w-60 max-sm:w-40 mx-auto transition-all"
                     onClick={() => router.push('/home')}
                 >
                     Ver propiedades
