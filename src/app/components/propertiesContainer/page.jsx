@@ -13,6 +13,7 @@ const builder = imageUrlBuilder(client);
 function PropertiesContainer() {
   const { properties, setSelectedLocation, setSelectedOperationType, setSelectedPropertyType, setSelectedRoomsQuantity, setOrderBy } = useGlobalContext();
   const [pages, setPages] = useState(1);
+  const [selectedPage, setSelectedPage] = useState(1)
   const [renderizedProperties, setRenderizedProperties] = useState(properties);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -34,6 +35,7 @@ function PropertiesContainer() {
     const endIndex = startIndex + propertiesPerPage;
     const currentProperties = properties.slice(startIndex, endIndex);
     setRenderizedProperties(currentProperties);
+    setSelectedPage(pageNumber)
     setLoading(false);
   };
   return (
@@ -108,7 +110,7 @@ function PropertiesContainer() {
                   key={pageNumber}
                   value={pageNumber}
                   onClick={changePage}
-                  className={`px-3 sm:px-4 py-1 sm:py-2 rounded-xl text-white ${pageNumber === pages ? "bg-purple-700" : "bg-purple-500"
+                  className={`px-3 sm:px-4 py-1 sm:py-2 rounded-xl text-white ${pageNumber === selectedPage ? "bg-purple-700 scale-110" : "bg-purple-500"
                     } hover:bg-purple-600 focus:outline-none transform hover:scale-105 transition`}
                 >
                   {pageNumber}
