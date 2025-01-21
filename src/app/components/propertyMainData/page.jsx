@@ -17,13 +17,15 @@ export default function PropertyMainData(prop) {
    const [images, setImages] = useState([])
 
    useEffect(() => {
-      setMainImage(property.mainImage)
-      let allImages = []
-      allImages.push(property.mainImage)
-      property.images.forEach((img) => {
-         allImages.push(img)
-      })
-      setImages(allImages)
+      if (property.mainImage) {
+         setMainImage(property.mainImage)
+         let allImages = []
+         allImages.push(property.mainImage)
+         property.images.forEach((img) => {
+            allImages.push(img)
+         })
+         setImages(allImages)
+      }
    }, [property])
 
    return (
